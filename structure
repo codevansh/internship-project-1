@@ -1,0 +1,22 @@
+internship-project-1/
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── README.md
+│
+├── src/
+│   ├── __init__.py
+│   └── data_processing/
+│       ├── __init__.py
+│       └── cuad_processor.py 
+│
+├── notebooks/
+│
+├── tests/
+│   └── __init__.py
+│
+├── .gitignore
+├── README.md
+├── requirements.txt
+└── main.py

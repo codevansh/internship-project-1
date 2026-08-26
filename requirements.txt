@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+transformers
+torch
+spacy
+datasets
+pymupdf
+python-dotenv
