@@ -1,0 +1,402 @@
+[
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Document Name",
+    "clause_present": true,
+    "answer": "MARKETING AFFILIATE AGREEMENT",
+    "input_ids": [
+      101,
+      5821,
+      8727,
+      3820,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Parties",
+    "clause_present": true,
+    "answer": "Birch First Global Investments Inc. (\"Company\"); Mount Kowledge Holdings Inc. (\"Marketing Affiliate\", \"MA\")",
+    "input_ids": [
+      101,
+      16421,
+      2034,
+      3795,
+      10518,
+      4297,
+      1012,
+      1006,
+      1000,
+      2194,
+      1000,
+      1007,
+      1025,
+      4057,
+      12849,
+      28365,
+      3351,
+      9583,
+      4297,
+      1012,
+      1006,
+      1000,
+      5821,
+      8727,
+      1000,
+      1010,
+      1000,
+      5003,
+      1000,
+      1007,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Agreement Date",
+    "clause_present": true,
+    "answer": "5/8/14",
+    "input_ids": [
+      101,
+      1019,
+      1013,
+      1022,
+      1013,
+      2403,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Effective Date",
+    "clause_present": true,
+    "answer": "",
+    "input_ids": [
+      101,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Expiration Date",
+    "clause_present": true,
+    "answer": "12/31/14",
+    "input_ids": [
+      101,
+      2260,
+      1013,
+      2861,
+      1013,
+      2403,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Renewal Term",
+    "clause_present": true,
+    "answer": "successive 1 year",
+    "input_ids": [
+      101,
+      11165,
+      1015,
+      2095,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Notice Period To Terminate Renewal",
+    "clause_present": true,
+    "answer": "30 days",
+    "input_ids": [
+      101,
+      2382,
+      2420,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Governing Law",
+    "clause_present": true,
+    "answer": "Nevada",
+    "input_ids": [
+      101,
+      7756,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Most Favored Nation",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Competitive Restriction Exception",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Non-Compete",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Exclusivity",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "No-Solicit Of Customers",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "No-Solicit Of Employees",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Non-Disparagement",
+    "clause_present": true,
+    "answer": "Yes",
+    "input_ids": [
+      101,
+      2748,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Termination For Convenience",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Rofr/Rofo/Rofn",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Change Of Control",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Anti-Assignment",
+    "clause_present": true,
+    "answer": "Yes",
+    "input_ids": [
+      101,
+      2748,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "contract_id": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement.pdf",
+    "clause_type": "Revenue/Profit Sharing",
+    "clause_present": false,
+    "answer": "No",
+    "input_ids": [
+      101,
+      2053,
+      102
+    ],
+    "attention_mask": [
+      1,
+      1,
+      1
+    ]
+  }
+]
