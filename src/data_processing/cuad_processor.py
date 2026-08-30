@@ -9,8 +9,14 @@ from transformers import AutoTokenizer
 RAW_DATA_PATH = Path("data/raw/master_clauses.csv")
 PROCESSED_DATA_PATH = Path("data/processed/cuad_clauses.json")
 TOKENIZED_DATA_PATH = Path("data/processed/cuad_tokenized_sample.json")
+ML_DATA_PATH = Path("data/processed/cuad_ml_records.json")
 
 TOKENIZER_NAME = "bert-base-uncased"
+
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 
 # loading and printing the rows and columns of the dataset using pandas.
@@ -80,13 +86,17 @@ def normalize_cuad(df):
             if pd.isna(answer_value):
                 answer_value = ""
 
-            clause_present = str(clause_value).strip() != "[]"
             clause_value = str(clause_value).strip()
             answer_value = str(answer_value).strip()
+
+            if clause_value == "[]":
+                clause_value = ""
+            clause_present = clause_value != ""
 
             record = {
                 "contract_id": contract_id,
                 "clause_type": clause_name,
+                "text": clause_value,
                 "clause_present": clause_present,
                 "answer": answer_value,
             }
@@ -112,10 +122,10 @@ def tokenize_sample(records, sample_size=20):
     tokenized_records = []
 
     for record in sample:
-        answer = record["answer"]
+        text = record["text"]
 
         encoded = tokenizer(
-            answer,
+            text,
             truncation=True,
             padding=False,
             max_length=512,
@@ -139,6 +149,10 @@ def main():
     print(f"\n Identified clause categories: {len(clause_pairs)}")
 
     records = normalize_cuad(df)
+    labeled_records = create_labels(records)
+    ml_records = prepare_ml_records(labeled_records)
+    print(ml_records[0])
+    print(ml_records[8])
 
     inconsistent_count = check_record_consistency(records)
     print(f" \n  Inconsisten Records:{inconsistent_count}")
@@ -164,12 +178,44 @@ def main():
     print(f" \n Generated normalized records: {len(records)}")
     save_json(records, PROCESSED_DATA_PATH)
 
+    print(f"\nGenerated ML records: {len(ml_records)}")
+    save_json(ml_records, ML_DATA_PATH)
+
     tokenized_records = tokenize_sample(records)
     save_json(tokenized_records, TOKENIZED_DATA_PATH)
     print("\n CUAD processing completed successfully.")
 
     summary = dataset_summary(records)
     print(summary)
+
+    train_records, test_records = splitting(ml_records)
+    print(f"Train records: {len(train_records)}")
+    print(f"Test records: {len(test_records)}")
+
+    overlapping_contracts = check_split(train_records, test_records)
+    print(f"\n OVerlapping contracts: {overlapping_contracts}")
+
+    X_train, X_test, y_train, y_test = prepare_ml_data(train_records, test_records)
+
+    # print(f"X_train: {len(X_train)}")
+    # print(f"X_test: {len(X_test)}")
+    # print(f"y_train: {len(y_train)}")
+    # print(f"y_test: {len(y_test)}")
+
+    X_train_tfidf, X_test_tfidf, vectorizer = create_tfidf_features(X_train, X_test)
+
+    model = train_model(X_train_tfidf, y_train)
+    print("\nLogistic Regression model trained successfully.")
+
+    predictions = predict_model_values(model, X_test_tfidf)
+    print(f"\n Predicting values: {len(predictions)}")
+
+    accuracy, precision, recall, f1 = evaluate_model(y_test, predictions)
+
+    print(f"\nAccuracy: {accuracy:.4f}")
+    print(f"Precision: {precision:.4f}")
+    print(f"Recall: {recall:.4f}")
+    print(f"F1 Score: {f1:.4f}")
 
 
 def validate_records(records):
@@ -267,6 +313,121 @@ def dataset_summary(records):
         "unique_clause_types": len(clause_types),
         "unique_answers": len(answers),
     }
+
+
+def create_labels(records):
+    labeled_records = []
+
+    for i in records:
+        copy_record = i.copy()
+
+        if copy_record["clause_present"]:
+            copy_record["label"] = 1
+        else:
+            copy_record["label"] = 0
+        labeled_records.append(copy_record)
+
+    return labeled_records
+
+
+def prepare_ml_records(records):
+    ml_records = []
+    ml_record = {}
+    for i in records:
+        ml_record = dict(i)
+        ml_record.pop("answer")
+        ml_record.pop("clause_present")
+
+        ml_records.append(ml_record)
+
+    return ml_records
+
+
+# day-4 splitting records.
+def splitting(records):
+    contract_ids = list({record["contract_id"] for record in records})
+
+    train_ids, test_ids = train_test_split(contract_ids, test_size=0.2, random_state=42)
+
+    train_ids = set(train_ids)
+    test_ids = set(test_ids)
+
+    train_records = []
+    test_records = []
+
+    for record in records:
+        if record["contract_id"] in train_ids:
+            train_records.append(record)
+        else:
+            test_records.append(record)
+
+    return train_records, test_records
+
+
+def check_split(train_records, test_records):
+    train_ids = set()
+    test_ids = set()
+
+    for i in train_records:
+        train_ids.add(i["contract_id"])
+
+    for i in test_records:
+        test_ids.add(i["contract_id"])
+
+    overlap = train_ids.intersection(test_ids)
+    return overlap
+
+
+def prepare_ml_data(train_records, test_records):
+    X_train = []
+    y_train = []
+    X_test = []
+    y_test = []
+
+    for i in train_records:
+        X_train.append(i["clause_type"] + " " + i["text"])
+        y_train.append(i["label"])
+
+    for i in test_records:
+        X_test.append(i["clause_type"] + " " + i["text"])
+        y_test.append(i["label"])
+
+    return X_train, X_test, y_train, y_test
+
+
+def create_tfidf_features(X_train, X_test):
+    vectorizer = TfidfVectorizer()
+
+    X_train_tfidf = vectorizer.fit_transform(
+        X_train
+    )  # we do fit_transform on X_train data so that the model learns from it and then converts it into numbers.
+    X_test_tfidf = vectorizer.transform(
+        X_test
+    )  # we dont do fit transfomr on X_Test data becuase it is test data.
+
+    return X_train_tfidf, X_test_tfidf, vectorizer
+
+
+def train_model(X_train_tfidf, y_train):
+    model = LogisticRegression(class_weight="balanced")
+    model.fit(X_train_tfidf, y_train)
+    return model
+
+
+def predict_model_values(model, X_test_tfidf):
+    probabilities = model.predict_proba(X_test_tfidf)[:, 1]
+    threshold = 0.45
+    predictions = (probabilities >= threshold).astype(int)
+    return predictions
+
+
+def evaluate_model(y_test, predictions):
+    accuracy = accuracy_score(y_test, predictions)
+    precision = precision_score(y_test, predictions)
+    recall = recall_score(y_test, predictions)
+    f1 = f1_score(y_test, predictions)
+
+    return accuracy, precision, recall, f1
 
 
 if __name__ == "__main__":
