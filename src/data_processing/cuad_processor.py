@@ -16,7 +16,14 @@ TOKENIZER_NAME = "bert-base-uncased"
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix,
+    classification_report,
+)
 
 
 # loading and printing the rows and columns of the dataset using pandas.
@@ -205,17 +212,24 @@ def main():
     X_train_tfidf, X_test_tfidf, vectorizer = create_tfidf_features(X_train, X_test)
 
     model = train_model(X_train_tfidf, y_train)
-    print("\nLogistic Regression model trained successfully.")
+    # print("\nLogistic Regression model trained successfully.")
 
     predictions = predict_model_values(model, X_test_tfidf)
-    print(f"\n Predicting values: {len(predictions)}")
+    # print(f"\n Predicting values: {len(predictions)}")
 
-    accuracy, precision, recall, f1 = evaluate_model(y_test, predictions)
+    class_rep = classification_report(y_test, predictions)
+    accuracy, precision, recall, f1, cm, class_rep = evaluate_model(y_test, predictions)
 
-    print(f"\nAccuracy: {accuracy:.4f}")
-    print(f"Precision: {precision:.4f}")
-    print(f"Recall: {recall:.4f}")
-    print(f"F1 Score: {f1:.4f}")
+    errors = analyze_errors(test_records, predictions)
+
+    # print(f"\nAccuracy: {accuracy:.4f}")
+    # print(f"Precision: {precision:.4f}")
+    # print(f"Recall: {recall:.4f}")
+    # print(f"F1 Score: {f1:.4f}")
+    # print(f"Confusion Matrix:\n{cm}")
+    # print(f"\n Classification Report:\n{class_rep}")
+    print(f"\n False Positives: {len(errors[0])}")
+    print(f"\n False Negatives: {len(errors[1])}")
 
 
 def validate_records(records):
@@ -345,7 +359,7 @@ def prepare_ml_records(records):
 
 # day-4 splitting records.
 def splitting(records):
-    contract_ids = list({record["contract_id"] for record in records})
+    contract_ids = sorted({record["contract_id"] for record in records})
 
     train_ids, test_ids = train_test_split(contract_ids, test_size=0.2, random_state=42)
 
@@ -385,11 +399,13 @@ def prepare_ml_data(train_records, test_records):
     y_test = []
 
     for i in train_records:
-        X_train.append(i["clause_type"] + " " + i["text"])
+        # X_train.append(i["clause_type"] + " " + i["text"])
+        X_train.append(i["text"])
         y_train.append(i["label"])
 
     for i in test_records:
-        X_test.append(i["clause_type"] + " " + i["text"])
+        # X_test.append(i["clause_type"] + " " + i["text"])
+        X_test.append(i["text"])
         y_test.append(i["label"])
 
     return X_train, X_test, y_train, y_test
@@ -426,8 +442,20 @@ def evaluate_model(y_test, predictions):
     precision = precision_score(y_test, predictions)
     recall = recall_score(y_test, predictions)
     f1 = f1_score(y_test, predictions)
+    cm = confusion_matrix(y_test, predictions)
+    class_rep = classification_report(y_test, predictions)
+    return (accuracy, precision, recall, f1, cm, class_rep)
 
-    return accuracy, precision, recall, f1
+
+def analyze_errors(test_records, predictions):
+    fp = []
+    fn = []
+    for i, record in enumerate(test_records):
+        if record["label"] == 0 and predictions[i] == 1:
+            fp.append(record)
+        elif record["label"] == 1 and predictions[i] == 0:
+            fn.append(record)
+    return fp, fn
 
 
 if __name__ == "__main__":
