@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 import pandas as pd
-from transformers import AutoTokenizer
+# from transformers import AutoTokenizer
 
 # Project paths
 
@@ -11,7 +11,7 @@ PROCESSED_DATA_PATH = Path("data/processed/cuad_clauses.json")
 TOKENIZED_DATA_PATH = Path("data/processed/cuad_tokenized_sample.json")
 ML_DATA_PATH = Path("data/processed/cuad_ml_records.json")
 
-TOKENIZER_NAME = "bert-base-uncased"
+# TOKENIZER_NAME = "bert-base-uncased"
 
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -160,6 +160,13 @@ def main():
     ml_records = prepare_ml_records(labeled_records)
     print(ml_records[0])
     print(ml_records[8])
+    
+    empty_0, empty_1, non_empty_0, non_empty_1 = analyze_text_label_relationship(ml_records)
+
+    print("Empty text + label 0:", empty_0)
+    print("Empty text + label 1:", empty_1)
+    print("Non-empty text + label 0:", non_empty_0)
+    print("Non-empty text + label 1:", non_empty_1)
 
     inconsistent_count = check_record_consistency(records)
     print(f" \n  Inconsisten Records:{inconsistent_count}")
@@ -170,8 +177,8 @@ def main():
     print(f"Missing clause_present: {c}")
     print(f"Missing answer: {d}")
 
-    # clause_distribution = analyze_records_count(records)
-    # print(clause_distribution)
+    clause_distribution = analyze_records_count(records)
+    print(clause_distribution)
 
     clause_answer_distribution = analyze_answer_count(records)
     print(f" \n  Unique Answers count: {len(clause_answer_distribution)}")
@@ -188,8 +195,8 @@ def main():
     print(f"\nGenerated ML records: {len(ml_records)}")
     save_json(ml_records, ML_DATA_PATH)
 
-    tokenized_records = tokenize_sample(records)
-    save_json(tokenized_records, TOKENIZED_DATA_PATH)
+    # tokenized_records = tokenize_sample(records)
+    # save_json(tokenized_records, TOKENIZED_DATA_PATH)
     print("\n CUAD processing completed successfully.")
 
     summary = dataset_summary(records)
@@ -204,10 +211,10 @@ def main():
 
     X_train, X_test, y_train, y_test = prepare_ml_data(train_records, test_records)
 
-    # print(f"X_train: {len(X_train)}")
-    # print(f"X_test: {len(X_test)}")
-    # print(f"y_train: {len(y_train)}")
-    # print(f"y_test: {len(y_test)}")
+    print(f"X_train: {len(X_train)}")
+    print(f"X_test: {len(X_test)}")
+    print(f"y_train: {len(y_train)}")
+    print(f"y_test: {len(y_test)}")
 
     X_train_tfidf, X_test_tfidf, vectorizer = create_tfidf_features(X_train, X_test)
 
@@ -222,12 +229,12 @@ def main():
 
     errors = analyze_errors(test_records, predictions)
 
-    # print(f"\nAccuracy: {accuracy:.4f}")
-    # print(f"Precision: {precision:.4f}")
-    # print(f"Recall: {recall:.4f}")
-    # print(f"F1 Score: {f1:.4f}")
-    # print(f"Confusion Matrix:\n{cm}")
-    # print(f"\n Classification Report:\n{class_rep}")
+    print(f"\nAccuracy: {accuracy:.4f}")
+    print(f"Precision: {precision:.4f}")
+    print(f"Recall: {recall:.4f}")
+    print(f"F1 Score: {f1:.4f}")
+    print(f"Confusion Matrix:\n{cm}")
+    print(f"\n Classification Report:\n{class_rep}")
     print(f"\n False Positives: {len(errors[0])}")
     print(f"\n False Negatives: {len(errors[1])}")
 
@@ -351,7 +358,6 @@ def prepare_ml_records(records):
         ml_record = dict(i)
         ml_record.pop("answer")
         ml_record.pop("clause_present")
-
         ml_records.append(ml_record)
 
     return ml_records
@@ -399,16 +405,40 @@ def prepare_ml_data(train_records, test_records):
     y_test = []
 
     for i in train_records:
-        # X_train.append(i["clause_type"] + " " + i["text"])
-        X_train.append(i["text"])
+        X_train.append(i["clause_type"] + " " + i["text"])
+        # X_train.append(i["text"])
         y_train.append(i["label"])
 
     for i in test_records:
-        # X_test.append(i["clause_type"] + " " + i["text"])
-        X_test.append(i["text"])
+        X_test.append(i["clause_type"] + " " + i["text"])
+        # X_test.append(i["text"])
         y_test.append(i["label"])
 
     return X_train, X_test, y_train, y_test
+
+
+def analyze_text_label_relationship(records):
+    empty_label_0 = 0
+    empty_label_1 = 0
+    non_empty_label_0 = 0
+    non_empty_label_1 = 0
+
+    for i in records:
+        text = i['text']
+        label = i['label']
+
+        if text == '':
+            if label ==0:
+                empty_label_0 +=1
+            else:
+                empty_label_1 +=1
+        else:
+            if label ==0:
+                non_empty_label_0 +=1
+            else:
+                non_empty_label_1 +=1
+
+    return (empty_label_0,empty_label_1,non_empty_label_0,non_empty_label_1)
 
 
 def create_tfidf_features(X_train, X_test):
