@@ -8,7 +8,8 @@ internship-project-1/
 ├── src/
 │   ├── __init__.py
 │   └── data_processing/
-│       ├── __init__.py
+│       ├── ocr_processor.py
+│       ├── ner_processor.py
 │       └── cuad_processor.py 
 │
 ├── notebooks/
