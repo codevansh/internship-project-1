@@ -40758,7 +40758,7 @@
     "clause_type": "Document Name",
     "text": "['ADDENDUM TO\\n\\nZEBRA® PARTNERCONNECT DISTRIBUTOR AGREEMENT']",
     "clause_present": true,
-    "answer": "ADDENDUM TO \n\nZEBRA® PARTNERCONNECT DISTRIBUTOR AGREEMENT"
+    "answer": "ADDENDUM TO \r\n\r\nZEBRA® PARTNERCONNECT DISTRIBUTOR AGREEMENT"
   },
   {
     "contract_id": "ScansourceInc_20190509_10-Q_EX-10.2_11661422_EX-10.2_Distributor Agreement.pdf",
@@ -43054,7 +43054,7 @@
     "clause_type": "Document Name",
     "text": "['Wireless Content License Agreement Number 12965', 'AMENDMENT NO. 1']",
     "clause_present": true,
-    "answer": "AMENDMENT NO. 1\n\nWireless Content License Agreement Number 12965"
+    "answer": "AMENDMENT NO. 1\r\n\r\nWireless Content License Agreement Number 12965"
   },
   {
     "contract_id": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement2.pdf",
@@ -43341,7 +43341,7 @@
     "clause_type": "Document Name",
     "text": "['Wireless Content License Agreement Number 12965', 'AMENDMENT NO. 2']",
     "clause_present": true,
-    "answer": "AMENDMENT NO. 2\n\nWireless Content License Agreement Number 12965"
+    "answer": "AMENDMENT NO. 2\r\n\r\nWireless Content License Agreement Number 12965"
   },
   {
     "contract_id": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement3.pdf",
@@ -43628,7 +43628,7 @@
     "clause_type": "Document Name",
     "text": "['AMENDMENT NO. 3', 'Wireless Content License Agreement Number 12965']",
     "clause_present": true,
-    "answer": "AMENDMENT NO. 3\n\nWireless Content License Agreement Number 12965"
+    "answer": "AMENDMENT NO. 3\r\n\r\nWireless Content License Agreement Number 12965"
   },
   {
     "contract_id": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement4.pdf",
@@ -46785,7 +46785,7 @@
     "clause_type": "Document Name",
     "text": "['Software Development Agreement', 'STATEMENT OF WORK - APPENDIX A']",
     "clause_present": true,
-    "answer": "STATEMENT OF WORK - APPENDIX A\n\nSoftware Development Agreement"
+    "answer": "STATEMENT OF WORK - APPENDIX A\r\n\r\nSoftware Development Agreement"
   },
   {
     "contract_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement1.pdf",
@@ -47359,7 +47359,7 @@
     "clause_type": "Document Name",
     "text": "['MANUFACTURING AGREEMENT', 'AMENDMENT NO. 1']",
     "clause_present": true,
-    "answer": "AMENDMENT NO. 1\n\nMANUFACTURING AGREEMENT"
+    "answer": "AMENDMENT NO. 1\r\n\r\nMANUFACTURING AGREEMENT"
   },
   {
     "contract_id": "BellringBrandsInc_20190920_S-1_EX-10.12_11817081_EX-10.12_Manufacturing Agreement2.pdf",
@@ -47646,7 +47646,7 @@
     "clause_type": "Document Name",
     "text": "['AMENDMENT NO. 3', 'MANUFACTURING AGREEMENT']",
     "clause_present": true,
-    "answer": "AMENDMENT NO. 3\n\n MANUFACTURING AGREEMENT"
+    "answer": "AMENDMENT NO. 3\r\n\r\n MANUFACTURING AGREEMENT"
   },
   {
     "contract_id": "BellringBrandsInc_20190920_S-1_EX-10.12_11817081_EX-10.12_Manufacturing Agreement4.pdf",
@@ -47933,7 +47933,7 @@
     "clause_type": "Document Name",
     "text": "['MANUFACTURING AGREEMENT', 'AMENDMENT NO. 2']",
     "clause_present": true,
-    "answer": "AMENDMENT NO. 2 \n\nMANUFACTURING AGREEMENT"
+    "answer": "AMENDMENT NO. 2 \r\n\r\nMANUFACTURING AGREEMENT"
   },
   {
     "contract_id": "BellringBrandsInc_20190920_S-1_EX-10.12_11817081_EX-10.12_Manufacturing Agreement3.pdf",
@@ -69171,7 +69171,7 @@
     "clause_type": "Document Name",
     "text": "['Order Form', 'ASP and Outsourcing Agreement']",
     "clause_present": true,
-    "answer": "ASP and Outsourcing Agreement\n\nOrder Form"
+    "answer": "ASP and Outsourcing Agreement\r\n\r\nOrder Form"
   },
   {
     "contract_id": "OASYSMOBILE,INC_07_05_2001-EX-10.17-OUTSOURCING AGREEMENT.PDF",
@@ -71467,7 +71467,7 @@
     "clause_type": "Document Name",
     "text": "['Customization Schedule', 'Software License, Customization and Maintenance Agreement']",
     "clause_present": true,
-    "answer": "Customization Schedule\n\nSoftware License, Customization and Maintenance Agreement"
+    "answer": "Customization Schedule\r\n\r\nSoftware License, Customization and Maintenance Agreement"
   },
   {
     "contract_id": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement2.pdf",
@@ -72041,7 +72041,7 @@
     "clause_type": "Document Name",
     "text": "['Software License, Customization and Maintenance Agreement', 'Product License Schedule']",
     "clause_present": true,
-    "answer": "Product License Schedule\n\nSoftware License, Customization and Maintenance Agreement"
+    "answer": "Product License Schedule\r\n\r\nSoftware License, Customization and Maintenance Agreement"
   },
   {
     "contract_id": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement4.pdf",
@@ -80084,7 +80084,7 @@
     "clause_type": "Parties",
     "text": "['YAII GP, LP', 'D-Beta One Blocker EQ, Ltd.', 'D-Beta One GP, LLC', 'YA II PN, Ltd.', 'YA Global Investments II (U.S.), Ltd.', 'Yorkville Advisors GP, LLC', 'Delta Beta Advisors, LP', 'Yorkville Advisors Global, LP', 'D-Beta One Growth and Opportunity Fund Offshore, LP', 'D-Beta One EQ, Ltd.', 'Yorkville Advisors Global II, LLC']",
     "clause_present": true,
-    "answer": "YA II PN, Ltd.; YA Global Investments II (U.S.), Ltd.; Yorkville Advisors Global, LP; Yorkville Advisors Global II, LLC; YAII GP, LP; Yorkville Advisors GP, LLC; D-Beta One EQ, Ltd.; D-Beta One Blocker EQ, Ltd.;\nD-Beta One Growth and Opportunity Fund Offshore, LP; D-Beta One GP, LLC; Delta Beta Advisors, LP"
+    "answer": "YA II PN, Ltd.; YA Global Investments II (U.S.), Ltd.; Yorkville Advisors Global, LP; Yorkville Advisors Global II, LLC; YAII GP, LP; Yorkville Advisors GP, LLC; D-Beta One EQ, Ltd.; D-Beta One Blocker EQ, Ltd.;\r\nD-Beta One Growth and Opportunity Fund Offshore, LP; D-Beta One GP, LLC; Delta Beta Advisors, LP"
   },
   {
     "contract_id": "QBIOMEDINC_04_08_2020-EX-99.1-JOINT FILING AGREEMENT.PDF",
@@ -94140,7 +94140,7 @@
     "clause_type": "Document Name",
     "text": "['AMENDMENT AND TERMINATION OF JOINT VENTURE AGREEMENT']",
     "clause_present": true,
-    "answer": "AMENDMENT AND TERMINATION \n\nOF \n\nJOINT VENTURE AGREEMENT"
+    "answer": "AMENDMENT AND TERMINATION \r\n\r\nOF \r\n\r\nJOINT VENTURE AGREEMENT"
   },
   {
     "contract_id": "VEONEER,INC_02_21_2020-EX-10.11-JOINT VENTURE AGREEMENT.PDF",
@@ -112795,7 +112795,7 @@
     "clause_type": "Document Name",
     "text": "['Distributor Agreement']",
     "clause_present": true,
-    "answer": "Distributor Agreement\n\nDistributor Agreement"
+    "answer": "Distributor Agreement\r\n\r\nDistributor Agreement"
   },
   {
     "contract_id": "AIRSPANNETWORKSINC_04_11_2000-EX-10.5-Distributor Agreement.PDF",
@@ -122553,14 +122553,14 @@
     "clause_type": "Document Name",
     "text": "['Franchise Agreement', 'Addendum to Lease Agreement']",
     "clause_present": true,
-    "answer": "Franchise Agreement\n\nAddendum to Lease Agreement"
+    "answer": "Franchise Agreement\r\n\r\nAddendum to Lease Agreement"
   },
   {
     "contract_id": "JOINTCORP_09_19_2014-EX-10.15-FRANCHISE AGREEMENT.PDF",
     "clause_type": "Parties",
     "text": "['________________________________________', 'if you are a partnership, corporation, or limited liability company, your \"Principal Owners\"', 'The Joint Corp.', '(\"you,\" \"Franchise Owner,\" or \"Franchisee', '\"we,\" \"us,\" the \"Company,\" or \"The Joint Corp.\"']",
     "clause_present": true,
-    "answer": "The Joint Corp (“we”, “us”, the “Company”, or “The Joint Corp.\"); (“you,” “Franchise Owner,” or “Franchisee\")\n \n ________________________________________ (“you,” “Franchise Owner,” or “Franchisee)(if you are a partnership, corporation, or limited liability company, your “Principal Owners”)"
+    "answer": "The Joint Corp (“we”, “us”, the “Company”, or “The Joint Corp.\"); (“you,” “Franchise Owner,” or “Franchisee\")\r\n \r\n ________________________________________ (“you,” “Franchise Owner,” or “Franchisee)(if you are a partnership, corporation, or limited liability company, your “Principal Owners”)"
   },
   {
     "contract_id": "JOINTCORP_09_19_2014-EX-10.15-FRANCHISE AGREEMENT.PDF",
@@ -128587,7 +128587,7 @@
     "clause_type": "Parties",
     "text": "['the \"Underwriter\"', 'Advantus Capital  Management, Inc.', 'the \"Investment Adviser\"', 'Securian Funds Trust', 'Securian Financial Services, Inc.', 'the \"Trust\"', \"Trust's Advantus Money Market Fund\", 'the \"Fund\"']",
     "clause_present": true,
-    "answer": "Advantus Capital  Management, Inc. (\"Investment Adviser”); Securian Financial Services, Inc. (“Underwriter”); Securian Funds Trust (“Trust”); \nTrust’s Advantus Money Market Fund (“Fund”)"
+    "answer": "Advantus Capital  Management, Inc. (\"Investment Adviser”); Securian Financial Services, Inc. (“Underwriter”); Securian Funds Trust (“Trust”); \r\nTrust’s Advantus Money Market Fund (“Fund”)"
   },
   {
     "contract_id": "SECURIANFUNDSTRUST_05_01_2012-EX-99.28.H.9-NET INVESTMENT INCOME MAINTENANCE AGREEMENT.PDF",
@@ -130883,7 +130883,7 @@
     "clause_type": "Parties",
     "text": "['Tele Danmark A/S', 'Tele 2 AB', 'ABS Telecom plc', 'Belgacom S.A.', 'Cable & Wireless Global Network Organisation Limited', 'Transoceanic Communications Incorporated', 'Hellenic Telecommunications Organisation S.A.', 'STARTEC GLOBAL COMMUNICATIONS CORPORATION', 'Ultrallne (Bermuda) Limited', 'TELIA AB (publ)', 'France Telecom', 'TeleBermuda International Limited', 'IXC Communications, Inc.', 'Rostelecom', 'StarHub', 'Japan Telecom Co., Ltd.', 'Pacific Gateway Exchange Inc.', 'Sprint Communications Company L.P.', '(hereinafter  collectively  called  \"Parties\"  and  individually  called \"Party\")', 'Kokusai Denshin Denwa Americas Inc.', 'GTE Intelligent Network Services Incorporated', 'British Telecommunications pIc', 'NTT Worldwide Network Corporation', 'Telef6nica de Espana, S.A.', 'Swisscom North America Inc.', 'Emirates Telecommunications Corporation - ETISALAT', 'CYPRUS TELECOMMUNICATIONS AUTHORITY', 'BellSouth International, Inc.', 'Com Tech International Corporation', 'RSL Communications Limited', 'Teleglobe USA', 'Sonera Ltd.', 'Deutsche Telekom AG', 'Cable & Wireless, Inc.', 'KPN Telecom B.V', 'MCI International Inc.', 'Telenor Global Services AS', 'STAR Telecommunications Inc.', 'VIATEL', 'Swisscom Ltd', 'Turk Telekomunikasyon A.S.', 'Telesur', 'Telia North America Inc.', 'Slovenske Telecomunicatie s.e.', 'Energis Communications Limited', 'IXNET Limited', 'BARAK I.T.C', 'Videsh Sanchar Nigam Limited', 'Singapore Telecommunications Limited', 'COMPANHIA PORTUGUESA RADIO MARCONI, SA.', 'BC TEL', 'Pacific Gateway Exchange', 'AT&T Corp.', 'OY FINNET International AB', 'Carrier 1 AG']",
     "clause_present": true,
-    "answer": "ABS Telecom plc; AT&T Corp.; BARAK I.T.C; BC TEL; Belgacom S.A.; BellSouth International, Inc.; British Telecommunications pIc; Cable & Wireless Global Network Organisation Limited; Cable & Wireless, Inc.; Carrier 1 AG; COMPANHIA PORTUGUESA RADIO MARCONI, SA.; Com Tech International Corporation; CYPRUS TELECOMMUNICATIONS AUTHORITY; Deutsche Telekom AG; Energis Communications Limited; Emirates Telecommunications Corporation - ETISALAT; France Telecom; GTE Intelligent Network Services Incorporated; Hellenic Telecommunications Organisation S.A.; IXC Communications, Inc.; IXNET Limited; Japan Telecom Co., Ltd.; Kokusai Denshin Denwa Americas Inc.; KPN Telecom B.V; MCI International Inc.; NTT Worldwide Network Corporation; OY FINNET International AB; Pacific Gateway Exchange; Pacific Gateway Exchange Inc.; Rostelecom; RSL Communications Limited; Singapore Telecommunications Limited; Slovenske Telecomunicatie s.e.; Sonera Ltd.; Sprint Communications Company L.P. ; STAR Telecommunications Inc.; StarHub; STARTEC GLOBAL COMMUNICATIONS CORPORATION; Swisscom Ltd; Swisscom North America Inc.; Tele 2 AB; TeleBermuda International Limited; Tele Danmark A/S; Telef6nica de Espana, S.A.; Teleglobe USA; Telenor Global Services AS; Telesur; TELIA AB (publ); Telia North America Inc.; Transoceanic Communications Incorporated; Turk Telekomunikasyon A.S.; Ultrallne (Bermuda) Limited; VIATEL; Videsh Sanchar Nigam Limited \n(hereinafter  collectively  called  \"Parties\"  and  individually  called \"Party\")"
+    "answer": "ABS Telecom plc; AT&T Corp.; BARAK I.T.C; BC TEL; Belgacom S.A.; BellSouth International, Inc.; British Telecommunications pIc; Cable & Wireless Global Network Organisation Limited; Cable & Wireless, Inc.; Carrier 1 AG; COMPANHIA PORTUGUESA RADIO MARCONI, SA.; Com Tech International Corporation; CYPRUS TELECOMMUNICATIONS AUTHORITY; Deutsche Telekom AG; Energis Communications Limited; Emirates Telecommunications Corporation - ETISALAT; France Telecom; GTE Intelligent Network Services Incorporated; Hellenic Telecommunications Organisation S.A.; IXC Communications, Inc.; IXNET Limited; Japan Telecom Co., Ltd.; Kokusai Denshin Denwa Americas Inc.; KPN Telecom B.V; MCI International Inc.; NTT Worldwide Network Corporation; OY FINNET International AB; Pacific Gateway Exchange; Pacific Gateway Exchange Inc.; Rostelecom; RSL Communications Limited; Singapore Telecommunications Limited; Slovenske Telecomunicatie s.e.; Sonera Ltd.; Sprint Communications Company L.P. ; STAR Telecommunications Inc.; StarHub; STARTEC GLOBAL COMMUNICATIONS CORPORATION; Swisscom Ltd; Swisscom North America Inc.; Tele 2 AB; TeleBermuda International Limited; Tele Danmark A/S; Telef6nica de Espana, S.A.; Teleglobe USA; Telenor Global Services AS; Telesur; TELIA AB (publ); Telia North America Inc.; Transoceanic Communications Incorporated; Turk Telekomunikasyon A.S.; Ultrallne (Bermuda) Limited; VIATEL; Videsh Sanchar Nigam Limited \r\n(hereinafter  collectively  called  \"Parties\"  and  individually  called \"Party\")"
   },
   {
     "contract_id": "STARTECGLOBALCOMMUNICATIONSCORP_11_16_1998-EX-10.30-CONSTRUCTION AND MAINTENANCE AGREEMENT.PDF",
