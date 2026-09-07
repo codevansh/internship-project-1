@@ -1,0 +1,21 @@
+{
+    "total_entities": 670,
+    "label_counts": {
+        "CARDINAL": 65,
+        "ORG": 305,
+        "EVENT": 2,
+        "DATE": 69,
+        "GPE": 34,
+        "PERSON": 34,
+        "PRODUCT": 99,
+        "LAW": 24,
+        "WORK_OF_ART": 6,
+        "PERCENT": 1,
+        "ORDINAL": 16,
+        "MONEY": 3,
+        "LOC": 4,
+        "FAC": 5,
+        "TIME": 2,
+        "NORP": 1
+    }
+}
