@@ -17,5 +17,54 @@
         "FAC": 5,
         "TIME": 2,
         "NORP": 1
-    }
+    },
+    "error_examples": [
+        {
+            "text": "HOFV",
+            "predicted": "PERSON",
+            "issue": "Organization/person confusion"
+        },
+        {
+            "text": "Constellation NewEnergy",
+            "predicted": "PERSON",
+            "issue": "Organization/person confusion"
+        },
+        {
+            "text": "Constellation",
+            "predicted": "PRODUCT",
+            "issue": "Company name classified as product"
+        },
+        {
+            "text": "Agreement",
+            "predicted": "PRODUCT",
+            "issue": "Legal terminology misclassified"
+        },
+        {
+            "text": "Exhibit C-1",
+            "predicted": "PERSON",
+            "issue": "Document heading misclassified"
+        },
+        {
+            "text": "Johnson Controls",
+            "predicted": "PERSON",
+            "issue": "Organization/person confusion"
+        },
+        {
+            "text": "Tom Benson Stadium",
+            "predicted": "PERSON",
+            "issue": "Facility/location misclassified"
+        },
+        {
+            "text": "Section 4.2(d",
+            "predicted": "DATE",
+            "issue": "Contract section misclassified as date"
+        }
+    ],
+    "error_patterns": [
+        "Organization/person confusion",
+        "Legal terminology misclassification",
+        "Document heading misclassification",
+        "Facility/location misclassification",
+        "OCR-related text fragmentation"
+    ]
 }

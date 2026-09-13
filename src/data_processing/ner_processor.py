@@ -77,17 +77,82 @@ def label_entities(entities):
     return label_counts
 
 
+def create_error_examples():
+    error_examples = [
+        {
+            "text": "HOFV",
+            "predicted": "PERSON",
+            "issue": "Organization/person confusion"
+        },
+        {
+            "text": "Constellation NewEnergy",
+            "predicted": "PERSON",
+            "issue": "Organization/person confusion"
+        },
+        {
+            "text": "Constellation",
+            "predicted": "PRODUCT",
+            "issue": "Company name classified as product"
+        },
+        {
+            "text": "Agreement",
+            "predicted": "PRODUCT",
+            "issue": "Legal terminology misclassified"
+        },
+        {
+            "text": "Exhibit C-1",
+            "predicted": "PERSON",
+            "issue": "Document heading misclassified"
+        },
+        {
+            "text": "Johnson Controls",
+            "predicted": "PERSON",
+            "issue": "Organization/person confusion"
+        },
+        {
+            "text": "Tom Benson Stadium",
+            "predicted": "PERSON",
+            "issue": "Facility/location misclassified"
+        },
+        {
+            "text": "Section 4.2(d",
+            "predicted": "DATE",
+            "issue": "Contract section misclassified as date"
+        }
+    ]
+
+    return error_examples
+
+
+def create_error_patterns():
+    error_patterns = [
+        "Organization/person confusion",
+        "Legal terminology misclassification",
+        "Document heading misclassification",
+        "Facility/location misclassification",
+        "OCR-related text fragmentation"
+    ]
+
+    return error_patterns
+
+
 def save_ner_evaluation(entities,label_counts):
     NER_EVALUATION_PATH.parent.mkdir(parents=True,exist_ok=True)
     
+    error_examples = create_error_examples()
+    error_patterns = create_error_patterns()
+
     evaluation = {
-        'total_entities':len(entities),
-        'label_counts':label_counts
+        'total_entities': len(entities),
+        'label_counts': label_counts,
+        'error_examples': error_examples,
+        'error_patterns': error_patterns
     }
     
     with open(NER_EVALUATION_PATH,'w',encoding='utf-8') as file:
         json.dump(evaluation,file,indent=4)
     print(f"NER evaluation saved to: {NER_EVALUATION_PATH}")
+
 
 if __name__ == '__main__':
     main()
