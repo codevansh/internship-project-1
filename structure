@@ -2,21 +2,23 @@ internship-project-1/
 │
 ├── data/
 │   ├── raw/
-│   ├── processed/
-│   └── README.md
+│   │   ├── master_clauses.csv
+│   │   └── sample_contract.pdf
+│   │
+│   └── processed/
+│       ├── cuad_clauses.json
+│       ├── cuad_ml_records.json
+│       ├── cuad_tokenized_sample.json
+│       ├── ocr_sample.txt
+│       └── ner_evaluation.json
 │
 ├── src/
-│   ├── __init__.py
 │   └── data_processing/
-│       ├── __init__.py
-│       └── cuad_processor.py 
+│       ├── cuad_processor.py
+│       ├── ocr_processor.py
+│       └── ner_processor.py
 │
-├── notebooks/
-│
-├── tests/
-│   └── __init__.py
-│
-├── .gitignore
-├── README.md
+├── main.py
 ├── requirements.txt
-└── main.py
+├── README.md
+└── .gitignore
