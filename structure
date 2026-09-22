@@ -14,9 +14,15 @@ internship-project-1/
 │
 ├── src/
 │   └── data_processing/
+<<<<<<< HEAD
 │       ├── cuad_processor.py
 │       ├── ocr_processor.py
 │       └── ner_processor.py
+=======
+│       ├── ocr_processor.py
+│       ├── ner_processor.py
+│       └── cuad_processor.py 
+>>>>>>> d56cffbccbb65f5e7f19db5a561ddaa0e877b968
 │
 ├── main.py
 ├── requirements.txt
