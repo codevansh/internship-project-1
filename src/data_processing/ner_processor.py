@@ -39,7 +39,7 @@ def extract_entities(nlp,text):
     
 
 def display_entities(entities):
-    print(f"\n Total Entites found: {len(entities)}")
+    print(f"\n  Total Entites found: {len(entities)}")
     
     for entity in entities:
         print(
@@ -59,7 +59,7 @@ def main():
         print(f"{label}:{count}")
     
     display_entities(entities)
-    print("\n Baseline NER processing completed successfully")
+    print("\n  Baseline NER processing completed successfully")
     
     save_ner_evaluation(entities,label_counts)
     

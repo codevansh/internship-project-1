@@ -153,7 +153,7 @@ def main():
     df = load_cuad()
 
     clause_pairs = get_clause_columns(df)
-    print(f"\n Identified clause categories: {len(clause_pairs)}")
+    print(f"\n  Identified clause categories: {len(clause_pairs)}")
 
     records = normalize_cuad(df)
     labeled_records = create_labels(records)
@@ -169,7 +169,7 @@ def main():
     print("Non-empty text + label 1:", non_empty_1)
 
     inconsistent_count = check_record_consistency(records)
-    print(f" \n  Inconsisten Records:{inconsistent_count}")
+    print(f" \n   Inconsisten Records:{inconsistent_count}")
 
     a, b, c, d = validate_records(records)
     print(f"Missing contract_id: {a}")
@@ -181,7 +181,7 @@ def main():
     print(clause_distribution)
 
     clause_answer_distribution = analyze_answer_count(records)
-    print(f" \n  Unique Answers count: {len(clause_answer_distribution)}")
+    print(f" \n   Unique Answers count: {len(clause_answer_distribution)}")
 
     top_answers = sorted(
         clause_answer_distribution.items(), key=lambda x: x[1], reverse=True
@@ -189,15 +189,15 @@ def main():
     for answer, count in top_answers:
         print(answer, count)
 
-    print(f" \n Generated normalized records: {len(records)}")
+    print(f" \n  Generated normalized records: {len(records)}")
     save_json(records, PROCESSED_DATA_PATH)
 
-    print(f"\nGenerated ML records: {len(ml_records)}")
+    print(f"\n Generated ML records: {len(ml_records)}")
     save_json(ml_records, ML_DATA_PATH)
 
     # tokenized_records = tokenize_sample(records)
     # save_json(tokenized_records, TOKENIZED_DATA_PATH)
-    print("\n CUAD processing completed successfully.")
+    print("\n  CUAD processing completed successfully.")
 
     summary = dataset_summary(records)
     print(summary)
@@ -207,7 +207,7 @@ def main():
     print(f"Test records: {len(test_records)}")
 
     overlapping_contracts = check_split(train_records, test_records)
-    print(f"\n OVerlapping contracts: {overlapping_contracts}")
+    print(f"\n  OVerlapping contracts: {overlapping_contracts}")
 
     X_train, X_test, y_train, y_test = prepare_ml_data(train_records, test_records)
 
@@ -219,24 +219,24 @@ def main():
     X_train_tfidf, X_test_tfidf, vectorizer = create_tfidf_features(X_train, X_test)
 
     model = train_model(X_train_tfidf, y_train)
-    # print("\nLogistic Regression model trained successfully.")
+    # print("\n Logistic Regression model trained successfully.")
 
     predictions = predict_model_values(model, X_test_tfidf)
-    # print(f"\n Predicting values: {len(predictions)}")
+    # print(f"\n  Predicting values: {len(predictions)}")
 
     class_rep = classification_report(y_test, predictions)
     accuracy, precision, recall, f1, cm, class_rep = evaluate_model(y_test, predictions)
 
     errors = analyze_errors(test_records, predictions)
 
-    print(f"\nAccuracy: {accuracy:.4f}")
+    print(f"\n Accuracy: {accuracy:.4f}")
     print(f"Precision: {precision:.4f}")
     print(f"Recall: {recall:.4f}")
     print(f"F1 Score: {f1:.4f}")
-    print(f"Confusion Matrix:\n{cm}")
-    print(f"\n Classification Report:\n{class_rep}")
-    print(f"\n False Positives: {len(errors[0])}")
-    print(f"\n False Negatives: {len(errors[1])}")
+    print(f"Confusion Matrix:\n {cm}")
+    print(f"\n  Classification Report:\n {class_rep}")
+    print(f"\n  False Positives: {len(errors[0])}")
+    print(f"\n  False Negatives: {len(errors[1])}")
 
 
 def validate_records(records):

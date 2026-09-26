@@ -9,20 +9,17 @@ internship-project-1/
 │       ├── cuad_clauses.json
 │       ├── cuad_ml_records.json
 │       ├── cuad_tokenized_sample.json
+│       ├── ner_evaluation.json
 │       ├── ocr_sample.txt
+│       ├── transformer_generated_dataset.json
 │       └── ner_evaluation.json
 │
 ├── src/
 │   └── data_processing/
-<<<<<<< HEAD
-│       ├── cuad_processor.py
-│       ├── ocr_processor.py
-│       └── ner_processor.py
-=======
 │       ├── ocr_processor.py
 │       ├── ner_processor.py
+│       ├── transformer_processor.py
 │       └── cuad_processor.py 
->>>>>>> d56cffbccbb65f5e7f19db5a561ddaa0e877b968
 │
 ├── main.py
 ├── requirements.txt

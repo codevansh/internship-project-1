@@ -25,10 +25,10 @@ def extract_text_from_images(images):
     
     for page_number,image in enumerate(images,start=1):
         text = pytesseract.image_to_string(image)
-        extracted_text.append(f"\n Page {page_number} \n {text}")
+        extracted_text.append(f"\n  Page {page_number} \n  {text}")
         
         print(f"OCR completed for page {page_number}")
-    return '\n'.join(extracted_text)
+    return '\n '.join(extracted_text)
 
 
 def save_ocr_text(text,output_path):
@@ -47,7 +47,7 @@ def main():
     extracted_text = extract_text_from_images(images)
     
     save_ocr_text(extracted_text,OCR_OUTPUT_PATH)
-    print("\n OCR processing completed successfully")
+    print("\n  OCR processing completed successfully")
     
 
 if __name__ == "__main__":
