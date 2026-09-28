@@ -11,7 +11,7 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 
-MODEL_DIR = Path("models/legal_roberta_clause_classifier")
+MODEL_DIR = "KAKAROT0304/legal-roberta-clause-classifier-day10"
 DATA_DIR = Path("data/processed")
 
 TEST_PATH = DATA_DIR / "transformer_test.json"
@@ -81,12 +81,10 @@ def main():
     print("\nLoading test dataset...")
 
     test_dataset = load_test_dataset()
-    print("\nLoading trained Legal-RoBERTa model...")
+    print("\nLoading Day 10 Legal-RoBERTa model from Hugging Face...")
 
-    if not MODEL_DIR.exists():
-        raise FileNotFoundError(f"Trained model not found at: {MODEL_DIR}")
     model = AutoModelForSequenceClassification.from_pretrained(MODEL_DIR)
-    print("Model loaded successfully.")
+    print("Day 10 model loaded successfully.")
 
     trainer = Trainer(
         model=model,

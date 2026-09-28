@@ -78,17 +78,18 @@ def main():
     # 4. Small sanity-check configuration
     training_args = TrainingArguments(
         output_dir=str(OUTPUT_DIR),
+        num_train_epochs=3,
         per_device_train_batch_size=2,
         per_device_eval_batch_size=2,
-        max_steps=100,
         learning_rate=2e-5,
         weight_decay=0.01,
-        logging_steps=10,
-        eval_strategy="steps",
-        eval_steps=50,
-        save_strategy="steps",
-        save_steps=100,
-        save_total_limit=1,
+        logging_steps=50,
+        eval_strategy="epoch",
+        save_strategy="epoch",
+        save_total_limit=2,
+        load_best_model_at_end=True,
+        metric_for_best_model="eval_loss",
+        greater_is_better=False,
         report_to="none",
         fp16=False,
     )
@@ -101,11 +102,11 @@ def main():
         eval_dataset=dataset["validation"],
     )
 
-    print("\n Starting short transformer training run...")
+    print("\n Starting Day 10 Legal-RoBERTa fine-tuning")
 
     trainer.train()
     trainer.save_model(str(OUTPUT_DIR))
-    print("\n short transformer training run completed successfully.")
+    print("\n Day 10 Legal-RoBERTa fine-tuning completed successfully.")
 
 
 if __name__ == "__main__":

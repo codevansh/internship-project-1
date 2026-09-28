@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Trained model artifacts
+models/legal_roberta_clause_classifier/
+models/legal_roberta_clause_classifier_day9/
