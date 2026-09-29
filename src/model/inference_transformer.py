@@ -95,6 +95,54 @@ def predict_clause(text, tokenizer, model, id_to_label, top_k=3):
     return result
 
 
+def predict_contract_intelligence(text, tokenizer, model, id_to_label, nlp):
+    """
+    Run the complete contract intelligence pipeline.
+
+    Legal-RoBERTa:
+        Determines the clause type and classification confidence.
+
+    spaCy NER:
+        Extracts named entities from the clause.
+
+    Risk engine:
+        Extracts observable contractual indicators.
+    """
+
+    from src.risk.entity_extractor import extract_entities
+    from src.risk.risk_engine import analyze_risk
+
+    # Step 1: Legal-RoBERTa clause classification
+    prediction_result = predict_clause(
+        text,
+        tokenizer,
+        model,
+        id_to_label,
+        top_k=3,
+    )
+
+    prediction = prediction_result["prediction"]
+
+    # Step 2: spaCy entity extraction
+    entities = extract_entities(
+        nlp,
+        text,
+    )
+
+    # Step 3: Contractual indicator extraction
+    intelligence_result = analyze_risk(
+        clause_type=prediction["clause_type"],
+        classification_confidence=prediction["confidence"],
+        clause_text=text,
+        entities=entities,
+    )
+
+    # Preserve top model predictions as additional information
+    intelligence_result["top_predictions"] = prediction_result["top_predictions"]
+
+    return intelligence_result
+
+
 def main():
 
     print("LEGAL CONTRACT CLAUSE INFERENCE")
