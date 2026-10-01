@@ -15,8 +15,14 @@ from src.risk.contract_report import (
     save_contract_report,
 )
 
+from src.risk.review_report import (
+    build_review_report,
+    save_review_report,
+)
+
 CLAUSE_OUTPUT_PATH = Path("data/processed/contract_clause_intelligence.json")
 REPORT_OUTPUT_PATH = Path("data/processed/contract_intelligence_report.json")
+REVIEW_OUTPUT_PATH = Path("data/processed/contract_review_report.json")
 
 
 def run_pipeline():
@@ -63,15 +69,28 @@ def run_pipeline():
 
     print("\nContract-level report generated.")
 
+    # Human-review report
+    review_report = build_review_report(clause_results)
+
+    save_review_report(
+        review_report,
+        REVIEW_OUTPUT_PATH,
+    )
+
+    print("Human-review report generated.")
+
     # FINAL SUMMARY
     print("END-TO-END PIPELINE COMPLETED")
 
     print(f"\n Clauses detected: " f"{len(clauses)}")
-    print(f"Clauses processed: " f"{report['contract_summary']['successfully_processed']}")
+    print(
+        f"Clauses processed: " f"{report['contract_summary']['successfully_processed']}"
+    )
     print(f"Processing errors: " f"{report['contract_summary']['processing_errors']}")
     print(f"Low-confidence clauses: " f"{len(report['low_confidence_clauses'])}")
-    print(f"\n Clause-level output:\n" f"{CLAUSE_OUTPUT_PATH}")
-    print(f"\n Contract-level output:\n" f"{REPORT_OUTPUT_PATH}")
+    print(f"\n Clause-level output: \n" f"{CLAUSE_OUTPUT_PATH}")
+    print(f"\n Contract-level output: \n" f"{REPORT_OUTPUT_PATH}")
+    print(f"\n Human-review output: \n" f"{REVIEW_OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
