@@ -140,9 +140,12 @@ def extract_clauses(text: str) -> List[Dict]:
             # Save the previous clause before starting a new one.
             save_current_clause()
 
+            clause_number = clause_heading["clause_number"]
+            clause_article = clause_number.split(".")[0]
+
             current_clause = {
-                "article": current_article,
-                "clause_number": clause_heading["clause_number"],
+                "article": clause_article,
+                "clause_number": clause_number,
                 "title": clause_heading["title"],
             }
 
