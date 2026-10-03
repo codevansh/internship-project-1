@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.navbar p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.hero h2 {
+  font-size: 42px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero>div:first-child p {
+  max-width: 620px;
+  color: #667085;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.upload-card {
+  background: #ffffff;
+  border: 1px solid #e1e5eb;
+  border-radius: 16px;
+  padding: 35px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+.upload-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 18px;
+  border-radius: 14px;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.upload-card h3 {
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+.upload-card p {
+  color: #667085;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.file-button,
+.analyze-button {
+  border: none;
+  border-radius: 9px;
+  padding: 11px 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.file-button {
+  display: inline-block;
+  background: #111827;
+  color: white;
+}
+
+.analyze-button {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  background: #2563eb;
+  color: white;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.section-header p {
+  color: #667085;
+  font-size: 14px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.summary-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.summary-card span {
+  display: block;
+  color: #667085;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.summary-card strong {
+  font-size: 30px;
+}
+
+.summary-card.review {
+  border-left: 4px solid #f59e0b;
+}
+
+.empty-state {
+  background: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 55px 30px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.empty-state h3 {
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: #667085;
+  font-size: 14px;
+}
+
+.table-container {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 16px;
+  border-bottom: 1px solid #edf0f3;
+  font-size: 14px;
+}
+
+th {
+  background: #f9fafb;
+  color: #475467;
+  font-weight: 600;
+}
+
+.table-empty {
+  text-align: center;
+  padding: 40px;
+  color: #667085;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar {
+    padding: 18px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 25px 18px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.analyze-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.review-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #fff7ed;
+  color: #c2410c;
+  font-size: 12px;
+  font-weight: 600;
+}

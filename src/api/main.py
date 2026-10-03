@@ -2,7 +2,7 @@ from pathlib import Path
 import tempfile
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
-
+from fastapi.middleware.cors import CORSMiddleware
 from src.data_processing.ocr_processor import process_pdf
 from src.pipeline.contract_pipeline import run_pipeline
 
@@ -10,6 +10,14 @@ app = FastAPI(
     title="AI Contract Intelligence API",
     description="API for contract analysis and intelligence extraction.",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
