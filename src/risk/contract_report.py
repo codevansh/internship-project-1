@@ -175,8 +175,39 @@ def build_contract_report(
         "entity_summary": summarize_entities(successful_clauses),
         "contractual_indicators": (collect_contractual_indicators(successful_clauses)),
         "clauses": successful_clauses,
+        "risk_assessments": collect_risk_assessments(successful_clauses)
     }
     return report
+
+
+def collect_risk_assessments(
+    clauses: List[Dict],
+) -> List[Dict]:
+    """Collect clause-level risk assessments across the contract."""
+
+    assessments = []
+
+    for clause in clauses:
+        risk_assessment = clause.get(
+            "risk_assessment",
+            {},
+        )
+
+        if not risk_assessment:
+            continue
+
+        assessments.append(
+            {
+                "article": clause.get("article"),
+                "clause_number": clause.get("clause_number"),
+                "title": clause.get("title"),
+                "clause_type": clause.get("clause_type"),
+                "classification_confidence": clause.get("classification_confidence"),
+                "risk_assessment": risk_assessment,
+            }
+        )
+
+    return assessments
 
 
 def save_contract_report(

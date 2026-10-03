@@ -1,6 +1,8 @@
 import re
 from typing import Dict, List
 
+CONFIDENCE_THRESHOLD = 0.70
+
 
 def find_money_entities(entities: List[Dict]) -> List[Dict]:
     """Return MONEY entities extracted by spaCy."""
@@ -21,24 +23,21 @@ def find_percentage_values(text: str) -> List[str]:
 
 
 def find_duration_values(text: str) -> List[str]:
-    """
-    Extract common contractual durations such as:
-    30 days, 12 months, 2 years.
-    """
-    matches = re.findall(
+    """Extract common contractual durations."""
+    return re.findall(
         r"\b\d+(?:\.\d+)?\s*(?:day|days|week|weeks|month|months|year|years)\b",
         text,
         flags=re.IGNORECASE,
     )
 
-    return matches
-
 
 def find_contractual_phrases(text: str) -> Dict[str, List[str]]:
     """
-    Detect generic contractual phrases from the actual clause text.
-    These are evidence indicators, not legal-risk classifications.
+    Detect contractual language patterns from the clause text.
+
+    These are evidence indicators and are not legal-risk classifications.
     """
+
     phrase_groups = {
         "limitation_language": [
             "shall not exceed",
@@ -101,12 +100,8 @@ def extract_contractual_indicators(
     clause_text: str,
     entities: List[Dict],
 ) -> Dict:
-    """
-    Extract observable contractual attributes from a clause.
-
-    This function does not assign a legal-risk score.
-    It reports evidence found in the actual text.
-    """
+    """Extract observable contractual attributes from a clause.
+    This function does not assign legal risk"""
 
     money_entities = find_money_entities(entities)
     date_entities = find_date_entities(entities)
@@ -135,6 +130,77 @@ def extract_contractual_indicators(
     return indicators
 
 
+def assess_risk(
+    classification_confidence: float,
+    indicators: Dict,
+) -> Dict:
+    """
+    Assess the level of contractual attention suggested by
+    observable indicators and model confidence.
+
+    This is an evidence-based screening signal, not a legal
+    determination of whether a clause is legally risky.
+    """
+
+    reasons = []
+
+    phrase_groups = indicators.get(
+        "contractual_phrases",
+        {},
+    )
+
+    if phrase_groups.get("unlimited_language"):
+        reasons.append("Unlimited or uncapped liability-related language detected.")
+
+    if phrase_groups.get("limitation_language"):
+        reasons.append("Liability or obligation limitation language detected.")
+
+    if phrase_groups.get("termination_language"):
+        reasons.append("Termination-related language detected.")
+
+    if phrase_groups.get("assignment_language"):
+        reasons.append("Assignment or transfer language detected.")
+
+    if phrase_groups.get("competition_language"):
+        reasons.append("Competition-restriction language detected.")
+
+    if phrase_groups.get("commitment_language"):
+        reasons.append("Minimum or committed purchase language detected.")
+
+    if phrase_groups.get("damages_language"):
+        reasons.append("Damages-related language detected.")
+
+    if indicators.get("monetary_values"):
+        reasons.append("Monetary values detected in the clause.")
+
+    if indicators.get("percentage_values"):
+        reasons.append("Percentage-based contractual values detected.")
+
+    if indicators.get("duration_values"):
+        reasons.append("Contractual duration values detected.")
+
+    if classification_confidence < CONFIDENCE_THRESHOLD:
+        reasons.append(
+            "Clause classification confidence is below the human-review threshold."
+        )
+
+    if not reasons:
+        level = "LOW"
+    elif classification_confidence < CONFIDENCE_THRESHOLD:
+        level = "REVIEW"
+    elif len(reasons) >= 3:
+        level = "ATTENTION"
+    else:
+        level = "INDICATOR"
+
+    return {
+        "level": level,
+        "reasons": reasons,
+        "evidence": indicators,
+        "requires_human_review": (classification_confidence < CONFIDENCE_THRESHOLD),
+    }
+
+
 def analyze_risk(
     clause_type: str,
     classification_confidence: float,
@@ -146,14 +212,18 @@ def analyze_risk(
 
     Legal-RoBERTa supplies the clause type and confidence.
     spaCy supplies named entities.
-    This layer extracts additional contractual indicators.
-
-    No learned or universal legal-risk score is produced.
+    This layer extracts contractual indicators and
+    produces an evidence-based screening signal.
     """
 
     indicators = extract_contractual_indicators(
         clause_text,
         entities,
+    )
+
+    risk_assessment = assess_risk(
+        classification_confidence=classification_confidence,
+        indicators=indicators,
     )
 
     return {
@@ -162,4 +232,5 @@ def analyze_risk(
         "clause_text": clause_text,
         "entities": entities,
         "contractual_indicators": indicators,
+        "risk_assessment": risk_assessment,
     }

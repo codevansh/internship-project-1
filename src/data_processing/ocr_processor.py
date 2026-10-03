@@ -30,7 +30,7 @@ def pdf_to_images(pdf_path):
     document.close()
 
     print(f"PDF Found: {pdf_path}")
-    print(f"Pages converted: {len(images)}")
+    print(f"Converting Pages: {len(images)}")
 
     return images
 

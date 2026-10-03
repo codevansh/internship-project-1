@@ -153,48 +153,98 @@ function App() {
           </div>
 
           <div className="risk-grid">
-            {result?.contract_report?.contractual_indicators?.length > 0 ? (
-              result.contract_report.contractual_indicators.map((item, index) => {
-                const phrases = item.indicators?.contractual_phrases || {};
-
+            {result?.contract_report?.risk_assessments?.length > 0 ? (
+              result.contract_report.risk_assessments.map((item, index) => {
+                const assessment = item?.risk_assessment || {};
+                const evidence = assessment.evidence || {};
+                const phrases = evidence.contractual_phrases || {};
                 const indicators = Object.entries(phrases).flatMap(
                   ([category, values]) =>
-                    values.map((value) => ({
+                    (Array.isArray(values) ? values : []).map((value) => ({
                       category,
                       value,
                     }))
                 );
-
-                if (indicators.length === 0) {
-                  return null;
-                }
+                const reasons = Array.isArray(assessment.reasons)
+                  ? assessment.reasons
+                  : [];
+                const dates = Array.isArray(evidence.date_entities)
+                  ? evidence.date_entities
+                  : [];
+                const confidence = item?.classification_confidence;
 
                 return (
                   <div className="risk-card" key={index}>
                     <div className="risk-card-header">
                       <div>
                         <span className="risk-clause">
-                          Clause {item.clause_number}
+                          Clause {item?.clause_number || "Unknown"}
                         </span>
-                        <h3>{item.title}</h3>
+                        <h3>{item?.title || "Untitled clause"}</h3>
                       </div>
                     </div>
 
                     <div className="risk-indicators">
-                      {indicators.map((indicator, indicatorIndex) => (
-                        <div className="risk-indicator" key={indicatorIndex}>
-                          <span className="risk-category">
-                            {indicator.category
-                              .replace(/_/g, " ")
-                              .replace(/\b\w/g, (char) => char.toUpperCase())}
-                          </span>
-
-                          <span className="risk-value">
-                            "{indicator.value}"
-                          </span>
-                        </div>
-                      ))}
+                      <div className="risk-indicator">
+                        <span className="risk-category">Type</span>
+                        <span className="risk-value">{item?.clause_type || "Unknown"}</span>
+                      </div>
+                      <div className="risk-indicator">
+                        <span className="risk-category">Level</span>
+                        <span className="risk-value">{assessment.level || "Unknown"}</span>
+                      </div>
+                      <div className="risk-indicator">
+                        <span className="risk-category">Classification Confidence</span>
+                        <span className="risk-value">
+                          {typeof confidence === "number" ? `${(confidence * 100).toFixed(1)}%` : "Unknown"}
+                        </span>
+                      </div>
+                      <div className="risk-indicator">
+                        <span className="risk-category">Human Review</span>
+                        <span className="risk-value">
+                          {assessment.requires_human_review ? "Required" : "Not required"}
+                        </span>
+                      </div>
                     </div>
+
+                    {reasons.length > 0 && (
+                      <div className="risk-indicators">
+                        <span className="risk-category">Reasons</span>
+                        {reasons.map((reason, reasonIndex) => (
+                          <div className="risk-indicator" key={reasonIndex}>
+                            <span className="risk-value">- {reason}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {indicators.length > 0 && (
+                      <div className="risk-indicators">
+                        <span className="risk-category">Contractual Indicators</span>
+                        {indicators.map((indicator, indicatorIndex) => (
+                          <div className="risk-indicator" key={indicatorIndex}>
+                            <span className="risk-category">
+                              {indicator.category
+                                .replace(/_/g, " ")
+                                .replace(/\b\w/g, (char) => char.toUpperCase())}
+                            </span>
+                            <span className="risk-value">"{indicator.value}"</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {dates.length > 0 && (
+                      <div className="risk-indicators">
+                        <span className="risk-category">Detected Dates</span>
+                        {dates.map((date, dateIndex) => (
+                          <div className="risk-indicator" key={dateIndex}>
+                            <span className="risk-category">Date</span>
+                            <span className="risk-value">"{date}"</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 );
               })

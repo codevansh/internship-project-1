@@ -7397,6 +7397,24 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Minimum or committed purchase language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020"
+                    ],
+                    "contractual_phrases": {
+                        "commitment_language": [
+                            "minimum purchase"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 33,
@@ -7435,6 +7453,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 15,
@@ -7473,6 +7497,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 13,
@@ -7540,6 +7570,16 @@
                     "1/23/2020"
                 ]
             },
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020"
+                    ]
+                },
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 40,
@@ -7583,6 +7623,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 13,
@@ -7659,6 +7705,24 @@
                 "duration_values": [
                     "6 months"
                 ]
+            },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Contractual duration values detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "6 months",
+                        "the last day of the quarter",
+                        "the number of months"
+                    ],
+                    "duration_values": [
+                        "6 months"
+                    ]
+                },
+                "requires_human_review": true
             },
             "top_predictions": [
                 {
@@ -7743,6 +7807,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 20,
@@ -7852,6 +7922,21 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Unlimited or uncapped liability-related language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "unlimited_language": [
+                            "without limitation"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 11,
@@ -7900,6 +7985,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 32,
@@ -7933,6 +8024,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 20,
@@ -7971,6 +8068,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 18,
@@ -8145,6 +8248,19 @@
                     "thirty (30) days",
                     "thirty (30) days"
                 ]
+            },
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "30) days",
+                        "1/23/2020 Page 5",
+                        "thirty (30) days",
+                        "thirty (30) days"
+                    ]
+                },
+                "requires_human_review": false
             },
             "top_predictions": [
                 {
@@ -8703,6 +8819,36 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Unlimited or uncapped liability-related language detected.",
+                    "Termination-related language detected.",
+                    "Assignment or transfer language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "30) days",
+                        "90) days",
+                        "30) days",
+                        "180) days",
+                        "1/23/2020 Page 7"
+                    ],
+                    "contractual_phrases": {
+                        "unlimited_language": [
+                            "without limitation"
+                        ],
+                        "termination_language": [
+                            "termination"
+                        ],
+                        "assignment_language": [
+                            "transfer"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 15,
@@ -8781,6 +8927,18 @@
                     "Annual",
                     "month"
                 ]
+            },
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "annual",
+                        "Annual",
+                        "month"
+                    ]
+                },
+                "requires_human_review": false
             },
             "top_predictions": [
                 {
@@ -9242,6 +9400,47 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Termination-related language detected.",
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "December 31, 2028",
+                        "1/23/2020",
+                        "8 42 Termination",
+                        "60) days",
+                        "60) day",
+                        "60) day",
+                        "60) days",
+                        "60) days",
+                        "Section 4.2(d",
+                        "days",
+                        "1/23/2020 Page 9",
+                        "December 31, 2023",
+                        "December 1, 2022",
+                        "December 1, 2022",
+                        "December 1, 2022",
+                        "monthly",
+                        "the previous month",
+                        "January"
+                    ],
+                    "contractual_phrases": {
+                        "termination_language": [
+                            "terminate",
+                            "termination"
+                        ],
+                        "assignment_language": [
+                            "assign",
+                            "assignment",
+                            "transfer"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 12,
@@ -9440,6 +9639,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 13,
@@ -9835,6 +10040,33 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "ATTENTION",
+                "reasons": [
+                    "Liability or obligation limitation language detected.",
+                    "Assignment or transfer language detected.",
+                    "Damages-related language detected."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "10) days",
+                        "1/23/2020 Page 12",
+                        "30) days"
+                    ],
+                    "contractual_phrases": {
+                        "limitation_language": [
+                            "limited to"
+                        ],
+                        "assignment_language": [
+                            "assign"
+                        ],
+                        "damages_language": [
+                            "damages"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 5,
@@ -10085,6 +10317,21 @@
                     "1221"
                 ]
             },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020 Page 13",
+                        "3600",
+                        "1310",
+                        "1221"
+                    ]
+                },
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 15,
@@ -10151,6 +10398,22 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "assignment_language": [
+                            "assign",
+                            "assignment",
+                            "transfer"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 3,
@@ -10213,6 +10476,24 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Assignment or transfer language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020"
+                    ],
+                    "contractual_phrases": {
+                        "assignment_language": [
+                            "assign"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 10,
@@ -10240,6 +10521,12 @@
             "clause_text": "No amendment or modification of any of the terms and conditions of this Agreement shall be effective unless such modification is expressed in writing and executed by each of the Parties.",
             "entities": [],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 3,
@@ -10328,6 +10615,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 13,
@@ -10366,6 +10659,14 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 13,
@@ -10540,6 +10841,38 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "ATTENTION",
+                "reasons": [
+                    "Unlimited or uncapped liability-related language detected.",
+                    "Liability or obligation limitation language detected.",
+                    "Termination-related language detected.",
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "30) days",
+                        "1/23/2020 Page 15",
+                        "30) days",
+                        "the number of days"
+                    ],
+                    "contractual_phrases": {
+                        "limitation_language": [
+                            "limited to"
+                        ],
+                        "unlimited_language": [
+                            "without limitation"
+                        ],
+                        "termination_language": [
+                            "terminate"
+                        ],
+                        "assignment_language": [
+                            "transfer"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 29,
@@ -10578,6 +10911,14 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 11,
@@ -10634,6 +10975,16 @@
                 "date_entities": [
                     "ten (10) days"
                 ]
+            },
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "ten (10) days"
+                    ]
+                },
+                "requires_human_review": false
             },
             "top_predictions": [
                 {
@@ -10702,6 +11053,16 @@
                     "April 28, 2018"
                 ]
             },
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "April 28, 2018"
+                    ]
+                },
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 4,
@@ -10745,6 +11106,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 33,
@@ -10803,6 +11170,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 25,
@@ -10836,6 +11209,14 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 11,
@@ -10863,6 +11244,14 @@
             "clause_text": "The headings used in this Agreement are solely for convenience and shall not affect the meaning or interpretation of the provisions set forth herein.",
             "entities": [],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 8,
@@ -10890,6 +11279,14 @@
             "clause_text": "This Agreement may be executed in multiple counterparts, and on separate counterparts, each of which shall be deemed an original, but all of which taken together shall constitute one and the same instrument.",
             "entities": [],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 17,
@@ -10953,6 +11350,14 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 3,
@@ -10991,6 +11396,21 @@
                         "termination"
                     ]
                 }
+            },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Termination-related language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "termination_language": [
+                            "termination"
+                        ]
+                    }
+                },
+                "requires_human_review": true
             },
             "top_predictions": [
                 {
@@ -11041,6 +11461,20 @@
                     ]
                 }
             },
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "assignment_language": [
+                            "assign"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 36,
@@ -11079,6 +11513,12 @@
                 }
             ],
             "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
             "top_predictions": [
                 {
                     "label": 5,
@@ -11359,6 +11799,21 @@
                     "1/23/2020"
                 ]
             },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020",
+                        "1/23/2020 4th Quarter 2019 3rd Quarter 2020",
+                        "1/23/2020",
+                        "1/23/2020"
+                    ]
+                },
+                "requires_human_review": true
+            },
             "top_predictions": [
                 {
                     "label": 17,
@@ -11379,6 +11834,722 @@
             "article": "6",
             "clause_number": "6.20",
             "title": "HOF Entity Rights and Obligations."
+        }
+    ],
+    "risk_assessments": [
+        {
+            "article": "1",
+            "clause_number": "1.1",
+            "title": "Sale of Products & Services.",
+            "clause_type": "Rofr/Rofo/Rofn",
+            "classification_confidence": 0.5516,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Minimum or committed purchase language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020"
+                    ],
+                    "contractual_phrases": {
+                        "commitment_language": [
+                            "minimum purchase"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "1",
+            "clause_number": "1.2",
+            "title": "Title and Risk of Loss.",
+            "clause_type": "Ip Ownership Assignment",
+            "classification_confidence": 0.9939,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "1",
+            "clause_number": "1.3",
+            "title": "Delivery: Acceptance.",
+            "clause_type": "Governing Law",
+            "classification_confidence": 0.998,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "1",
+            "clause_number": "1.4",
+            "title": "Warranty.",
+            "clause_type": "Warranty Duration",
+            "classification_confidence": 0.995,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020"
+                    ]
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "1",
+            "clause_number": "1.5",
+            "title": "Replacement Products & Services.",
+            "clause_type": "Governing Law",
+            "classification_confidence": 0.9963,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "1",
+            "clause_number": "1.6",
+            "title": "Impact of Construction Delays.",
+            "clause_type": "Renewal Term",
+            "classification_confidence": 0.622,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Contractual duration values detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "6 months",
+                        "the last day of the quarter",
+                        "the number of months"
+                    ],
+                    "duration_values": [
+                        "6 months"
+                    ]
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.1",
+            "title": "Services.",
+            "clause_type": "Minimum Commitment",
+            "classification_confidence": 0.9682,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.2",
+            "title": "Exclusivity.",
+            "clause_type": "Exclusivity",
+            "classification_confidence": 0.5199,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Unlimited or uncapped liability-related language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "unlimited_language": [
+                            "without limitation"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.3",
+            "title": "Costs and Expenses for Services.",
+            "clause_type": "Revenue/Profit Sharing",
+            "classification_confidence": 0.9334,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.4",
+            "title": "EME Financing.",
+            "clause_type": "Minimum Commitment",
+            "classification_confidence": 0.9967,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.1",
+            "title": "Sponsorship Rights.",
+            "clause_type": "License Grant",
+            "classification_confidence": 0.8942,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.2",
+            "title": "Production and Execution of Sponsorship Rights.",
+            "clause_type": "Non-Disparagement",
+            "classification_confidence": 0.9344,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "30) days",
+                        "1/23/2020 Page 5",
+                        "thirty (30) days",
+                        "thirty (30) days"
+                    ]
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.3",
+            "title": "Intellectual Property Rights.",
+            "clause_type": "Ip Ownership Assignment",
+            "classification_confidence": 0.6662,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Unlimited or uncapped liability-related language detected.",
+                    "Termination-related language detected.",
+                    "Assignment or transfer language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "30) days",
+                        "90) days",
+                        "30) days",
+                        "180) days",
+                        "1/23/2020 Page 7"
+                    ],
+                    "contractual_phrases": {
+                        "unlimited_language": [
+                            "without limitation"
+                        ],
+                        "termination_language": [
+                            "termination"
+                        ],
+                        "assignment_language": [
+                            "transfer"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.4",
+            "title": "Sponsorship Fees.",
+            "clause_type": "Revenue/Profit Sharing",
+            "classification_confidence": 0.8648,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "annual",
+                        "Annual",
+                        "month"
+                    ]
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.1",
+            "title": "Term.",
+            "clause_type": "Expiration Date",
+            "classification_confidence": 0.9827,
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Termination-related language detected.",
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "December 31, 2028",
+                        "1/23/2020",
+                        "8 42 Termination",
+                        "60) days",
+                        "60) day",
+                        "60) day",
+                        "60) days",
+                        "60) days",
+                        "Section 4.2(d",
+                        "days",
+                        "1/23/2020 Page 9",
+                        "December 31, 2023",
+                        "December 1, 2022",
+                        "December 1, 2022",
+                        "December 1, 2022",
+                        "monthly",
+                        "the previous month",
+                        "January"
+                    ],
+                    "contractual_phrases": {
+                        "termination_language": [
+                            "terminate",
+                            "termination"
+                        ],
+                        "assignment_language": [
+                            "assign",
+                            "assignment",
+                            "transfer"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "5",
+            "clause_number": "5.1",
+            "title": "Representations and Warranties.",
+            "clause_type": "Governing Law",
+            "classification_confidence": 0.9603,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "5",
+            "clause_number": "5.2",
+            "title": "Indemnification.",
+            "clause_type": "Cap On Liability",
+            "classification_confidence": 0.8142,
+            "risk_assessment": {
+                "level": "ATTENTION",
+                "reasons": [
+                    "Liability or obligation limitation language detected.",
+                    "Assignment or transfer language detected.",
+                    "Damages-related language detected."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "10) days",
+                        "1/23/2020 Page 12",
+                        "30) days"
+                    ],
+                    "contractual_phrases": {
+                        "limitation_language": [
+                            "limited to"
+                        ],
+                        "assignment_language": [
+                            "assign"
+                        ],
+                        "damages_language": [
+                            "damages"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.1",
+            "title": "Notices.",
+            "clause_type": "Ip Ownership Assignment",
+            "classification_confidence": 0.2479,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020 Page 13",
+                        "3600",
+                        "1310",
+                        "1221"
+                    ]
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.2",
+            "title": "Assignment.",
+            "clause_type": "Anti-Assignment",
+            "classification_confidence": 0.9992,
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "assignment_language": [
+                            "assign",
+                            "assignment",
+                            "transfer"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.3",
+            "title": "Entire Agreement.",
+            "clause_type": "Effective Date",
+            "classification_confidence": 0.4957,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Assignment or transfer language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020"
+                    ],
+                    "contractual_phrases": {
+                        "assignment_language": [
+                            "assign"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.4",
+            "title": "Modifications.",
+            "clause_type": "Anti-Assignment",
+            "classification_confidence": 0.9524,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.5",
+            "title": "Governing Law; Venue.",
+            "clause_type": "Governing Law",
+            "classification_confidence": 0.9997,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.6",
+            "title": "Subordination.",
+            "clause_type": "Governing Law",
+            "classification_confidence": 0.4609,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.7",
+            "title": "Force Majeure.",
+            "clause_type": "Post-Termination Services",
+            "classification_confidence": 0.9168,
+            "risk_assessment": {
+                "level": "ATTENTION",
+                "reasons": [
+                    "Unlimited or uncapped liability-related language detected.",
+                    "Liability or obligation limitation language detected.",
+                    "Termination-related language detected.",
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "30) days",
+                        "1/23/2020 Page 15",
+                        "30) days",
+                        "the number of days"
+                    ],
+                    "contractual_phrases": {
+                        "limitation_language": [
+                            "limited to"
+                        ],
+                        "unlimited_language": [
+                            "without limitation"
+                        ],
+                        "termination_language": [
+                            "terminate"
+                        ],
+                        "assignment_language": [
+                            "transfer"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.8",
+            "title": "Not a Lease or License of the Village.",
+            "clause_type": "Exclusivity",
+            "classification_confidence": 0.5911,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.9",
+            "title": "Insurance.",
+            "clause_type": "Insurance",
+            "classification_confidence": 0.9991,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "ten (10) days"
+                    ]
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.10",
+            "title": "Confidentiality.",
+            "clause_type": "Audit Rights",
+            "classification_confidence": 0.9122,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "April 28, 2018"
+                    ]
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.11",
+            "title": "Press Releases.",
+            "clause_type": "Rofr/Rofo/Rofn",
+            "classification_confidence": 0.9063,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.12",
+            "title": "No Defamation or Disparagement.",
+            "clause_type": "Non-Disparagement",
+            "classification_confidence": 0.9885,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.13",
+            "title": "Independent Contractor.",
+            "clause_type": "Exclusivity",
+            "classification_confidence": 0.6231,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.14",
+            "title": "Headings.",
+            "clause_type": "Covenant Not To Sue",
+            "classification_confidence": 0.6158,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.15",
+            "title": "Counterparts.",
+            "clause_type": "Joint Ip Ownership",
+            "classification_confidence": 0.1129,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.16",
+            "title": "Waiver.",
+            "clause_type": "Anti-Assignment",
+            "classification_confidence": 0.6769,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.17",
+            "title": "Severability.",
+            "clause_type": "Covenant Not To Sue",
+            "classification_confidence": 0.3317,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Termination-related language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "termination_language": [
+                            "termination"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.18",
+            "title": "Third Party Beneficiaries.",
+            "clause_type": "Third Party Beneficiary",
+            "classification_confidence": 0.9538,
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "assignment_language": [
+                            "assign"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.19",
+            "title": "Cost and Expenses.",
+            "clause_type": "Cap On Liability",
+            "classification_confidence": 0.9622,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.20",
+            "title": "HOF Entity Rights and Obligations.",
+            "clause_type": "Joint Ip Ownership",
+            "classification_confidence": 0.3859,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "1/23/2020",
+                        "1/23/2020 4th Quarter 2019 3rd Quarter 2020",
+                        "1/23/2020",
+                        "1/23/2020"
+                    ]
+                },
+                "requires_human_review": true
+            }
         }
     ]
 }
