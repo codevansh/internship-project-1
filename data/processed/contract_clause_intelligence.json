@@ -2,7 +2,7 @@
     {
         "clause_type": "Rofr/Rofo/Rofn",
         "classification_confidence": 0.5516,
-        "clause_text": "(a) The HOF Entities shall consult with Constellation to develop a comprehensive energy strategy with respect to the Products & Services listing in Exhibit A, which reflects sustainable product solutions, competitive market pricing (incorporating completion of the Supplier Component Questionnaire in the form of Exhibit B hereof for the applicable HOF Entity or affiliate), periodic reporting and analytics, regulatory/market intelligence and infrastructure services and equipment. Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 2 (b) The HOF Entities or their affiliates shall, during the Term (as defined below), purchase from Constellation, and Constellation shall sell to the HOF Entities and/or their affiliates, as applicable, such Products & Services as shall be requested by an HOF Entity or its affiliates, in each case at the applicable Market Prices for such Products & Services and on competitive terms. For purposes of this Section 1.1(b), (i) the “Market Price” of any Products & Services shall mean the price for such Products & Services established by Constellation as the competitive market price at which such Products & Services are to be made available to Constellation’s customers with a similar anticipated load profile within a specified utility service territory. Constellation shall invoice the applicable HOF Entity or its appropriate affiliate for all Products & Services purchased by such HOF Entity or its appropriate affiliate pursuant to the applicable Second Level Agreement (as defined below). In the event that the purchaser of Products & Services pursuant to this Article | is an affiliate of an HOF Entity (but not an HOF Entity), such affiliate shall be subject to Constellation’s credit approval of such affiliate as the contracting entity. In the event that such affiliate does not meet Constellation’s credit requirements (and in the event that such affiliate still desires to purchase such Products & Services), such affiliate shall provide to Constellation a surety bond reasonably acceptable to Constellation from a provider rated than A- (or an equivalent rating from S&P, Moody’s, Fitch or AM Best) or better prior to the purchase of such Products & Services. (c) The Parties agree and acknowledge that neither HOF Entity or any of its respective affiliates shall be subject to any individual minimum purchase requirement (whether in terms of price, quantity or any other criteria) under this Agreement with respect to the Products & Services, but the HOF Entities and their respective affiliates remain subject to the aggregate EME financing pursuant to Section 2.4 during the Term. (d) All purchases of Products & Services from Constellation by the HOF Entities or their respective affiliates pursuant to this Agreement shall be made pursuant to a separate agreement executed between an HOF Entity or affiliate and Constellation which may include a master retail electricity supply agreement in substantially the form of Exhibit C-1, master retail natural gas supply agreement in substantially the form of Exhibit C-2, transaction confirmation in substantially the form of Ex! C-3 or similar document or agreement (each, a “Second Level Agreement”). In the event of any conflict or inconsistency between this Agreement and any Second Level Agreement negotiated after execution of this Agreement and not substantially in the form attached hereto, this Agreement shall control except to the extent that the Second Level Agreement expressly refers to this Agreement and states that the specific provision thereof shall be deemed to amend and supersede a specifically identified provision hereof (in which case such specific provision of the Second Level Agreement shall control over such specifically identified provision hereof).",
+        "clause_text": "(a) The HOF Entities shall consult with Constellation to develop a comprehensive energy strategy with respect to the Products & Services listing in Exhibit A, which reflects sustainable product solutions, competitive market pricing (incorporating completion of the Supplier Component Questionnaire in the form of Exhibit B hereof for the applicable HOF Entity or affiliate), periodic reporting and analytics, regulatory/market intelligence and infrastructure services and equipment. Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 2 (b) The HOF Entities or their affiliates shall, during the Term (as defined below), purchase from Constellation, and Constellation shall sell to the HOF Entities and/or their affiliates, as applicable, such Products & Services as shall be requested by an HOF Entity or its affiliates, in each case at the applicable Market Prices for such Products & Services and on competitive terms. For purposes of this Section 1.1(b), (i) the “Market Price” of any Products & Services shall mean the price for such Products & Services established by Constellation as the competitive market price at which such Products & Services are to be made available to Constellation’s customers with a similar anticipated load profile within a specified utility service territory. Constellation shall invoice the applicable HOF Entity or its appropriate affiliate for all Products & Services purchased by such HOF Entity or its appropriate affiliate pursuant to the applicable Second Level Agreement (as defined below). In the event that the purchaser of Products & Services pursuant to this Article | is an affiliate of an HOF Entity (but not an HOF Entity), such affiliate shall be subject to Constellation’s credit approval of such affiliate as the contracting entity. In the event that such affiliate does not meet Constellation’s credit requirements (and in the event that such affiliate still desires to purchase such Products & Services), such affiliate shall provide to Constellation a surety bond reasonably acceptable to Constellation from a provider rated than A- (or an equivalent rating from S&P, Moody’s, Fitch or AM Best) or better prior to the purchase of such Products & Services. (c) The Parties agree and acknowledge that neither HOF Entity or any of its respective affiliates shall be subject to any individual minimum purchase requirement (whether in terms of price, quantity or any other criteria) under this Agreement with respect to the Products & Services, but the HOF Entities and their respective affiliates remain subject to the aggregate EME financing pursuant to Section 2.4 during the Term. (d) All purchases of Products & Services from Constellation by the HOF Entities or their respective affiliates pursuant to this Agreement shall be made pursuant to a separate agreement executed between an HOF Entity or affiliate and Constellation which may include a master retail electricity supply agreement in substantially the form of Exhibit C-1, master retail natural gas supply agreement in substantially the form of Exhibit C-2, transaction confirmation in substantially the form of Exhibit C-3 or similar document or agreement (each, a “Second Level Agreement”). In the event of any conflict or inconsistency between this Agreement and any Second Level Agreement negotiated after execution of this Agreement and not substantially in the form attached hereto, this Agreement shall control except to the extent that the Second Level Agreement expressly refers to this Agreement and states that the specific provision thereof shall be deemed to amend and supersede a specifically identified provision hereof (in which case such specific provision of the Second Level Agreement shall control over such specifically identified provision hereof).",
         "entities": [
             {
                 "text": "Constellation",
@@ -200,6 +200,11 @@
                 "description": "People, including fictional"
             },
             {
+                "text": "Exhibit C-3",
+                "label": "PERSON",
+                "description": "People, including fictional"
+            },
+            {
                 "text": "Second Level Agreement",
                 "label": "LAW",
                 "description": "Named documents made into laws."
@@ -335,7 +340,7 @@
         ],
         "article": "1",
         "clause_number": "1.3",
-        "title": "Delivery; Acceptance."
+        "title": "Delivery: Acceptance."
     },
     {
         "clause_type": "Warranty Duration",
@@ -1013,7 +1018,7 @@
     {
         "clause_type": "Ip Ownership Assignment",
         "classification_confidence": 0.6662,
-        "clause_text": "(a) Reservation of Rights. The HOF Entities and Constellation acknowledge that each Party owns or has rights in certain names, logos, trademarks, service marks, copyrights and other intellectual property (the “Marks”), and owns or has certain merchandising rights in and to its Marks, and all goodwill associated with or symbolized by its Marks. Subject to the license granted hereunder, each Party reserves all right, title and interest in and to its Marks and any merchandising rights in and to such Marks, and all goodwill associated with or symbolized by such Marks. Constellation shall have no right to use the Marks of the HOF Entities (or either of them), the Village or Johnson Controls, Inc. without the prior written consent of the HOF Entities (or the applicable HOF Entity), which shall not be unreasonably withheld, and/or, if applicable, Johnson Controls, Inc. Each Party will be solely responsible for taking such actions as it deems appropriate to obtain and maintain trademark, service mark, or copyright registration for its own Marks and each Party will have the exclusive right to enforce its own Marks, including the right to assert, defend or settle any allegations or claims of infringement, dilution, misappropriation or similar violation of same. (b) Grant of Rights by HOF Entities. The HOF Entities grant to Constellation a nonexclusive, nontransferable, royalty-free license to use the marks set forth on Exhibit F (“HOF Entity Marks”) in the United States or online during the Term solely in connection with (i) Constellation’s use and promotion of the designations set forth on Exhibit E in connection with commercial activations, marketing promotions, commercial programs and marketing programs related to the Village, (ii) B2B-related and B2C-related marketing activities approved by the HOF Entities and (iii) as otherwise expressly contemplated by this Agreement. This license expressly prohibits any pass-through rights or the use of the HOF Entity Marks by any third party, except (x) to Constellation’s subsidiaries and brands for use in a manner consistent with clauses (i) through (iii) hereof or (y) with the express written consent of the HOF Entities (or the appropriate HOF Entity). On termination or expiration of this Agreement, Constellation shall cease all use of the HOF Entity Marks as soon as practicable, but in any event within thirty (30) days unless the particular media which has been approved requires a longer lead time, but in no event longer than ninety (90) days. 5 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 6 (c) Quality Control — Marks. (i) Each licensee Party agrees, in connection with its use of any of the licensor Party’s Marks, to comply with any quality-control standards as such licensor Party may provide hereunder from time to time and which may be revised by the Party owning the Marks from time to time. Each Party shall take such actions as the Party owning the Marks may reasonably request to ensure compliance with such quality-control standards in connection with the licensee Party’s use of any of the Marks. (ii) Each licensee Party shall comply with all applicable laws and regulations and shall obtain all necessary licenses, permits, and governmental approvals, in connection with the manufacture, promotion, advertising, distribution, and sale of any products and/or services utilizing any of the licensor Party’s Marks. (iii) A licensee Party shall not change in any way or in any manner the licensor Party’s Marks in any use on any products or any advertisements or other marketing materials therefor, unless any such proposed change is first approved in writing by the Party owning the Mark(s) in question. Any changes made by a licensee Party to the licensor Party’s Marks will be owned by the applicable Party owning the underlying Marks (which ownership will be confirmed or otherwise documented by the licensee Party in writing, at the request of the Party owning the Marks) and, where approved by the Party owning the Marks pursuant to this subsection (iii), made automatically subject to the terms of this Agreement. (iv) Each licensee Party acknowledges, understands, and agrees that it shall not perform, do, or cause any act to be done, or fail to take any action, during or after the Term, or assist any third party in performing, doing, and/or causing any act to be done, which would in any way or manner be detrimental to, injure or impair, in any way or to any degree: (A) the licensor Party’s Marks (or any of them); (B) any applications for registration and/or registrations therefor; (C) the goodwill related to the licensor Party’s Marks (or any of them); (D) a licensor Party’s federal, state and/or common law and other rights in or to the licensor Party’s Marks; (E) a licensor Party’s right, title, interest, and ownership in and to the licensor Party’s Marks; and/or (F) the validity or enforceability of the any of the foregoing. (d) Grant of Rights by Constellation. Constellation grants to the HOF Entities a nonexclusive, nontransferable, royalty-free license to use the marks set forth on Exhibit G (“Constellation’s Marks”) in the United States or online throughout the Term solely in connection with the Sponsorship Rights, the advertising and promotion of the Village, including any musical, athletic or other live performance events at the Village, in connection with the name of the Center for Excellence and/or any Co-Branded Center for Excellence Logos and otherwise as expressly contemplated by this Agreement. The HOF Entities shall identify Constellation as a sponsor of the Village and shall have the right to use Constellation’s Marks in connection with television, radio and print advertising of the Village and events held at the Village. This license expressly prohibits any pass-through rights or the use of Constellation’s Marks by any third party, without the express written consent of Constellation, except where sublicensing of Constellation’s Marks is necessary or desirable to provide for the Sponsorship Rights and/or the advertising and promotion of the Village. On termination or expiration of this Agreement, the HOF Entities shall cease all use of the Constellation Marks as soon as practicable, but in any event within thirty (30) days unless the particular media which has been approved requires a longer lead time, but in no event longer than one hundred eighty (180) days. Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 7 (e) Limitations on Rights. Each Party agrees it will not use the Sponsorship Rights or any license granted under or in connection with this Agreement in any manner which could reasonably be expected to (i) infringe upon the intellectual property or other propriety rights or rights of publicity or privacy of a Party to this Agreement or any third party, (ii) violate any law, statute, regulation, or ordinance applicable to it, including, without limitation, laws regarding obscenity, discrimination, unfair competition and false advertising, or (iii) be defamatory or trade libelous. The HOF Entities may remove any content, Marks, data or other materials from the HOF Entities’ property and refuse to provide the Sponsorship Rights with respect to any content, Marks, data or other materials which the HOF Entities determine will (x) infringe upon the intellectual property or other propriety rights or rights of publicity or privacy of a Party to this Agreement or any third party, (y) violate any law, statute, regulation, or ordinance, including, without limitation, laws regarding obscenity, discrimination, unfair competition and false advertising, or (z) be defamatory or trade libelous.",
+        "clause_text": "(a) Reservation of Rights. The HOF Entities and Constellation acknowledge that each Party owns or has rights in certain names, logos, trademarks, service marks, copyrights and other intellectual property (the “Marks”), and owns or has certain merchandising rights in and to its Marks, and all goodwill associated with or symbolized by its Marks. Subject to the license granted hereunder, each Party reserves all right, title and interest in and to its Marks and any merchandising rights in and to such Marks, and all goodwill associated with or symbolized by such Marks. Constellation shall have no right to use the Marks of the HOF Entities (or either of them), the Village or Johnson Controls, Inc. without the prior written consent of the HOF Entities (or the applicable HOF Entity), which shall not be unreasonably withheld, and/or, if applicable, Johnson Controls, Inc. Each Party will be solely responsible for taking such actions as it deems appropriate to obtain and maintain trademark, service mark, or copyright registration for its own Marks and each Party will have the exclusive right to enforce its own Marks, including the right to assert, defend or settle any allegations or claims of infringement, dilution, misappropriation or similar violation of same. (b) Grant of Rights by HOF Entities. The HOF Entities grant to Constellation a nonexclusive, nontransferable, royalty-free license to use the marks set forth on Exhibit F (“HOF Entity Marks”) in the United States or online during the Term solely in connection with (i) Constellation’s use and promotion of the designations set forth on Exhibit E in connection with commercial activations, marketing promotions, commercial programs and marketing programs related to the Village, (ii) B2B-related and B2C-related marketing activities approved by the HOF Entities and (iii) as otherwise expressly contemplated by this Agreement. This license expressly prohibits any pass-through rights or the use of the HOF Entity Marks by any third party, except (x) to Constellation’s subsidiaries and brands for use in a manner consistent with clauses (i) through (iii) hereof or (y) with the express written consent of the HOF Entities (or the appropriate HOF Entity). On termination or expiration of this Agreement, Constellation shall cease all use of the HOF Entity Marks as soon as practicable, but in any event within thirty (30) days unless the particular media which has been approved requires a longer lead time, but in no event longer than ninety (90) days. 5 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 6 (c) Quality Control — Marks. (i) Each licensee Party agrees, in connection with its use of any of the licensor Party’s Marks, to comply with any quality-control standards as such licensor Party may provide hereunder from time to time and which may be revised by the Party owning the Marks from time to time. Each Party shall take such actions as the Party owning the Marks may reasonably request to ensure compliance with such quality-control standards in connection with the licensee Party’s use of any of the Marks. (ii) Each licensee Party shall comply with all applicable laws and regulations and shall obtain all necessary licenses, permits, and governmental approvals, in connection with the manufacture, promotion, advertising, distribution, and sale of any products and/or services utilizing any of the licensor Party’s Marks. (iii) A licensee Party shall not change in any way or in any manner the licensor Party’s Marks in any use on any products or any advertisements or other marketing materials therefor, unless any such proposed change is first approved in writing by the Party owning the Mark(s) in question. Any changes made by a licensee Party to the licensor Party’s Marks will be owned by the applicable Party owning the underlying Marks (which ownership will be confirmed or otherwise documented by the licensee Party in writing, at the request of the Party owning the Marks) and, where approved by the Party owning the Marks pursuant to this subsection (iii), made automatically subject to the terms of this Agreement. (iv) Each licensee Party acknowledges, understands, and agrees that it shall not perform, do, or cause any act to be done, or fail to take any action, during or after the Term, or assist any third party in performing, doing, and/or causing any act to be done, which would in any way or manner be detrimental to, injure or impair, in any way or to any degree: (A) the licensor Party’s Marks (or any of them); (B) any applications for registration and/or registrations therefor; (C) the goodwill related to the licensor Party’s Marks (or any of them); (D) a licensor Party’s federal, state and/or common law and other rights in or to the licensor Party’s Marks; (E) a licensor Party’s right, title, interest, and ownership in and to the licensor Party’s Marks; and/or (F) the validity or enforceability of the any of the foregoing. (d) Grant of Rights by Constellation. Constellation grants to the HOF Entities a nonexclusive, nontransferable, royalty-free license to use the marks set forth on Exhibit G (“Constel lation’s Marks”) in the United States or online throughout the Term solely in connection with the Sponsorship Rights, the advertising and promotion of the Village, including any musical, athletic or other live performance events at the Village, in connection with the name of the Center for Excellence and/or any Co-Branded Center for Excellence Logos and otherwise as expressly contemplated by this Agreement. The HOF Entities s Constellation’s Marks in connection with television, radi prohibits any pass-through rights or the use of Constel except where sublicensing of Constellation’s Marks is hall identify Constellation as a sponsor of the Village and shall have the right to use o and print advertising of the Village and events held at the Village. This license expressly ation’s Marks by any third party, without the express written consent of Constellation, necessary or desirable to provide for the Sponsorship Rights and/or the advertising and promotion of the Village. On termination or expiration of this Agreement, the HOF Entities shall cease all use of the Constellation Marks as soon as practicable, but in any event within thirty (30) days un event longer than one hundred eighty (180) days. less the particular media which has been approved requires a longer lead time, but in no Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 7 (e) Limitations on Rights. Each Party agrees it will not use the Sponsorship Rights or any license granted under or in connection with this Agreement in any manner which could reasonably be expected to (i) infringe upon the intellectual property or other propriety rights or rights of publicity or privacy of a Party to this Agreement or any third party, (ii) violate any law, statute, regulation, or ordinance applicable to it, including, without limitation, laws regarding obscenity, discrimination, unfair competition and false advertising, or (iii) be defamatory or trade libelous. The HOF Entities may remove any content, Marks, data or other materials from the HOF Entities’ property and refuse to provide the Sponsorship Rights with respect to any content, Marks, data or other materials which the HOF Entities determine will (x) infringe upon the intellectual property or other propriety rights or rights of publicity or privacy of a Party to this Agreement or any third party, (y) violate any law, statute, regulation, or ordinance, including, without limitation, laws regarding obscenity, discrimination, unfair competition and false advertising, or (z) be defamatory or trade libelous.",
         "entities": [
             {
                 "text": "The HOF Entities",
@@ -1366,6 +1371,11 @@
                 "description": "Objects, vehicles, foods, etc. (not services)"
             },
             {
+                "text": "Constel",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
                 "text": "the United States",
                 "label": "GPE",
                 "description": "Countries, cities, states"
@@ -1391,16 +1401,26 @@
                 "description": "Companies, agencies, institutions, etc."
             },
             {
+                "text": "The HOF Entities s Constellation’s Marks",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "Constel",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "Constellation’s Marks",
+                "label": "FAC",
+                "description": "Buildings, airports, highways, bridges, etc."
+            },
+            {
                 "text": "Constellation",
                 "label": "PRODUCT",
                 "description": "Objects, vehicles, foods, etc. (not services)"
             },
             {
-                "text": "Constellation’s Marks",
-                "label": "FAC",
-                "description": "Buildings, airports, highways, bridges, etc."
-            },
-            {
                 "text": "Village",
                 "label": "LOC",
                 "description": "Non-GPE locations, mountain ranges, bodies of water"
@@ -1409,11 +1429,6 @@
                 "text": "Village",
                 "label": "LOC",
                 "description": "Non-GPE locations, mountain ranges, bodies of water"
-            },
-            {
-                "text": "Constellation’s Marks",
-                "label": "FAC",
-                "description": "Buildings, airports, highways, bridges, etc."
             },
             {
                 "text": "third",
@@ -1426,11 +1441,6 @@
                 "description": "Objects, vehicles, foods, etc. (not services)"
             },
             {
-                "text": "Constellation’s Marks",
-                "label": "FAC",
-                "description": "Buildings, airports, highways, bridges, etc."
-            },
-            {
                 "text": "the Constellation Marks",
                 "label": "FAC",
                 "description": "Buildings, airports, highways, bridges, etc."
@@ -1439,6 +1449,11 @@
                 "text": "30) days",
                 "label": "DATE",
                 "description": "Absolute or relative dates or periods"
+            },
+            {
+                "text": "un",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
             },
             {
                 "text": "180) days",
@@ -1638,8 +1653,8 @@
     },
     {
         "clause_type": "Expiration Date",
-        "classification_confidence": 0.9504,
-        "clause_text": "The term of this Agreement (the “Term”), unless mutually extended by written agreement of the Parties or unless sooner terminated as provided herein, shall commence effective as of the date hereof and shall expire on December 31, 2028. 7 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 8",
+        "classification_confidence": 0.9827,
+        "clause_text": "The term of this Agreement (the “Term’”), unless mutually extended by written agreement of the Parties or unless sooner terminated as provided herein, shall commence effective as of the date hereof and shall expire on December 31, 2028. 7 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 8 42 Termination; Available Remedies. (a) Right to Terminate for Default. A Party shall be in default hereunder if any of the following events shall occur (each of such events being an “Event of Default”): (i) Such Party fails to perform timely any of its material obligations hereunder and such default shall continue for a period of sixty (60) days following receipt by such Party of written notice from the other Party specifying such default; provided that, if the default specified in such notice is curable but of a nature such that it cannot be cured through the exercise of reasonable diligence within the sixty (60) day cure period, then such sixty (60) day cure period shall be extended to a period as is reasonable (but in no event more than sixty (60) days, subject to delay due to force majeure) to cure such default pursuant to a mutually agreed plan of cure, provided that the non-performing Party has proceeded at all times and is continuing to proceed in a diligent and reasonable manner to cure; (ii) Such Party becomes insolvent, or takes the benefit of any present or future insolvency or bankruptcy statute, or makes a general assignment for the benefit of creditors, or files a voluntary petition in bankruptcy or a petition or answer seeking an arrangement, reorganization or readjustment of its indebtedness under the Federal bankruptcy laws or under any law or statute of the United States or any state thereof, or consents to the appointment of a receiver, trustee or liquidator of all or substantially all of its property; (iii) By court order or decree such Party is adjudged bankrupt or an order is made approving a petition filed by any of its creditors or by any of its stockholders or partners seeking its reorganization or the readjustment of its indebtedness under the Federal bankruptcy laws or under any law or statute of the United States or any state thereof; (iv) An involuntary petition under any bankruptcy or insolvency law, or an action under present or future insolvency law or statute, is filed against such Party and is not dismissed or stayed within sixty (60) days after the filing thereof; or (v) Such Party sells, conveys, assigns or otherwise transfers all or substantially all of its assets (other than to one of its affiliates in the case of an HOF Entity) in breach of Section 6.2. If either Party is in default under this Section 4.2(a) beyond the applicable grace or cure periods, then the other Party shall be entitled to terminate this Agreement and to seek such other remedies as are described in Section 4.2(d). (b) Right to Terminate for Potential Reputational Damage. Each of the HOF Entities or Constellation may terminate this Agreement at any time without liability if association with another Party could, in such Party’s reasonable opinion, materially damage its reputation or image or in the event a Party breaches Section 3.3 hereof, which breach is not cured within sixty (60). days of receipt of notice of such breach. 8 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 9 (c) Right to Terminate for Failure to Recover Investment. Constellation may terminate this Agreement, effective as of December 31, 2023, in the event that (i) on or prior to December 1, 2022, Constellation shall have provided to the HOF Entities written notice of its election to terminate this Agreement pursuant to this Section 4.2(c) and (ii) during the period commencing on the date hereof and concluding on December 1, 2022, Constellation shall not have accrued (or been required to accrue in accordance with U.S. generally accepted accounting principles) an amount of New Business (as defined below) of not less than the amount of Sponsorship Fees actually paid by Constellation to the HOF Entities prior to December 1, 2022. [***] Constellation will provide a monthly report to the HOF Entities as to all New Business contracted from the previous month and a pipeline of all active and lost opportunities. In January of each calendar year Constellation shall allow, at the written request and expense of the HOF Entities, the HOF Entities the right to audit during normal business hours all relevant Constellation records related to New Business generated during the immediately preceding calendar year. (d) Remedies; Effect of Termination or Expiration. (i) HOF Entity Remedies. In the event of an Event of Default by Constellation which is not cured within the applicable grace or cure period, the HOF Entities shall have the right, in their sole discretion, (A) to terminate this Agreement, (B) to remove immediately any advertising signs and/or promotional materials covered by this Agreement, and/or (C) to assert any and all other remedies which the HOF Entities may have under this Agreement and/or pursuant to law and/or equity. (ii) Constellation Remedies. In the event of an Event of Default by the HOF Entities (or either of them) which is not cured within the applicable grace or cure period, Constellation shall have the right, in its sole discretion, (A) to terminate this Agreement and/or (B) to assert any and all other remedies which Constellation may have under this Agreement and/or pursuant to law and/or equity. (iii) Effect of Termination or Expiration. In the event of a termination of this Agreement by either Party for any reason, or upon the expiration of the Term, the Parties agree that all representations and warranties made under this Agreement and the indemnification provisions set forth in Section 5.2 for any claims, demands, causes of action, suits or judgments by third parties or losses, liabilities, costs or expenses which may arise on or before the effective date of termination shall survive. In the event of any termination of this Agreement, this Agreement shall forthwith become wholly void and of no further force and effect and there shall be no liability on the part of the HOF Entities (or either of them) or Constellation, except that the provisions of Section 3.3(a), this Section 4.2(d), Section 5.2 (with respect to the period prior to termination) and Article 6 (other than Section 6.7 and Section 6.9) shall survive any such termination of this Agreement.",
         "entities": [
             {
                 "text": "December 31, 2028",
@@ -1657,48 +1672,10 @@
                 "description": "Absolute or relative dates or periods"
             },
             {
-                "text": "8",
-                "label": "CARDINAL",
-                "description": "Numerals that do not fall under another type"
-            }
-        ],
-        "contractual_indicators": {
-            "date_entities": [
-                "December 31, 2028",
-                "1/23/2020"
-            ],
-            "contractual_phrases": {
-                "termination_language": [
-                    "terminate"
-                ]
-            }
-        },
-        "top_predictions": [
-            {
-                "label": 12,
-                "clause_type": "Expiration Date",
-                "confidence": 0.9504
+                "text": "8 42 Termination",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
             },
-            {
-                "label": 10,
-                "clause_type": "Effective Date",
-                "confidence": 0.043
-            },
-            {
-                "label": 2,
-                "clause_type": "Agreement Date",
-                "confidence": 0.0005
-            }
-        ],
-        "article": "4",
-        "clause_number": "4.1",
-        "title": "Term."
-    },
-    {
-        "clause_type": "Warranty Duration",
-        "classification_confidence": 0.4555,
-        "clause_text": "(a) Right to Terminate for Default. A Party shall be in default hereunder if any of the following events shall occur (each of such events being an “Event of Default”): (i) Such Party fails to perform timely any of its material obligations hereunder and such default shall continue for a period of sixty (60) days following receipt by such Party of written notice from the other Party specifying such default; provided that, if the default specified in such notice is curable but of a nature such that it cannot be cured through the exercise of reasonable diligence within the sixty (60) day cure period, then such sixty (60) day cure period shall be extended to a period as is reasonable (but in no event more than sixty (60) days, subject to delay due to force majeure) to cure such default pursuant to a mutually agreed plan of cure, provided that the non-performing Party has proceeded at all times and is continuing to proceed in a diligent and reasonable manner to cure; (ii) Such Party becomes insolvent, or takes the benefit of any present or future insolvency or bankruptcy statute, or makes a general assignment for the benefit of creditors, or files a voluntary petition in bankruptcy or a petition or answer seeking an arrangement, reorganization or readjustment of its indebtedness under the Federal bankruptcy laws or under any law or statute of the United States or any state thereof, or consents to the appointment of a receiver, trustee or liquidator of all or substantially all of its property; (iii) By court order or decree such Party is adjudged bankrupt or an order is made approving a petition filed by any of its creditors or by any of its stockholders or partners seeking its reorganization or the readjustment of its indebtedness under the Federal bankruptcy laws or under any law or statute of the United States or any state thereof; (iv) An involuntary petition under any bankruptcy or insolvency law, or an action under present or future insolvency law or statute, is filed against such Party and is not dismissed or stayed within sixty (60) days after the filing thereof; or (v) Such Party sells, conveys, assigns or otherwise transfers all or substantially all of its assets (other than to one of its affiliates in the case of an HOF Entity) in breach of Section 6.2. If either Party is in default under this Section 4.2(a) beyond the applicable grace or cure periods, then the other Party shall be entitled to terminate this Agreement and to seek such other remedies as are described in Section 4.2(d). (b) Right to Terminate for Potential Reputational Damage. Each of the HOF Entities or Constellation may terminate this Agreement at any time without liability if association with another Party could, in such Party’s reasonable opinion, materially damage its reputation or image or in the event a Party breaches Section 3.3 hereof, which breach is not cured within sixty (60). days of receipt of notice of such breach. 8 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 9 (c) Right to Terminate for Failure to Recover Investment. Constellation may terminate this Agreement, effective as of December 31, 2023, in the event that (i) on or prior to December 1, 2022, Constellation shall have provided to the HOF Entities written notice of its election to terminate this Agreement pursuant to this Section 4.2(c) and (ii) during the period commencing on the date hereof and concluding on December 1, 2022, Constellation shall not have accrued (or been required to accrue in accordance with U.S. generally accepted accounting principles) an amount of New Business (as defined below) of not less than the amount of Sponsorship Fees actually paid by Constellation to the HOF Entities prior to December 1, 2022. [***] Constellation will provide a monthly report to the HOF Entities as to all New Business contracted from the previous month and a pipeline of all active and lost opportunities. In January of each calendar year Constellation shall allow, at the written request and expense of the HOF Entities, the HOF Entities the right to audit during normal business hours all relevant Constellation records related to New Business generated during the immediately preceding calendar year. (d) Remedies; Effect of Termination or Expiration. (i) HOF Entity Remedies. In the event of an Event of Default by Constellation which is not cured within the applicable grace or cure period, the HOF Entities shall have the right, in their sole discretion, (A) to terminate this Agreement, (B) to remove immediately any advertising signs and/or promotional materials covered by this Agreement, and/or (C) to assert any and all other remedies which the HOF Entities may have under this Agreement and/or pursuant to law and/or equity. (ii) Constellation Remedies. In the event of an Event of Default by the HOF Entities (or either of them) which is not cured within the applicable grace or cure period, Constellation shall have the right, in its sole discretion, (A) to terminate this Agreement and/or (B) to assert any and all other remedies which Constellation may have under this Agreement and/or pursuant to law and/or equity. (iii) Effect of Termination or Expiration. In the event of a termination of this Agreement by either Party for any reason, or upon the expiration of the Term, the Parties agree that all representations and warranties made under this Agreement and the indemnification provisions set forth in Section 5.2 for any claims, demands, causes of action, suits or judgments by third parties or losses, liabilities, costs or expenses which may arise on or before the effective date of termination shall survive. In the event of any termination of this Agreement, this Agreement shall forthwith become wholly void and of no further force and effect and there shall be no liability on the part of the HOF Entities (or either of them) or Constellation, except that the provisions of Section 3.3(a), this Section 4.2(d), Section 5.2 (with respect to the period prior to termination) and Article 6 (other than Section 6.7 and Section 6.9) shall survive any such termination of this Agreement. ARTICLES REPRESENTATIONS AND WARRANTIES; INDEMNIFICATION",
-        "entities": [
             {
                 "text": "Party",
                 "label": "ORG",
@@ -2082,6 +2059,9 @@
         ],
         "contractual_indicators": {
             "date_entities": [
+                "December 31, 2028",
+                "1/23/2020",
+                "8 42 Termination",
                 "60) days",
                 "60) day",
                 "60) day",
@@ -2112,24 +2092,24 @@
         },
         "top_predictions": [
             {
-                "label": 40,
-                "clause_type": "Warranty Duration",
-                "confidence": 0.4555
+                "label": 12,
+                "clause_type": "Expiration Date",
+                "confidence": 0.9827
             },
             {
-                "label": 33,
-                "clause_type": "Rofr/Rofo/Rofn",
-                "confidence": 0.2014
+                "label": 10,
+                "clause_type": "Effective Date",
+                "confidence": 0.0087
             },
             {
-                "label": 29,
-                "clause_type": "Post-Termination Services",
-                "confidence": 0.1073
+                "label": 27,
+                "clause_type": "Notice Period To Terminate Renewal",
+                "confidence": 0.0019
             }
         ],
         "article": "4",
-        "clause_number": "4.2",
-        "title": "Termination; Available Remedies."
+        "clause_number": "4.1",
+        "title": "Term."
     },
     {
         "clause_type": "Governing Law",
@@ -2332,7 +2312,7 @@
     {
         "clause_type": "Cap On Liability",
         "classification_confidence": 0.8142,
-        "clause_text": "(a) By Constellation. Constellation agrees to defend, indemnify and hold harmless the HOF Entities and their respective shareholders, partners, officers, directors, employees, successors, assigns, representatives, servants and agents (collectively, the “HOF Entity Indemnified Persons”) from and against, and Constellation waives any claim for contribution or indemnity against any HOF Entity Indemnified Person with respect to, any and all claims, suits, actions, claims, monetary damages, losses, liabilities, fines, fees, penalties, costs and expenses (“Losses”), and all reasonable attorneys’ fees and expenses, including court costs and expert witness fees and costs, incurred in connection with Losses and/or enforcement of this Agreement (“Indemnified Losses”) resulting from or arising out of (i) the use or display by the HOF Entities (or either of them) of Constellation’s Marks or the Co-Branded Center for Excellence Logos (in each case, as permitted by this Agreement); (ii) the promotion, advertising, distribution and/or sale of any Products & Services by Constellation pursuant to any license granted by the HOF Entities (or either of them) herein; (iii) any breach by Constellation of its representations, warranties and/or obligations under this Agreement; or (iv) the subject matter, content or copy contained in any advertising material, promotional material, signage or intellectual property furnished by Constellation in accordance with this Agreement, including any and all claims for infringement of trademark rights, copyrights, testimonials, rights of publicity, or the rights to use names, likenesses, slogans, photographs or patents. Indemnity for Products & Services provided by Constellation hereunder shall be governed by the terms of the applicable Second Level Agreement(s). (b) By the HOF Entities. Each HOF Entity agrees, on a several but not joint basis, to defend, indemnify and hold harmless Constellation, and its shareholders, partners, officers, directors, employees, successors, assigns, representatives, servants and agents (collectively, the “Constellation Indemnified Persons”) from and against, and the HOF Entities waive any claim for contribution or indemnity against any Constellation Indemnified Person with respect to, any and all Indemnified Losses resulting from or arising out of (i) the use or display by Constellation of HOF Entity Marks as permitted by this Agreement or (ii) any breach by such HOF Entity of its representations, warranties and/or obligations under this Agreement. (c) Notice of Claim. In the event that an HOF Entity seeks indemnification on behalf of an HOF Entity Indemnified Person, or Constellation seeks indemnification on behalf of a Constellation Indemnified Person, such Party seeking indemnification (the “Indemnified Party”) shall give reasonably prompt notice to the indemnifying Party (the “Indemnifying Party”) specifying the facts constituting the basis for such claim and the amount, to the extent known, of the claim asserted; provided, however, that the right of a person or entity to be indemnified hereunder shall not be adversely affected by a failure to give such notice unless, and then only to the extent that, any Indemnifying Party is actually irrevocably and materially prejudiced thereby. Subject to the terms hereof, the Indemnifying Party shall pay the amount of any valid claim not more than ten (10) days after the Indemnified Party provides notice to the Indemnifying Party of such amount. a Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 12 (d) Right to Contest Claims of Third Persons. If an Indemnified Party is entitled to indemnification hereunder because of a claim asserted by any claimant (other than a Constellation Indemnified Person or HOF Entity Indemnified Person) (a “Third Person”), the Indemnified Party shall give the Indemnifying Party reasonably prompt notice thereof after such assertion is actually known to the Indemnified Party; provided, however, that the right of a person or entity to be indemnified hereunder in respect of claims made by a Third Person shall not be adversely affected by a failure to give such notice unless, and then only to the extent that, an Indemnifying Party is actually irrevocably and materially prejudiced thereby. The Indemnifying Party shall have the right, upon written notice to the Indemnified Party, and using counsel reasonably satisfactory to the Indemnified Party, to investigate, contest or settle the claim alleged by such Third Person (a “Third Person Claim”), provided that the Indemnifying Party has unconditionally acknowledged to the Indemnified Party in writing its obligation to indemnify the persons and entities to be indemnified hereunder with respect to such Third Person Claim and to discharge (and does in fact so discharge) any cost or expense arising out of such investigation, contest or settlement. The Indemnified Party may thereafter participate in (but not control) the defense of any such Third Person Claim with its own counsel at its own expense, unless separate representation is necessary to avoid a conflict of interest, in which case such representation shall be at the expense of the Indemnifying Party. Unless and until the Indemnifying Party so acknowledges its obligation to indemnify, the Indemnified Party shall have the right, at its option, to assume and control defense of the matter and to look to the Indemnifying Party for the full amount of the reasonable costs of defense. The failure of the Indemnifying Party to respond in writing to the aforesaid notice of the Indemnified Party with respect to such Third Person Claim within thirty (30) days after receipt thereof shall be deemed an irrevocable election not to defend the same. If the Indemnifying Party does not so acknowledge its obligation to indemnify and assume the defense of any such Third Person Claim, (i) the Indemnified Party may defend against such claim using counsel of its choice, in such manner as it may reasonably deem appropriate, including, but not limited to, settling such claim, after giving notice of the same to the Indemnifying Party, on such terms as the Indemnified Party may reasonably deem appropriate, and (ii) the Indemnifying Party may participate in (but not control) the defense of such action, with its own counsel at its own expense. If the Indemnifying Party thereafter seeks to question the manner in which the Indemnified Party defended such Third Person Claim or the amount or nature of any such settlement, the Indemnifying Party shall have the burden to prove by clear and convincing evidence that conduct of the Indemnified Party in the defense and/or settlement of such Third Person Claim constituted gross negligence or willful misconduct. The Parties shall make available to each other all relevant information in their possession relating to any such Third Person Claim and shall cooperate in the defense thereof.",
+        "clause_text": "(a) By Constellation. Constellation agrees to defend, indemnify and hold harmless the HOF Entities and their respective shareholders, partners, officers, directors, employees, successors, assigns, representatives, servants and agents (collectively, the “HOF Entity Indemnified Persons”) from and against, and Constellation waives any claim for contribution or indemnity against any HOF Entity Indemnified Person with respect to, any and all claims, suits, actions, claims, monetary damages, losses, liabilities, fines, fees, penalties, costs and expenses (“Losses”), and all reasonable attorneys’ fees and expenses, including court costs and expert witness fees and costs, incurred in connection with Losses and/or enforcement of this Agreement (“Indemnified Losses”) resulting from or arising out of (i) the use or display by the HOF Entities (or either of them) of Constellation’s Marks or the Co-Branded Center for Excellence Logos (in each case, as permitted by this Agreement); (ii) the promotion, advertising, distribution and/or sale of any Products & Services by Constellation pursuant to any license granted by the HOF Entities (or either of them) herein; (iii) any breach by Constellation of its representations, warranties and/or obligations under this Agreement; or (iv) the subject matter, content or copy contained in any advertising material, promotional material, signage or intellectual property furnished by Constellation in accordance with this Agreement, including any and all claims for infringement of trademark rights, copyrights, testimonials, rights of publicity, or the rights to use names, likenesses, slogans, photographs or patents. Indemnity for Products & Services provided by Constellation hereunder shall be governed by the terms of the applicable Second Level Agreement(s). (b) By the HOF Entities. Each HOF Entity agrees, on a several but not joint basis, to defend, indemnify and hold harmless Constellation, and its shareholders, partners, officers, directors, employees, successors, assigns, representatives, servants and agents (collectively, the “Constellation Indemnified Persons”) from and against, and the HOF Entities waive any claim for contribution or indemnity against any Constellation Indemnified Person with respect to, any and all Indemnified Losses resulting from or arising out of (i) the use or display by Constellation of HOF Entity Marks as permitted by this Agreement or (ii) any breach by such HOF Entity of its representations, warranties and/or obligations under this Agreement. (c) Notice of Claim. In the event that an HOF Entity seeks indemnification on behalf of an HOF Entity Indemnified Person, or Constellation seeks indemnification on behalf of a Constellation Indemnified Person, such Party seeking indemnification (the “Indemnified Party”) shall give reasonably prompt notice to the indemnifying Party (the “Indemnifying Party”) specifying the facts constituting the basis for such claim and the amount, to the extent known, of the claim asserted; provided, however, that the right of a person or entity to be indemnified hereunder shall not be adversely affected by a failure to give such notice unless, and then only to the extent that, any Indemnifying Party is actually irrevocably and materially prejudiced thereby. Subject to the terms hereof, the Indemnifying Party shall pay the amount of any valid claim not more than ten (10) days after the Indemnified Party provides notice to the Indemnifying Party of such amount. Il Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 12 (d) Right to Contest Claims of Third Persons. If an Indemnified Party is entitled to indemnification hereunder because of a claim asserted by any claimant (other than a Constellation Indemnified Person or HOF Entity Indemnified Person) (a “Third Person”), the Indemnified Party shall give the Indemnifying Party reasonably prompt notice thereof after such assertion is actually known to the Indemnified Party; provided, however, that the right of a person or entity to be indemnified hereunder in respect of claims made by a Third Person shall not be adversely affected by a failure to give such notice unless, and then only to the extent that, an Indemnifying Party is actually irrevocably and materially prejudiced thereby. The Indemnifying Party shall have the right, upon written notice to the Indemnified Party, and using counsel reasonably satisfactory to the Indemnified Party, to investigate, contest or settle the claim alleged by such Third Person (a “Third Person Claim”), provided that the Indemnifying Party has unconditionally acknowledged to the Indemnified Party in writing its obligation to indemnify the persons and entities to be indemnified hereunder with respect to such Third Person Claim and to discharge (and does in fact so discharge) any cost or expense arising out of such investigation, contest or settlement. The Indemnified Party may thereafter participate in (but not control) the defense of any such Third Person Claim with its own counsel at its own expense, unless separate representation is necessary to avoid a conflict of interest, in which case such representation shall be at the expense of the Indemnifying Party. Unless and until the Indemnifying Party so acknowledges its obligation to indemnify, the Indemnified Party shall have the right, at its option, to assume and control defense of the matter and to look to the Indemnifying Party for the full amount of the reasonable costs of defense. The failure of the Indemnifying Party to respond in writing to the aforesaid notice of the Indemnified Party with respect to such Third Person Claim within thirty (30) days after receipt thereof shall be deemed an irrevocable election not to defend the same. If the Indemnifying Party does not so acknowledge its obligation to indemnify and assume the defense of any such Third Person Claim, (i) the Indemnified Party may defend against such claim using counsel of its choice, in such manner as it may reasonably deem appropriate, including, but not limited to, settling such claim, after giving notice of the same to the Indemnifying Party, on such terms as the Indemnified Party may reasonably deem appropriate, and (ii) the Indemnifying Party may participate in (but not control) the defense of such action, with its own counsel at its own expense. If the Indemnifying Party thereafter seeks to question the manner in which the Indemnified Party defended such Third Person Claim or the amount or nature of any such settlement, the Indemnifying Party shall have the burden to prove by clear and convincing evidence that conduct of the Indemnified Party in the defense and/or settlement of such Third Person Claim constituted gross negligence or willful misconduct. The Parties shall make available to each other all relevant information in their possession relating to any such Third Person Claim and shall cooperate in the defense thereof.",
         "entities": [
             {
                 "text": "the HOF Entities",
@@ -2498,6 +2478,11 @@
                 "text": "the Indemnifying Party",
                 "label": "ORG",
                 "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "Il Source",
+                "label": "PERSON",
+                "description": "People, including fictional"
             },
             {
                 "text": "GPAQ ACQUISITION HOLDINGS, INC.",
@@ -3036,9 +3021,9 @@
         "title": "Assignment."
     },
     {
-        "clause_type": "Anti-Assignment",
-        "classification_confidence": 0.9698,
-        "clause_text": "This Agreement, together with the Exhibits attached hereto, which are hereby incorporated herein by this reference, constitutes the entire agreement with respect to the subject matter hereof between the Parties and shall become a binding and enforceable agreement among the Parties and their respective successors and permitted assigns commencing as of the date hereof. No prior verbal or written agreement between the Parties with respect to the subject matter hereof shall survive the execution of this Agreement. 13 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 14 64 Modifications. No amendment or modification of any of the terms and conditions of this Agreement shall be effective unless such modification is expressed in writing and executed by each of the Parties.",
+        "clause_type": "Effective Date",
+        "classification_confidence": 0.4957,
+        "clause_text": "This Agreement, together with the Exhibits attached hereto, which are hereby incorporated herein by this reference, constitutes the entire agreement with respect to the subject matter hereof between the Parties and shall become a binding and enforceable agreement among the Parties and their respective successors and permitted assigns commencing as of the date hereof. No prior verbal or written agreement between the Parties with respect to the subject matter hereof shall survive the execution of this Agreement. 13 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 14",
         "entities": [
             {
                 "text": "Exhibits",
@@ -3061,15 +3046,14 @@
                 "description": "Absolute or relative dates or periods"
             },
             {
-                "text": "14 64",
-                "label": "DATE",
-                "description": "Absolute or relative dates or periods"
+                "text": "14",
+                "label": "CARDINAL",
+                "description": "Numerals that do not fall under another type"
             }
         ],
         "contractual_indicators": {
             "date_entities": [
-                "1/23/2020",
-                "14 64"
+                "1/23/2020"
             ],
             "contractual_phrases": {
                 "assignment_language": [
@@ -3079,24 +3063,51 @@
         },
         "top_predictions": [
             {
+                "label": 10,
+                "clause_type": "Effective Date",
+                "confidence": 0.4957
+            },
+            {
                 "label": 3,
                 "clause_type": "Anti-Assignment",
-                "confidence": 0.9698
+                "confidence": 0.1447
             },
             {
-                "label": 12,
-                "clause_type": "Expiration Date",
-                "confidence": 0.0053
-            },
-            {
-                "label": 13,
-                "clause_type": "Governing Law",
-                "confidence": 0.0032
+                "label": 15,
+                "clause_type": "Ip Ownership Assignment",
+                "confidence": 0.1357
             }
         ],
         "article": "6",
         "clause_number": "6.3",
         "title": "Entire Agreement."
+    },
+    {
+        "clause_type": "Anti-Assignment",
+        "classification_confidence": 0.9524,
+        "clause_text": "No amendment or modification of any of the terms and conditions of this Agreement shall be effective unless such modification is expressed in writing and executed by each of the Parties.",
+        "entities": [],
+        "contractual_indicators": {},
+        "top_predictions": [
+            {
+                "label": 3,
+                "clause_type": "Anti-Assignment",
+                "confidence": 0.9524
+            },
+            {
+                "label": 6,
+                "clause_type": "Change Of Control",
+                "confidence": 0.007
+            },
+            {
+                "label": 26,
+                "clause_type": "Non-Transferable License",
+                "confidence": 0.0033
+            }
+        ],
+        "article": "6",
+        "clause_number": "6.4",
+        "title": "Modifications."
     },
     {
         "clause_type": "Governing Law",
@@ -3938,9 +3949,9 @@
         "title": "Cost and Expenses."
     },
     {
-        "clause_type": "Parties",
-        "classification_confidence": 0.4456,
-        "clause_text": "The Parties acknowledge and agree that rights vested in the HOF Entities collectively under this Agreement shall be deemed vested in each HOF Entity and its affiliates and that obligations of the HOF Entities collectively under this Agreement may be satisfied by either HOF Entity or any of their affiliates. Without limiting the generality of the foregoing, while certain rights set forth in this Agreement may be contemplated to be provided by HOFV and other rights set forth in this Agreement may be contemplated to be provided by PFHOF (or by both HOF Entities), each of such rights may be provided by HOFV, PFHOF and/or any of their respective affiliates. [Signature Page Follows] 16 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 17 IN WITNESS WHEREOF, the undersigned have caused this Agreement to be duly executed as of the date first set forth above. 17 HOFV: HOF VILLAGE, LLC By: /s/ Brian Parisi Name: David Baker Title: Chief Financial Officer PFHOF: NATIONAL FOOTBALL MUSEUM, INC., D/B/A PRO FOOTBALL HALL OF FAME By: /s/ Brian Parisi Name: David Baker Title: President & CEO CONSTELLATION NEWENERGY, INC. By: /s/ Mark P. Huston Name: Mark P. Hu: Title: President & Constellation Retail President / CEO CNE n Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 18 EXHIBIT A PRODUCTS & SERVICES [Redacted] Exh. A-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 19 EXHIBIT B FORM OF SUPPLIER COMPONENT QUESTIONNAIRE [Redacted] Exh. B-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 20 EXHIBIT C FORMS OF SECOND LEVEL AGREEMENTS [Redacted] Exh. C-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 21 EXHIBIT D CONSTRUCTION SCHEDULE National Youth Football & Sports Complex The Center for Excellence Hall of Fame Hotel & Conference Center Hall of Fame Promenade (restaurants, retail & residential) Player Care Center including Legends Landing/Residential The Center for Athletic Performance & Safety Hall of Fame Experience (amusement/water park recreation) Exh. D-1 4th Quarter 2019 3rd Quarter 2020 Ath Quarter 2020 Ath Quarter 2020 2nd Quarter 2021 2nd Quarter 2021 2nd Quarter 2021 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 22 EXHIBIT E SPONSORSHIP RIGHTS [Redacted] Exh. E-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 23 EXHIBIT F HOF ENTITY MARKS JOHNSON CONTROLS HALL OF FAME VILLAGE PRO FOOTBALL HALL OF FAME CONSTELLATION CENTER FOR EXCELLENCE All Co-Branded Center for Excellence Logos Exh. F-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 24 EXHIBIT G CONSTELLATION’S MARKS CONSTELLATION — : «= Constellation LT GS a Constellation. America’s energy choice. America’s | energy choice. Exh. G-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 25 EXHIBIT H SPONSORSHIP FEES AND ACTIVATION FUND PROCEEDS [Redacted] EXH. H-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020",
+        "clause_type": "Joint Ip Ownership",
+        "classification_confidence": 0.3859,
+        "clause_text": "The Parties acknowledge and agree that rights vested in the HOF Entities collectively under this Agreement shall be deemed vested in each HOF Entity and its affiliates and that obligations of the HOF Entities collectively under this Agreement may be satisfied by either HOF Entity or any of their affiliates. Without limiting the generality of the foregoing, while certain rights set forth in this Agreement may be contemplated to be provided by HOFV and other rights set forth in this Agreement may be contemplated to be provided by PFHOF (or by both HOF Entities), each of such rights may be provided by HOFV, PFHOF and/or any of their respective affiliates. [Signature Page Follows] 16 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 17 IN WITNESS WHEREOF, the undersigned have caused this Agreement to be duly executed as of the date first set forth above. HOFV: HOF VILLAGE, LLC By: /s/ Brian Parisi Name: David Baker Title: Chief Financial Officer PFHOF: NATIONAL FOOTBALL MUSEUM, INC., D/B/A PRO FOOTBALL HALL OF FAME By: /s/ Brian Parisi Name: David Baker Title: President & CEO CONSTELLATION NEWENERGY, INC. By: /s/ Mark P. Huston Name: Mark P. Huston Title: President & Constellation Retail President / CEO CNE 17 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 18 EXHIBIT A PRODUCTS & SERVICES [Redacted] Exh. A-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 19 EXHIBITB FORM OF SUPPLIER COMPONENT QUESTIONNAIRE [Redacted] Exh. B-1 Source: GPAQ ACQUISITION HOLDINGS, INC., $-4/A, 1/23/2020 Page 20 EXHIBIT C FORMS OF SECOND LEVEL AGREEMENTS [Redacted] Exh. C-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 21 EXHIBIT D CONSTRUCTION SCHEDULE National Youth Football & Sports Complex The Center for Excellence Hall of Fame Hotel & Conference Center Hall of Fame Promenade (restaurants, retail & residential) Player Care Center including Legends Landing/Residential The Center for Athletic Performance & Safety Hall of Fame Experience (amusement/water park recreation) Exh. D-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 4th Quarter 2019 3rd Quarter 2020 4th Quarter 2020 4th Quarter 2020 2nd Quarter 2021 2nd Quarter 2021 2nd Quarter 2021 Page 22 EXHIBITE SPONSORSHIP RIGHTS [Redacted] Exh, E-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 23 EXHIBIT F HOF ENTITY MARKS JOHNSON CONTROLS HALL OF FAME VILLAGE PRO FOOTBALL HALL OF FAME CONSTELLATION CENTER FOR EXCELLENCE All Co-Branded Center for Excellence Logos Exh. F-1 Source: GPAQ ACQUISITION HOLDINGS, INC., $-4/A, 1/23/2020 Page 24 EXHIBIT G CONSTELLATION’S MARKS, CONSTELLATION —_— Constellation ae ES yal Constellation. An Exelon Company AMERICA’S ENERGY CHOICE America’s energy choice. America's | energy choice. Exh. G-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020 Page 25 EXHIBITH SPONSORSHIP FEES AND ACTIVATION FUND PROCEEDS [Redacted] EXH. H-1 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020",
         "entities": [
             {
                 "text": "HOFV",
@@ -3973,11 +3984,6 @@
                 "description": "Companies, agencies, institutions, etc."
             },
             {
-                "text": "17",
-                "label": "CARDINAL",
-                "description": "Numerals that do not fall under another type"
-            },
-            {
                 "text": "LLC",
                 "label": "ORG",
                 "description": "Companies, agencies, institutions, etc."
@@ -4003,14 +4009,9 @@
                 "description": "People, including fictional"
             },
             {
-                "text": "Mark P. Hu",
+                "text": "Mark P. Huston Title",
                 "label": "PERSON",
                 "description": "People, including fictional"
-            },
-            {
-                "text": "CNE n Source",
-                "label": "ORG",
-                "description": "Companies, agencies, institutions, etc."
             },
             {
                 "text": "GPAQ ACQUISITION HOLDINGS, INC.",
@@ -4098,24 +4099,14 @@
                 "description": "People, including fictional"
             },
             {
-                "text": "4th",
-                "label": "ORDINAL",
-                "description": "\"first\", \"second\", etc."
-            },
-            {
-                "text": "Quarter 2020",
-                "label": "DATE",
-                "description": "Absolute or relative dates or periods"
-            },
-            {
-                "text": "2020 2nd Quarter 2021 2nd Quarter 2021 2nd Quarter",
-                "label": "DATE",
-                "description": "Absolute or relative dates or periods"
-            },
-            {
                 "text": "GPAQ ACQUISITION HOLDINGS, INC.",
                 "label": "ORG",
                 "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "1/23/2020 4th Quarter 2019 3rd Quarter 2020",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
             },
             {
                 "text": "22",
@@ -4126,6 +4117,11 @@
                 "text": "Redacted] Exh",
                 "label": "WORK_OF_ART",
                 "description": "Titles of books, songs, etc."
+            },
+            {
+                "text": "E-1 Source",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
             },
             {
                 "text": "GPAQ ACQUISITION HOLDINGS, INC.",
@@ -4146,11 +4142,6 @@
                 "text": "GPAQ ACQUISITION HOLDINGS, INC.",
                 "label": "ORG",
                 "description": "Companies, agencies, institutions, etc."
-            },
-            {
-                "text": "1/23/2020",
-                "label": "DATE",
-                "description": "Absolute or relative dates or periods"
             },
             {
                 "text": "Page 24",
@@ -4178,9 +4169,14 @@
                 "description": "Companies, agencies, institutions, etc."
             },
             {
-                "text": "25",
-                "label": "CARDINAL",
-                "description": "Numerals that do not fall under another type"
+                "text": "1/23/2020",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            },
+            {
+                "text": "Page 25",
+                "label": "LAW",
+                "description": "Named documents made into laws."
             },
             {
                 "text": "EXH",
@@ -4206,27 +4202,26 @@
         "contractual_indicators": {
             "date_entities": [
                 "1/23/2020",
-                "Quarter 2020",
-                "2020 2nd Quarter 2021 2nd Quarter 2021 2nd Quarter",
+                "1/23/2020 4th Quarter 2019 3rd Quarter 2020",
                 "1/23/2020",
                 "1/23/2020"
             ]
         },
         "top_predictions": [
             {
-                "label": 28,
-                "clause_type": "Parties",
-                "confidence": 0.4456
-            },
-            {
                 "label": 17,
                 "clause_type": "Joint Ip Ownership",
-                "confidence": 0.3424
+                "confidence": 0.3859
+            },
+            {
+                "label": 28,
+                "clause_type": "Parties",
+                "confidence": 0.3623
             },
             {
                 "label": 15,
                 "clause_type": "Ip Ownership Assignment",
-                "confidence": 0.0513
+                "confidence": 0.0691
             }
         ],
         "article": "6",

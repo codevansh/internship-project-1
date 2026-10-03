@@ -14,7 +14,9 @@ from src.risk.contract_intelligence import (
 OUTPUT_PATH = Path("data/processed/contract_clause_intelligence.json")
 
 
-def process_contract():
+def process_contract(
+    ocr_input_path=Path("data/processed/ocr_sample.txt"), output_path=OUTPUT_PATH
+):
     """Process an OCR-extracted contract.
 
     Pipeline:
@@ -34,7 +36,7 @@ def process_contract():
 
     # 1. Load OCR text
     print("\n[1/4] Loading OCR text...")
-    ocr_text = load_ocr_text()
+    ocr_text = load_ocr_text(ocr_input_path)
     print("OCR text loaded successfully.")
 
     # 2. Extract clauses
@@ -96,13 +98,12 @@ def process_contract():
             )
 
     # Save results
-
-    save_results(results, output_path=OUTPUT_PATH)
+    save_results(results, output_path=output_path)
 
     print("Contract processing completed")
     print(f"\nTotal clauses: {len(clauses)}")
     print(f"Results generated: {len(results)}")
-    print(f"\nOutput saved to:\n" f"{OUTPUT_PATH}")
+    print(f"\nOutput saved to:\n" f"{output_path}")
     return results
 
 

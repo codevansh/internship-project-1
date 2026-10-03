@@ -1,5 +1,3 @@
-
-Page 1
 Exhibit 10.8
 EXECUTION COPY
 CERTAIN INFORMATION HAS BEEN EXCLUDED FROM THIS EXHIBIT BECAUSE IT IS NOT MATERIAL AND WOULD LIKELY CAUSE
@@ -35,8 +33,6 @@ regulatory/market intelligence and infrastructure services and equipment.
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 2
 (b) The HOF Entities or their affiliates shall, during the Term (as defined below), purchase from Constellation, and Constellation
 shall sell to the HOF Entities and/or their affiliates, as applicable, such Products & Services as shall be requested by an HOF Entity or its affiliates,
 in each case at the applicable Market Prices for such Products & Services and on competitive terms. For purposes of this Section 1.1(b), (i) the
@@ -79,8 +75,6 @@ produced and/or provided in compliance with all applicable laws.
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 3
 1.5 Replacement Products & Services. In the event that Constellation shall fail to timely provide to the HOF Entities or any of their
 respective affiliates any Products & Services in accordance with the terms of this Agreement, the default and remedies provisions of the applicable
 Second Level Agreement shall govern.
@@ -120,8 +114,6 @@ apply to agreements executed prior to the date of this Agreement between the HOF
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 4
 2.3 Costs and Expenses for Services. All up-front costs of providing the services included in the Products & Services, excluding costs of
 consumption of energy and energy-related services, shall be borne by Constellation. Costs of consumption of energy, energy-related services and
 EME services provided pursuant to this Agreement shall be borne by the HOF Entities.
@@ -154,8 +146,6 @@ to any such artwork and advertising copy.
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 5
 (c) Constellation shall be solely responsible for all costs and expenses incurred in connection with the creation and/or production
 of all advertising signs and/or promotional materials covered by this Agreement unless otherwise specifically noted on Exhibit E, and such costs
 and expenses shall be borne by Constellation in addition to any amounts due under this Agreement. Constellation shall be invoiced by the HOF
@@ -198,8 +188,6 @@ particular media which has been approved requires a longer lead time, but in no 
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 6
 (c) Quality Control — Marks.
 
 (i) Each licensee Party agrees, in connection with its use of any of the licensor Party’s Marks, to comply with any
@@ -253,8 +241,6 @@ less the particular media which has been approved requires a longer lead time, b
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 7
 (e) Limitations on Rights. Each Party agrees it will not use the Sponsorship Rights or any license granted under or in connection
 with this Agreement in any manner which could reasonably be expected to (i) infringe upon the intellectual property or other propriety rights or
 rights of publicity or privacy of a Party to this Agreement or any third party, (ii) violate any law, statute, regulation, or ordinance applicable to it,
@@ -283,8 +269,6 @@ terminated as provided herein, shall commence effective as of the date hereof an
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 8
 42 Termination; Available Remedies.
 (a) Right to Terminate for Default. A Party shall be in default hereunder if any of the following events shall occur (each of such
 events being an “Event of Default”):
@@ -323,8 +307,6 @@ in the event a Party breaches Section 3.3 hereof, which breach is not cured with
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 9
 (c) Right to Terminate for Failure to Recover Investment. Constellation may terminate this Agreement, effective as of December
 31, 2023, in the event that (i) on or prior to December 1, 2022, Constellation shall have provided to the HOF Entities written notice of its election to
 terminate this Agreement pursuant to this Section 4.2(c) and (ii) during the period commencing on the date hereof and concluding on December 1,
@@ -366,8 +348,6 @@ REPRESENTATIONS AND WARRANTIES; INDEMNIFICATION
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 10
 (ii) such Party has duly authorized the execution and delivery of this Agreement, and such execution and delivery and
 the performance by such Party of its obligations hereunder does not and will not violate or cause a breach of any other agreements or
 obligations to which such Party is a party or by which such Party is bound, and no approval or other action by any governmental
@@ -405,8 +385,6 @@ effectiveness of Constellation’s Intellectual Property.
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 11
 5.2 Indemnification.
 
 (a) By Constellation. Constellation agrees to defend, indemnify and hold harmless the HOF Entities and their respective
@@ -442,8 +420,6 @@ Il
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 12
 (d) Right to Contest Claims of Third Persons. If an Indemnified Party is entitled to indemnification hereunder because of a claim
 asserted by any claimant (other than a Constellation Indemnified Person or HOF Entity Indemnified Person) (a “Third Person”), the Indemnified
 Party shall give the Indemnifying Party reasonably prompt notice thereof after such assertion is actually known to the Indemnified Party; provided,
@@ -486,8 +462,6 @@ Attention: David Baker and Pat Lindesmith
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 13
 and
 HOF Village, LLC
 c/o IRG Realty Advisors
@@ -527,8 +501,6 @@ agreement between the Parties with respect to the subject matter hereof shall su
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 14
 6.4 Modifications. No amendment or modification of any of the terms and conditions of this Agreement shall be effective unless such
 modification is expressed in writing and executed by each of the Parties.
 
@@ -566,8 +538,6 @@ enlargement thereof, or any other act or condition beyond its reasonable control
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 15
 (c) Tolling. In the event that, after the construction and development of the Village has been substantially completed, the Village
 is not usable for a period of at least thirty (30) days as a result of the events described under this Section 6.7 and unless this Agreement shall have
 been terminated in accordance with its terms, the Term shall be extended for that period of time (after substantial completion) which the Village was
@@ -606,8 +576,6 @@ disparagement of the Village, the City of Canton, the other Party, or any team, 
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 16
 6.13 Independent Contractor. The Parties shall be and act as independent contractors, and under no circumstances shall this Agreement
 be construed as one of agency, partnership, joint venture or employment among the Parties.
 
@@ -652,8 +620,6 @@ PFHOF (or by both HOF Entities), each of such rights may be provided by HOFV, PF
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 17
 IN WITNESS WHEREOF, the undersigned have caused this Agreement to be duly executed as of the date first set forth above.
 
 HOFV:
@@ -684,8 +650,6 @@ President / CEO CNE
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 18
 EXHIBIT A
 PRODUCTS & SERVICES
 [Redacted]
@@ -694,8 +658,6 @@ Exh. A-1
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 19
 EXHIBITB
 FORM OF SUPPLIER COMPONENT QUESTIONNAIRE
 [Redacted]
@@ -704,8 +666,6 @@ Exh. B-1
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., $-4/A, 1/23/2020
 
-
-Page 20
 EXHIBIT C
 FORMS OF SECOND LEVEL AGREEMENTS
 [Redacted]
@@ -714,8 +674,6 @@ Exh. C-1
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 21
 EXHIBIT D
 CONSTRUCTION SCHEDULE
 National Youth Football & Sports Complex
@@ -742,8 +700,6 @@ Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 2nd Quarter 2021
 2nd Quarter 2021
 
-
-Page 22
 EXHIBITE
 SPONSORSHIP RIGHTS
 [Redacted]
@@ -752,8 +708,6 @@ Exh, E-1
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 23
 EXHIBIT F
 
 HOF ENTITY MARKS
@@ -765,8 +719,6 @@ Exh. F-1
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., $-4/A, 1/23/2020
 
-
-Page 24
 EXHIBIT G
 CONSTELLATION’S MARKS,
 CONSTELLATION
@@ -790,8 +742,6 @@ Exh. G-1
 
 Source: GPAQ ACQUISITION HOLDINGS, INC., S-4/A, 1/23/2020
 
-
-Page 25
 EXHIBITH
 SPONSORSHIP FEES AND ACTIVATION FUND PROCEEDS
 [Redacted]
