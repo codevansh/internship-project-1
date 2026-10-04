@@ -1,0 +1,1 @@
+"""Semantic retrieval components for contract intelligence."""
