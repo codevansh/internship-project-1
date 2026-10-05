@@ -34,6 +34,8 @@ def run_pipeline(
     clause_output_path=CLAUSE_OUTPUT_PATH,
     report_output_path=REPORT_OUTPUT_PATH,
     review_output_path=REVIEW_OUTPUT_PATH,
+    vector_index_path=VECTOR_INDEX_PATH,
+    vector_metadata_path=VECTOR_METADATA_PATH,
 ):
     """Run the complete Contract Intelligence pipeline.
 
@@ -95,8 +97,8 @@ def run_pipeline(
     print("\n[4/4] Building semantic vector store...")
 
     vector_store = ClauseVectorStore(
-        index_path=VECTOR_INDEX_PATH,
-        metadata_path=VECTOR_METADATA_PATH,
+        index_path=vector_index_path,
+        metadata_path=vector_metadata_path,
     )
 
     vector_store.build(clauses)

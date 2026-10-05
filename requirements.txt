@@ -7,3 +7,6 @@ spacy
 datasets
 pymupdf
 python-dotenv
+fastapi
+uvicorn
+python-multipart
