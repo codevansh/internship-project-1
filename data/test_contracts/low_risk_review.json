@@ -1,0 +1,126 @@
+{
+    "review_summary": {
+        "total_clauses": 11,
+        "successfully_processed": 11,
+        "confidence_threshold": 0.7,
+        "clauses_requiring_review": 3
+    },
+    "review_items": [
+        {
+            "article": "2",
+            "clause_number": "2.2",
+            "title": "Payment Terms",
+            "predicted_clause_type": "Renewal Term",
+            "classification_confidence": 0.1729,
+            "top_predictions": [
+                {
+                    "label": 31,
+                    "clause_type": "Renewal Term",
+                    "confidence": 0.1729
+                },
+                {
+                    "label": 3,
+                    "clause_type": "Anti-Assignment",
+                    "confidence": 0.0967
+                },
+                {
+                    "label": 27,
+                    "clause_type": "Notice Period To Terminate Renewal",
+                    "confidence": 0.0656
+                }
+            ],
+            "clause_text": "Invoices shall be payable within 30 days of receipt. No additional charges shall apply unless approved in writing by both parties. ARTICLE 3 - CONFIDENTIALITY",
+            "entities": [
+                {
+                    "text": "30 days",
+                    "label": "DATE",
+                    "description": "Absolute or relative dates or periods"
+                },
+                {
+                    "text": "ARTICLE 3 - CONFIDENTIALITY",
+                    "label": "LAW",
+                    "description": "Named documents made into laws."
+                }
+            ],
+            "contractual_indicators": {
+                "date_entities": [
+                    "30 days"
+                ],
+                "duration_values": [
+                    "30 days"
+                ]
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.1",
+            "title": "Confidential Information",
+            "predicted_clause_type": "Audit Rights",
+            "classification_confidence": 0.3814,
+            "top_predictions": [
+                {
+                    "label": 4,
+                    "clause_type": "Audit Rights",
+                    "confidence": 0.3814
+                },
+                {
+                    "label": 9,
+                    "clause_type": "Document Name",
+                    "confidence": 0.1903
+                },
+                {
+                    "label": 25,
+                    "clause_type": "Non-Disparagement",
+                    "confidence": 0.0528
+                }
+            ],
+            "clause_text": "Each party shall protect confidential information received from the other party and shall use such information only for purposes of performing this Agreement. ARTICLE 4 - TERM AND TERMINATION",
+            "entities": [
+                {
+                    "text": "Agreement",
+                    "label": "PRODUCT",
+                    "description": "Objects, vehicles, foods, etc. (not services)"
+                },
+                {
+                    "text": "ARTICLE 4 - TERM",
+                    "label": "LAW",
+                    "description": "Named documents made into laws."
+                }
+            ],
+            "contractual_indicators": {
+                "contractual_phrases": {
+                    "termination_language": [
+                        "termination"
+                    ]
+                }
+            }
+        },
+        {
+            "article": "7",
+            "clause_number": "7.2",
+            "title": "Entire Agreement",
+            "predicted_clause_type": "Agreement Date",
+            "classification_confidence": 0.521,
+            "top_predictions": [
+                {
+                    "label": 2,
+                    "clause_type": "Agreement Date",
+                    "confidence": 0.521
+                },
+                {
+                    "label": 10,
+                    "clause_type": "Effective Date",
+                    "confidence": 0.2078
+                },
+                {
+                    "label": 13,
+                    "clause_type": "Governing Law",
+                    "confidence": 0.0865
+                }
+            ],
+            "clause_text": "This Agreement constitutes the entire agreement between the parties concerning the subject matter described herein.",
+            "entities": [],
+            "contractual_indicators": {}
+        }
+    ]
+}

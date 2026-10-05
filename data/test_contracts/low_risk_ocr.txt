@@ -1,0 +1,70 @@
+
+Page 1
+LOW-RISK TEST CONTRACT
+
+Controlled test artifact for the Al Contract Intelligence & Risk Intelligence pipeline.
+ARTICLE 1 - SERVICES
+
+1.1 Services
+
+The Service Provider shall provide software development and maintenance services to the Client as
+described in the applicable project statement.
+
+1.2 Service Standards
+
+The Service Provider shall perform the services in a professional and reasonable manner and shall comply
+with the agreed project requirements.
+
+ARTICLE 2 - PAYMENT
+
+2.1 Fees
+
+The Client shall pay the Service Provider a fixed fee of $10,000 for the services described in this
+Agreement.
+
+2.2 Payment Terms
+
+Invoices shall be payable within 30 days of receipt. No additional charges shall apply unless approved in
+writing by both parties.
+
+ARTICLE 3 - CONFIDENTIALITY
+
+3.1 Confidential Information
+
+Each party shall protect confidential information received from the other party and shall use such
+information only for purposes of performing this Agreement.
+
+ARTICLE 4 - TERM AND TERMINATION
+
+4.1 Term
+
+This Agreement shall commence on January 1, 2027 and shall remain in effect for one year.
+
+4.2 Termination
+Either party may terminate this Agreement by providing 30 days written notice to the other party.
+
+ARTICLE 5 - LIABILITY
+
+5.1 Limitation of Liability
+
+Except for obligations that cannot legally be limited, each party's aggregate liability shall not exceed the
+total fees paid under this Agreement.
+
+ARTICLE 6 - GOVERNING LAW
+
+6.1 Governing Law
+
+This Agreement shall be governed by the laws of the State of New York.
+
+
+Page 2
+ARTICLE 7 - GENERAL
+
+7.1 Assignment
+
+Neither party may assign this Agreement without the prior written consent of the other party.
+
+7.2 Entire Agreement
+
+This Agreement constitutes the entire agreement between the parties concerning the subject matter
+described herein.

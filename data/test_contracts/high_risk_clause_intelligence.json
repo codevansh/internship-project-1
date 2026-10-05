@@ -1,0 +1,749 @@
+[
+    {
+        "clause_type": "Minimum Commitment",
+        "classification_confidence": 0.9965,
+        "clause_text": "The Customer is committed to purchase a minimum amount of $500,000 of products during each contract year.",
+        "entities": [
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "500,000",
+                "label": "MONEY",
+                "description": "Monetary values, including unit"
+            },
+            {
+                "text": "each contract year",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            }
+        ],
+        "contractual_indicators": {
+            "monetary_values": [
+                "500,000"
+            ],
+            "date_entities": [
+                "each contract year"
+            ],
+            "contractual_phrases": {
+                "commitment_language": [
+                    "minimum amount",
+                    "committed to purchase"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "INDICATOR",
+            "reasons": [
+                "Minimum or committed purchase language detected.",
+                "Monetary values detected in the clause."
+            ],
+            "evidence": {
+                "monetary_values": [
+                    "500,000"
+                ],
+                "date_entities": [
+                    "each contract year"
+                ],
+                "contractual_phrases": {
+                    "commitment_language": [
+                        "minimum amount",
+                        "committed to purchase"
+                    ]
+                }
+            },
+            "requires_human_review": false
+        },
+        "top_predictions": [
+            {
+                "label": 20,
+                "clause_type": "Minimum Commitment",
+                "confidence": 0.9965
+            },
+            {
+                "label": 39,
+                "clause_type": "Volume Restriction",
+                "confidence": 0.0003
+            },
+            {
+                "label": 24,
+                "clause_type": "Non-Compete",
+                "confidence": 0.0002
+            }
+        ],
+        "article": "1",
+        "clause_number": "1.1",
+        "title": "Minimum Purchase Commitment"
+    },
+    {
+        "clause_type": "Liquidated Damages",
+        "classification_confidence": 0.4549,
+        "clause_text": "All amounts owed by the Customer shall be immediately due upon demand. The Customer shall remain responsible for all unpaid amounts without limitation. ARTICLE 2 - LIABILITY",
+        "entities": [
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "Customer",
+                "label": "PERSON",
+                "description": "People, including fictional"
+            },
+            {
+                "text": "ARTICLE 2 - LIABILITY",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        ],
+        "contractual_indicators": {
+            "contractual_phrases": {
+                "unlimited_language": [
+                    "without limitation"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "REVIEW",
+            "reasons": [
+                "Unlimited or uncapped liability-related language detected.",
+                "Clause classification confidence is below the human-review threshold."
+            ],
+            "evidence": {
+                "contractual_phrases": {
+                    "unlimited_language": [
+                        "without limitation"
+                    ]
+                }
+            },
+            "requires_human_review": true
+        },
+        "top_predictions": [
+            {
+                "label": 19,
+                "clause_type": "Liquidated Damages",
+                "confidence": 0.4549
+            },
+            {
+                "label": 29,
+                "clause_type": "Post-Termination Services",
+                "confidence": 0.3596
+            },
+            {
+                "label": 5,
+                "clause_type": "Cap On Liability",
+                "confidence": 0.0842
+            }
+        ],
+        "article": "1",
+        "clause_number": "1.2",
+        "title": "Payment Obligation"
+    },
+    {
+        "clause_type": "Cap On Liability",
+        "classification_confidence": 0.9827,
+        "clause_text": "The Customer shall have unlimited liability for all losses, damages, claims, costs, expenses, and liabilities arising from or relating to this Agreement.",
+        "entities": [
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            }
+        ],
+        "contractual_indicators": {
+            "contractual_phrases": {
+                "unlimited_language": [
+                    "unlimited liability"
+                ],
+                "damages_language": [
+                    "damages"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "INDICATOR",
+            "reasons": [
+                "Unlimited or uncapped liability-related language detected.",
+                "Damages-related language detected."
+            ],
+            "evidence": {
+                "contractual_phrases": {
+                    "unlimited_language": [
+                        "unlimited liability"
+                    ],
+                    "damages_language": [
+                        "damages"
+                    ]
+                }
+            },
+            "requires_human_review": false
+        },
+        "top_predictions": [
+            {
+                "label": 5,
+                "clause_type": "Cap On Liability",
+                "confidence": 0.9827
+            },
+            {
+                "label": 37,
+                "clause_type": "Uncapped Liability",
+                "confidence": 0.0135
+            },
+            {
+                "label": 19,
+                "clause_type": "Liquidated Damages",
+                "confidence": 0.0003
+            }
+        ],
+        "article": "2",
+        "clause_number": "2.1",
+        "title": "Unlimited Liability"
+    },
+    {
+        "clause_type": "Cap On Liability",
+        "classification_confidence": 0.6821,
+        "clause_text": "The Customer's liability shall not exceed any maximum amount and shall not be subject to any limitation.",
+        "entities": [
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            }
+        ],
+        "contractual_indicators": {
+            "contractual_phrases": {
+                "limitation_language": [
+                    "shall not exceed",
+                    "not exceed"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "REVIEW",
+            "reasons": [
+                "Liability or obligation limitation language detected.",
+                "Clause classification confidence is below the human-review threshold."
+            ],
+            "evidence": {
+                "contractual_phrases": {
+                    "limitation_language": [
+                        "shall not exceed",
+                        "not exceed"
+                    ]
+                }
+            },
+            "requires_human_review": true
+        },
+        "top_predictions": [
+            {
+                "label": 5,
+                "clause_type": "Cap On Liability",
+                "confidence": 0.6821
+            },
+            {
+                "label": 37,
+                "clause_type": "Uncapped Liability",
+                "confidence": 0.1848
+            },
+            {
+                "label": 39,
+                "clause_type": "Volume Restriction",
+                "confidence": 0.0133
+            }
+        ],
+        "article": "2",
+        "clause_number": "2.2",
+        "title": "No Liability Cap"
+    },
+    {
+        "clause_type": "Liquidated Damages",
+        "classification_confidence": 0.9857,
+        "clause_text": "The Customer shall pay liquidated damages of $250,000 for each material breach of this Agreement. ARTICLE 3 - TERMINATION",
+        "entities": [
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "250,000",
+                "label": "MONEY",
+                "description": "Monetary values, including unit"
+            },
+            {
+                "text": "Agreement",
+                "label": "PRODUCT",
+                "description": "Objects, vehicles, foods, etc. (not services)"
+            },
+            {
+                "text": "ARTICLE 3 - TERMINATION",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        ],
+        "contractual_indicators": {
+            "monetary_values": [
+                "250,000"
+            ],
+            "contractual_phrases": {
+                "termination_language": [
+                    "termination"
+                ],
+                "damages_language": [
+                    "liquidated damages",
+                    "damages"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "ATTENTION",
+            "reasons": [
+                "Termination-related language detected.",
+                "Damages-related language detected.",
+                "Monetary values detected in the clause."
+            ],
+            "evidence": {
+                "monetary_values": [
+                    "250,000"
+                ],
+                "contractual_phrases": {
+                    "termination_language": [
+                        "termination"
+                    ],
+                    "damages_language": [
+                        "liquidated damages",
+                        "damages"
+                    ]
+                }
+            },
+            "requires_human_review": false
+        },
+        "top_predictions": [
+            {
+                "label": 19,
+                "clause_type": "Liquidated Damages",
+                "confidence": 0.9857
+            },
+            {
+                "label": 5,
+                "clause_type": "Cap On Liability",
+                "confidence": 0.0011
+            },
+            {
+                "label": 29,
+                "clause_type": "Post-Termination Services",
+                "confidence": 0.001
+            }
+        ],
+        "article": "2",
+        "clause_number": "2.3",
+        "title": "Damages"
+    },
+    {
+        "clause_type": "Termination For Convenience",
+        "classification_confidence": 0.9968,
+        "clause_text": "The Service Provider may terminate this Agreement immediately and without notice upon any breach by the Customer.",
+        "entities": [
+            {
+                "text": "Agreement",
+                "label": "PRODUCT",
+                "description": "Objects, vehicles, foods, etc. (not services)"
+            },
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            }
+        ],
+        "contractual_indicators": {
+            "contractual_phrases": {
+                "termination_language": [
+                    "terminate"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "INDICATOR",
+            "reasons": [
+                "Termination-related language detected."
+            ],
+            "evidence": {
+                "contractual_phrases": {
+                    "termination_language": [
+                        "terminate"
+                    ]
+                }
+            },
+            "requires_human_review": false
+        },
+        "top_predictions": [
+            {
+                "label": 35,
+                "clause_type": "Termination For Convenience",
+                "confidence": 0.9968
+            },
+            {
+                "label": 12,
+                "clause_type": "Expiration Date",
+                "confidence": 0.0002
+            },
+            {
+                "label": 27,
+                "clause_type": "Notice Period To Terminate Renewal",
+                "confidence": 0.0002
+            }
+        ],
+        "article": "3",
+        "clause_number": "3.1",
+        "title": "Immediate Termination"
+    },
+    {
+        "clause_type": "Post-Termination Services",
+        "classification_confidence": 0.9954,
+        "clause_text": "Upon termination, the Customer shall immediately pay all remaining minimum commitments for the entire five year term. ARTICLE 4 - COMPETITION",
+        "entities": [
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "the entire five year",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            },
+            {
+                "text": "ARTICLE 4 - COMPETITION",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        ],
+        "contractual_indicators": {
+            "date_entities": [
+                "the entire five year"
+            ],
+            "contractual_phrases": {
+                "termination_language": [
+                    "termination"
+                ],
+                "commitment_language": [
+                    "minimum commitment"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "INDICATOR",
+            "reasons": [
+                "Termination-related language detected.",
+                "Minimum or committed purchase language detected."
+            ],
+            "evidence": {
+                "date_entities": [
+                    "the entire five year"
+                ],
+                "contractual_phrases": {
+                    "termination_language": [
+                        "termination"
+                    ],
+                    "commitment_language": [
+                        "minimum commitment"
+                    ]
+                }
+            },
+            "requires_human_review": false
+        },
+        "top_predictions": [
+            {
+                "label": 29,
+                "clause_type": "Post-Termination Services",
+                "confidence": 0.9954
+            },
+            {
+                "label": 20,
+                "clause_type": "Minimum Commitment",
+                "confidence": 0.0005
+            },
+            {
+                "label": 33,
+                "clause_type": "Rofr/Rofo/Rofn",
+                "confidence": 0.0005
+            }
+        ],
+        "article": "3",
+        "clause_number": "3.2",
+        "title": "Termination Payment"
+    },
+    {
+        "clause_type": "Non-Compete",
+        "classification_confidence": 0.9934,
+        "clause_text": "The Customer shall not compete with the Service Provider or provide competing services during the Agreement and for three years following termination. ARTICLE 5 - ASSIGNMENT",
+        "entities": [
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "the Service Provider",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "Agreement",
+                "label": "PRODUCT",
+                "description": "Objects, vehicles, foods, etc. (not services)"
+            },
+            {
+                "text": "three years",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            },
+            {
+                "text": "ARTICLE 5 - ASSIGNMENT",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        ],
+        "contractual_indicators": {
+            "date_entities": [
+                "three years"
+            ],
+            "contractual_phrases": {
+                "termination_language": [
+                    "termination"
+                ],
+                "assignment_language": [
+                    "assign",
+                    "assignment"
+                ],
+                "competition_language": [
+                    "shall not compete",
+                    "not compete"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "ATTENTION",
+            "reasons": [
+                "Termination-related language detected.",
+                "Assignment or transfer language detected.",
+                "Competition-restriction language detected."
+            ],
+            "evidence": {
+                "date_entities": [
+                    "three years"
+                ],
+                "contractual_phrases": {
+                    "termination_language": [
+                        "termination"
+                    ],
+                    "assignment_language": [
+                        "assign",
+                        "assignment"
+                    ],
+                    "competition_language": [
+                        "shall not compete",
+                        "not compete"
+                    ]
+                }
+            },
+            "requires_human_review": false
+        },
+        "top_predictions": [
+            {
+                "label": 24,
+                "clause_type": "Non-Compete",
+                "confidence": 0.9934
+            },
+            {
+                "label": 22,
+                "clause_type": "No-Solicit Of Customers",
+                "confidence": 0.0008
+            },
+            {
+                "label": 11,
+                "clause_type": "Exclusivity",
+                "confidence": 0.0007
+            }
+        ],
+        "article": "4",
+        "clause_number": "4.1",
+        "title": "Non-Compete"
+    },
+    {
+        "clause_type": "Anti-Assignment",
+        "classification_confidence": 0.999,
+        "clause_text": "The Customer shall not assign, transfer, delegate, or otherwise dispose of any rights or obligations under this Agreement without the Service Provider's approval. Page 2 ARTICLE 6 - LONG-TERM COMMITMENT",
+        "entities": [
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "2",
+                "label": "CARDINAL",
+                "description": "Numerals that do not fall under another type"
+            },
+            {
+                "text": "ARTICLE 6 - LONG-TERM COMMITMENT",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        ],
+        "contractual_indicators": {
+            "contractual_phrases": {
+                "assignment_language": [
+                    "assign",
+                    "transfer"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "INDICATOR",
+            "reasons": [
+                "Assignment or transfer language detected."
+            ],
+            "evidence": {
+                "contractual_phrases": {
+                    "assignment_language": [
+                        "assign",
+                        "transfer"
+                    ]
+                }
+            },
+            "requires_human_review": false
+        },
+        "top_predictions": [
+            {
+                "label": 3,
+                "clause_type": "Anti-Assignment",
+                "confidence": 0.999
+            },
+            {
+                "label": 26,
+                "clause_type": "Non-Transferable License",
+                "confidence": 0.0001
+            },
+            {
+                "label": 6,
+                "clause_type": "Change Of Control",
+                "confidence": 0.0001
+            }
+        ],
+        "article": "5",
+        "clause_number": "5.1",
+        "title": "Assignment"
+    },
+    {
+        "clause_type": "Minimum Commitment",
+        "classification_confidence": 0.4578,
+        "clause_text": "This Agreement shall remain in effect for five years and the Customer shall remain committed to the minimum purchase requirements throughout the entire term. ARTICLE 7 - GOVERNING LAW",
+        "entities": [
+            {
+                "text": "five years",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            },
+            {
+                "text": "Customer",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            },
+            {
+                "text": "ARTICLE 7 - GOVERNING LAW",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        ],
+        "contractual_indicators": {
+            "date_entities": [
+                "five years"
+            ],
+            "contractual_phrases": {
+                "commitment_language": [
+                    "minimum purchase"
+                ]
+            }
+        },
+        "risk_assessment": {
+            "level": "REVIEW",
+            "reasons": [
+                "Minimum or committed purchase language detected.",
+                "Clause classification confidence is below the human-review threshold."
+            ],
+            "evidence": {
+                "date_entities": [
+                    "five years"
+                ],
+                "contractual_phrases": {
+                    "commitment_language": [
+                        "minimum purchase"
+                    ]
+                }
+            },
+            "requires_human_review": true
+        },
+        "top_predictions": [
+            {
+                "label": 20,
+                "clause_type": "Minimum Commitment",
+                "confidence": 0.4578
+            },
+            {
+                "label": 12,
+                "clause_type": "Expiration Date",
+                "confidence": 0.4209
+            },
+            {
+                "label": 40,
+                "clause_type": "Warranty Duration",
+                "confidence": 0.0327
+            }
+        ],
+        "article": "6",
+        "clause_number": "6.1",
+        "title": "Contract Term"
+    },
+    {
+        "clause_type": "Governing Law",
+        "classification_confidence": 0.9996,
+        "clause_text": "This Agreement shall be governed by the laws selected exclusively by the Service Provider.",
+        "entities": [
+            {
+                "text": "the Service Provider",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            }
+        ],
+        "contractual_indicators": {},
+        "risk_assessment": {
+            "level": "LOW",
+            "reasons": [],
+            "evidence": {},
+            "requires_human_review": false
+        },
+        "top_predictions": [
+            {
+                "label": 13,
+                "clause_type": "Governing Law",
+                "confidence": 0.9996
+            },
+            {
+                "label": 15,
+                "clause_type": "Ip Ownership Assignment",
+                "confidence": 0.0
+            },
+            {
+                "label": 28,
+                "clause_type": "Parties",
+                "confidence": 0.0
+            }
+        ],
+        "article": "7",
+        "clause_number": "7.1",
+        "title": "Governing Law"
+    }
+]

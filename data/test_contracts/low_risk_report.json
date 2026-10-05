@@ -1,0 +1,1174 @@
+{
+    "contract_summary": {
+        "total_clauses": 11,
+        "successfully_processed": 11,
+        "processing_errors": 0
+    },
+    "clause_type_summary": {
+        "Exclusivity": 1,
+        "Warranty Duration": 1,
+        "Revenue/Profit Sharing": 1,
+        "Renewal Term": 1,
+        "Audit Rights": 1,
+        "Expiration Date": 1,
+        "Termination For Convenience": 1,
+        "Cap On Liability": 1,
+        "Governing Law": 1,
+        "Anti-Assignment": 1,
+        "Agreement Date": 1
+    },
+    "low_confidence_clauses": [
+        {
+            "article": "2",
+            "clause_number": "2.2",
+            "title": "Payment Terms",
+            "clause_type": "Renewal Term",
+            "classification_confidence": 0.1729
+        },
+        {
+            "article": "3",
+            "clause_number": "3.1",
+            "title": "Confidential Information",
+            "clause_type": "Audit Rights",
+            "classification_confidence": 0.3814
+        },
+        {
+            "article": "7",
+            "clause_number": "7.2",
+            "title": "Entire Agreement",
+            "clause_type": "Agreement Date",
+            "classification_confidence": 0.521
+        }
+    ],
+    "entities": [
+        {
+            "article": "1",
+            "clause_number": "1.1",
+            "entity": {
+                "text": "Client",
+                "label": "GPE",
+                "description": "Countries, cities, states"
+            }
+        },
+        {
+            "article": "1",
+            "clause_number": "1.2",
+            "entity": {
+                "text": "ARTICLE 2 - PAYMENT",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.1",
+            "entity": {
+                "text": "the Service Provider",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.1",
+            "entity": {
+                "text": "10,000",
+                "label": "MONEY",
+                "description": "Monetary values, including unit"
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.2",
+            "entity": {
+                "text": "30 days",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.2",
+            "entity": {
+                "text": "ARTICLE 3 - CONFIDENTIALITY",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.1",
+            "entity": {
+                "text": "Agreement",
+                "label": "PRODUCT",
+                "description": "Objects, vehicles, foods, etc. (not services)"
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.1",
+            "entity": {
+                "text": "ARTICLE 4 - TERM",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.1",
+            "entity": {
+                "text": "January 1, 2027",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.1",
+            "entity": {
+                "text": "one year",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.2",
+            "entity": {
+                "text": "Agreement",
+                "label": "PRODUCT",
+                "description": "Objects, vehicles, foods, etc. (not services)"
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.2",
+            "entity": {
+                "text": "30 days",
+                "label": "DATE",
+                "description": "Absolute or relative dates or periods"
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.2",
+            "entity": {
+                "text": "ARTICLE 5 - LIABILITY",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        },
+        {
+            "article": "5",
+            "clause_number": "5.1",
+            "entity": {
+                "text": "Agreement",
+                "label": "PRODUCT",
+                "description": "Objects, vehicles, foods, etc. (not services)"
+            }
+        },
+        {
+            "article": "5",
+            "clause_number": "5.1",
+            "entity": {
+                "text": "ARTICLE 6 - GOVERNING LAW",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.1",
+            "entity": {
+                "text": "the State of New York",
+                "label": "ORG",
+                "description": "Companies, agencies, institutions, etc."
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.1",
+            "entity": {
+                "text": "2",
+                "label": "CARDINAL",
+                "description": "Numerals that do not fall under another type"
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.1",
+            "entity": {
+                "text": "ARTICLE 7 - GENERAL",
+                "label": "LAW",
+                "description": "Named documents made into laws."
+            }
+        }
+    ],
+    "entity_summary": {
+        "Agreement|PRODUCT": {
+            "text": "Agreement",
+            "label": "PRODUCT",
+            "description": "Objects, vehicles, foods, etc. (not services)",
+            "occurrences": 3
+        },
+        "30 days|DATE": {
+            "text": "30 days",
+            "label": "DATE",
+            "description": "Absolute or relative dates or periods",
+            "occurrences": 2
+        },
+        "Client|GPE": {
+            "text": "Client",
+            "label": "GPE",
+            "description": "Countries, cities, states",
+            "occurrences": 1
+        },
+        "ARTICLE 2 - PAYMENT|LAW": {
+            "text": "ARTICLE 2 - PAYMENT",
+            "label": "LAW",
+            "description": "Named documents made into laws.",
+            "occurrences": 1
+        },
+        "the Service Provider|ORG": {
+            "text": "the Service Provider",
+            "label": "ORG",
+            "description": "Companies, agencies, institutions, etc.",
+            "occurrences": 1
+        },
+        "10,000|MONEY": {
+            "text": "10,000",
+            "label": "MONEY",
+            "description": "Monetary values, including unit",
+            "occurrences": 1
+        },
+        "ARTICLE 3 - CONFIDENTIALITY|LAW": {
+            "text": "ARTICLE 3 - CONFIDENTIALITY",
+            "label": "LAW",
+            "description": "Named documents made into laws.",
+            "occurrences": 1
+        },
+        "ARTICLE 4 - TERM|LAW": {
+            "text": "ARTICLE 4 - TERM",
+            "label": "LAW",
+            "description": "Named documents made into laws.",
+            "occurrences": 1
+        },
+        "January 1, 2027|DATE": {
+            "text": "January 1, 2027",
+            "label": "DATE",
+            "description": "Absolute or relative dates or periods",
+            "occurrences": 1
+        },
+        "one year|DATE": {
+            "text": "one year",
+            "label": "DATE",
+            "description": "Absolute or relative dates or periods",
+            "occurrences": 1
+        },
+        "ARTICLE 5 - LIABILITY|LAW": {
+            "text": "ARTICLE 5 - LIABILITY",
+            "label": "LAW",
+            "description": "Named documents made into laws.",
+            "occurrences": 1
+        },
+        "ARTICLE 6 - GOVERNING LAW|LAW": {
+            "text": "ARTICLE 6 - GOVERNING LAW",
+            "label": "LAW",
+            "description": "Named documents made into laws.",
+            "occurrences": 1
+        },
+        "the State of New York|ORG": {
+            "text": "the State of New York",
+            "label": "ORG",
+            "description": "Companies, agencies, institutions, etc.",
+            "occurrences": 1
+        },
+        "2|CARDINAL": {
+            "text": "2",
+            "label": "CARDINAL",
+            "description": "Numerals that do not fall under another type",
+            "occurrences": 1
+        },
+        "ARTICLE 7 - GENERAL|LAW": {
+            "text": "ARTICLE 7 - GENERAL",
+            "label": "LAW",
+            "description": "Named documents made into laws.",
+            "occurrences": 1
+        }
+    },
+    "contractual_indicators": [
+        {
+            "article": "2",
+            "clause_number": "2.1",
+            "title": "Fees",
+            "indicators": {
+                "monetary_values": [
+                    "10,000"
+                ]
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.2",
+            "title": "Payment Terms",
+            "indicators": {
+                "date_entities": [
+                    "30 days"
+                ],
+                "duration_values": [
+                    "30 days"
+                ]
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.1",
+            "title": "Confidential Information",
+            "indicators": {
+                "contractual_phrases": {
+                    "termination_language": [
+                        "termination"
+                    ]
+                }
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.1",
+            "title": "Term",
+            "indicators": {
+                "date_entities": [
+                    "January 1, 2027",
+                    "one year"
+                ]
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.2",
+            "title": "Termination",
+            "indicators": {
+                "date_entities": [
+                    "30 days"
+                ],
+                "duration_values": [
+                    "30 days"
+                ],
+                "contractual_phrases": {
+                    "termination_language": [
+                        "terminate"
+                    ]
+                }
+            }
+        },
+        {
+            "article": "5",
+            "clause_number": "5.1",
+            "title": "Limitation of Liability",
+            "indicators": {
+                "contractual_phrases": {
+                    "limitation_language": [
+                        "shall not exceed",
+                        "not exceed"
+                    ]
+                }
+            }
+        },
+        {
+            "article": "7",
+            "clause_number": "7.1",
+            "title": "Assignment",
+            "indicators": {
+                "contractual_phrases": {
+                    "assignment_language": [
+                        "assign"
+                    ]
+                }
+            }
+        }
+    ],
+    "clauses": [
+        {
+            "clause_type": "Exclusivity",
+            "classification_confidence": 0.9622,
+            "clause_text": "The Service Provider shall provide software development and maintenance services to the Client as described in the applicable project statement.",
+            "entities": [
+                {
+                    "text": "Client",
+                    "label": "GPE",
+                    "description": "Countries, cities, states"
+                }
+            ],
+            "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
+            "top_predictions": [
+                {
+                    "label": 11,
+                    "clause_type": "Exclusivity",
+                    "confidence": 0.9622
+                },
+                {
+                    "label": 7,
+                    "clause_type": "Competitive Restriction Exception",
+                    "confidence": 0.0084
+                },
+                {
+                    "label": 39,
+                    "clause_type": "Volume Restriction",
+                    "confidence": 0.0042
+                }
+            ],
+            "article": "1",
+            "clause_number": "1.1",
+            "title": "Services"
+        },
+        {
+            "clause_type": "Warranty Duration",
+            "classification_confidence": 0.8901,
+            "clause_text": "The Service Provider shall perform the services in a professional and reasonable manner and shall comply with the agreed project requirements. ARTICLE 2 - PAYMENT",
+            "entities": [
+                {
+                    "text": "ARTICLE 2 - PAYMENT",
+                    "label": "LAW",
+                    "description": "Named documents made into laws."
+                }
+            ],
+            "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
+            "top_predictions": [
+                {
+                    "label": 40,
+                    "clause_type": "Warranty Duration",
+                    "confidence": 0.8901
+                },
+                {
+                    "label": 20,
+                    "clause_type": "Minimum Commitment",
+                    "confidence": 0.0761
+                },
+                {
+                    "label": 24,
+                    "clause_type": "Non-Compete",
+                    "confidence": 0.0028
+                }
+            ],
+            "article": "1",
+            "clause_number": "1.2",
+            "title": "Service Standards"
+        },
+        {
+            "clause_type": "Revenue/Profit Sharing",
+            "classification_confidence": 0.989,
+            "clause_text": "The Client shall pay the Service Provider a fixed fee of $10,000 for the services described in this Agreement.",
+            "entities": [
+                {
+                    "text": "the Service Provider",
+                    "label": "ORG",
+                    "description": "Companies, agencies, institutions, etc."
+                },
+                {
+                    "text": "10,000",
+                    "label": "MONEY",
+                    "description": "Monetary values, including unit"
+                }
+            ],
+            "contractual_indicators": {
+                "monetary_values": [
+                    "10,000"
+                ]
+            },
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Monetary values detected in the clause."
+                ],
+                "evidence": {
+                    "monetary_values": [
+                        "10,000"
+                    ]
+                },
+                "requires_human_review": false
+            },
+            "top_predictions": [
+                {
+                    "label": 32,
+                    "clause_type": "Revenue/Profit Sharing",
+                    "confidence": 0.989
+                },
+                {
+                    "label": 19,
+                    "clause_type": "Liquidated Damages",
+                    "confidence": 0.004
+                },
+                {
+                    "label": 20,
+                    "clause_type": "Minimum Commitment",
+                    "confidence": 0.0009
+                }
+            ],
+            "article": "2",
+            "clause_number": "2.1",
+            "title": "Fees"
+        },
+        {
+            "clause_type": "Renewal Term",
+            "classification_confidence": 0.1729,
+            "clause_text": "Invoices shall be payable within 30 days of receipt. No additional charges shall apply unless approved in writing by both parties. ARTICLE 3 - CONFIDENTIALITY",
+            "entities": [
+                {
+                    "text": "30 days",
+                    "label": "DATE",
+                    "description": "Absolute or relative dates or periods"
+                },
+                {
+                    "text": "ARTICLE 3 - CONFIDENTIALITY",
+                    "label": "LAW",
+                    "description": "Named documents made into laws."
+                }
+            ],
+            "contractual_indicators": {
+                "date_entities": [
+                    "30 days"
+                ],
+                "duration_values": [
+                    "30 days"
+                ]
+            },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Contractual duration values detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "30 days"
+                    ],
+                    "duration_values": [
+                        "30 days"
+                    ]
+                },
+                "requires_human_review": true
+            },
+            "top_predictions": [
+                {
+                    "label": 31,
+                    "clause_type": "Renewal Term",
+                    "confidence": 0.1729
+                },
+                {
+                    "label": 3,
+                    "clause_type": "Anti-Assignment",
+                    "confidence": 0.0967
+                },
+                {
+                    "label": 27,
+                    "clause_type": "Notice Period To Terminate Renewal",
+                    "confidence": 0.0656
+                }
+            ],
+            "article": "2",
+            "clause_number": "2.2",
+            "title": "Payment Terms"
+        },
+        {
+            "clause_type": "Audit Rights",
+            "classification_confidence": 0.3814,
+            "clause_text": "Each party shall protect confidential information received from the other party and shall use such information only for purposes of performing this Agreement. ARTICLE 4 - TERM AND TERMINATION",
+            "entities": [
+                {
+                    "text": "Agreement",
+                    "label": "PRODUCT",
+                    "description": "Objects, vehicles, foods, etc. (not services)"
+                },
+                {
+                    "text": "ARTICLE 4 - TERM",
+                    "label": "LAW",
+                    "description": "Named documents made into laws."
+                }
+            ],
+            "contractual_indicators": {
+                "contractual_phrases": {
+                    "termination_language": [
+                        "termination"
+                    ]
+                }
+            },
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Termination-related language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "termination_language": [
+                            "termination"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            },
+            "top_predictions": [
+                {
+                    "label": 4,
+                    "clause_type": "Audit Rights",
+                    "confidence": 0.3814
+                },
+                {
+                    "label": 9,
+                    "clause_type": "Document Name",
+                    "confidence": 0.1903
+                },
+                {
+                    "label": 25,
+                    "clause_type": "Non-Disparagement",
+                    "confidence": 0.0528
+                }
+            ],
+            "article": "3",
+            "clause_number": "3.1",
+            "title": "Confidential Information"
+        },
+        {
+            "clause_type": "Expiration Date",
+            "classification_confidence": 0.9018,
+            "clause_text": "This Agreement shall commence on January 1, 2027 and shall remain in effect for one year.",
+            "entities": [
+                {
+                    "text": "January 1, 2027",
+                    "label": "DATE",
+                    "description": "Absolute or relative dates or periods"
+                },
+                {
+                    "text": "one year",
+                    "label": "DATE",
+                    "description": "Absolute or relative dates or periods"
+                }
+            ],
+            "contractual_indicators": {
+                "date_entities": [
+                    "January 1, 2027",
+                    "one year"
+                ]
+            },
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "January 1, 2027",
+                        "one year"
+                    ]
+                },
+                "requires_human_review": false
+            },
+            "top_predictions": [
+                {
+                    "label": 12,
+                    "clause_type": "Expiration Date",
+                    "confidence": 0.9018
+                },
+                {
+                    "label": 10,
+                    "clause_type": "Effective Date",
+                    "confidence": 0.0901
+                },
+                {
+                    "label": 2,
+                    "clause_type": "Agreement Date",
+                    "confidence": 0.0008
+                }
+            ],
+            "article": "4",
+            "clause_number": "4.1",
+            "title": "Term"
+        },
+        {
+            "clause_type": "Termination For Convenience",
+            "classification_confidence": 0.9977,
+            "clause_text": "Either party may terminate this Agreement by providing 30 days written notice to the other party. ARTICLE 5 - LIABILITY",
+            "entities": [
+                {
+                    "text": "Agreement",
+                    "label": "PRODUCT",
+                    "description": "Objects, vehicles, foods, etc. (not services)"
+                },
+                {
+                    "text": "30 days",
+                    "label": "DATE",
+                    "description": "Absolute or relative dates or periods"
+                },
+                {
+                    "text": "ARTICLE 5 - LIABILITY",
+                    "label": "LAW",
+                    "description": "Named documents made into laws."
+                }
+            ],
+            "contractual_indicators": {
+                "date_entities": [
+                    "30 days"
+                ],
+                "duration_values": [
+                    "30 days"
+                ],
+                "contractual_phrases": {
+                    "termination_language": [
+                        "terminate"
+                    ]
+                }
+            },
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Termination-related language detected.",
+                    "Contractual duration values detected."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "30 days"
+                    ],
+                    "duration_values": [
+                        "30 days"
+                    ],
+                    "contractual_phrases": {
+                        "termination_language": [
+                            "terminate"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            },
+            "top_predictions": [
+                {
+                    "label": 35,
+                    "clause_type": "Termination For Convenience",
+                    "confidence": 0.9977
+                },
+                {
+                    "label": 27,
+                    "clause_type": "Notice Period To Terminate Renewal",
+                    "confidence": 0.0002
+                },
+                {
+                    "label": 19,
+                    "clause_type": "Liquidated Damages",
+                    "confidence": 0.0001
+                }
+            ],
+            "article": "4",
+            "clause_number": "4.2",
+            "title": "Termination"
+        },
+        {
+            "clause_type": "Cap On Liability",
+            "classification_confidence": 0.9777,
+            "clause_text": "Except for obligations that cannot legally be limited, each party's aggregate liability shall not exceed the total fees paid under this Agreement. ARTICLE 6 - GOVERNING LAW",
+            "entities": [
+                {
+                    "text": "Agreement",
+                    "label": "PRODUCT",
+                    "description": "Objects, vehicles, foods, etc. (not services)"
+                },
+                {
+                    "text": "ARTICLE 6 - GOVERNING LAW",
+                    "label": "LAW",
+                    "description": "Named documents made into laws."
+                }
+            ],
+            "contractual_indicators": {
+                "contractual_phrases": {
+                    "limitation_language": [
+                        "shall not exceed",
+                        "not exceed"
+                    ]
+                }
+            },
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Liability or obligation limitation language detected."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "limitation_language": [
+                            "shall not exceed",
+                            "not exceed"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            },
+            "top_predictions": [
+                {
+                    "label": 5,
+                    "clause_type": "Cap On Liability",
+                    "confidence": 0.9777
+                },
+                {
+                    "label": 37,
+                    "clause_type": "Uncapped Liability",
+                    "confidence": 0.016
+                },
+                {
+                    "label": 19,
+                    "clause_type": "Liquidated Damages",
+                    "confidence": 0.0005
+                }
+            ],
+            "article": "5",
+            "clause_number": "5.1",
+            "title": "Limitation of Liability"
+        },
+        {
+            "clause_type": "Governing Law",
+            "classification_confidence": 0.9997,
+            "clause_text": "This Agreement shall be governed by the laws of the State of New York. Page 2 ARTICLE 7 - GENERAL",
+            "entities": [
+                {
+                    "text": "the State of New York",
+                    "label": "ORG",
+                    "description": "Companies, agencies, institutions, etc."
+                },
+                {
+                    "text": "2",
+                    "label": "CARDINAL",
+                    "description": "Numerals that do not fall under another type"
+                },
+                {
+                    "text": "ARTICLE 7 - GENERAL",
+                    "label": "LAW",
+                    "description": "Named documents made into laws."
+                }
+            ],
+            "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            },
+            "top_predictions": [
+                {
+                    "label": 13,
+                    "clause_type": "Governing Law",
+                    "confidence": 0.9997
+                },
+                {
+                    "label": 28,
+                    "clause_type": "Parties",
+                    "confidence": 0.0
+                },
+                {
+                    "label": 2,
+                    "clause_type": "Agreement Date",
+                    "confidence": 0.0
+                }
+            ],
+            "article": "6",
+            "clause_number": "6.1",
+            "title": "Governing Law"
+        },
+        {
+            "clause_type": "Anti-Assignment",
+            "classification_confidence": 0.9992,
+            "clause_text": "Neither party may assign this Agreement without the prior written consent of the other party.",
+            "entities": [],
+            "contractual_indicators": {
+                "contractual_phrases": {
+                    "assignment_language": [
+                        "assign"
+                    ]
+                }
+            },
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "assignment_language": [
+                            "assign"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            },
+            "top_predictions": [
+                {
+                    "label": 3,
+                    "clause_type": "Anti-Assignment",
+                    "confidence": 0.9992
+                },
+                {
+                    "label": 6,
+                    "clause_type": "Change Of Control",
+                    "confidence": 0.0001
+                },
+                {
+                    "label": 26,
+                    "clause_type": "Non-Transferable License",
+                    "confidence": 0.0
+                }
+            ],
+            "article": "7",
+            "clause_number": "7.1",
+            "title": "Assignment"
+        },
+        {
+            "clause_type": "Agreement Date",
+            "classification_confidence": 0.521,
+            "clause_text": "This Agreement constitutes the entire agreement between the parties concerning the subject matter described herein.",
+            "entities": [],
+            "contractual_indicators": {},
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            },
+            "top_predictions": [
+                {
+                    "label": 2,
+                    "clause_type": "Agreement Date",
+                    "confidence": 0.521
+                },
+                {
+                    "label": 10,
+                    "clause_type": "Effective Date",
+                    "confidence": 0.2078
+                },
+                {
+                    "label": 13,
+                    "clause_type": "Governing Law",
+                    "confidence": 0.0865
+                }
+            ],
+            "article": "7",
+            "clause_number": "7.2",
+            "title": "Entire Agreement"
+        }
+    ],
+    "risk_assessments": [
+        {
+            "article": "1",
+            "clause_number": "1.1",
+            "title": "Services",
+            "clause_type": "Exclusivity",
+            "classification_confidence": 0.9622,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "1",
+            "clause_number": "1.2",
+            "title": "Service Standards",
+            "clause_type": "Warranty Duration",
+            "classification_confidence": 0.8901,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.1",
+            "title": "Fees",
+            "clause_type": "Revenue/Profit Sharing",
+            "classification_confidence": 0.989,
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Monetary values detected in the clause."
+                ],
+                "evidence": {
+                    "monetary_values": [
+                        "10,000"
+                    ]
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "2",
+            "clause_number": "2.2",
+            "title": "Payment Terms",
+            "clause_type": "Renewal Term",
+            "classification_confidence": 0.1729,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Contractual duration values detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "30 days"
+                    ],
+                    "duration_values": [
+                        "30 days"
+                    ]
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "3",
+            "clause_number": "3.1",
+            "title": "Confidential Information",
+            "clause_type": "Audit Rights",
+            "classification_confidence": 0.3814,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Termination-related language detected.",
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "termination_language": [
+                            "termination"
+                        ]
+                    }
+                },
+                "requires_human_review": true
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.1",
+            "title": "Term",
+            "clause_type": "Expiration Date",
+            "classification_confidence": 0.9018,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {
+                    "date_entities": [
+                        "January 1, 2027",
+                        "one year"
+                    ]
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "4",
+            "clause_number": "4.2",
+            "title": "Termination",
+            "clause_type": "Termination For Convenience",
+            "classification_confidence": 0.9977,
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Termination-related language detected.",
+                    "Contractual duration values detected."
+                ],
+                "evidence": {
+                    "date_entities": [
+                        "30 days"
+                    ],
+                    "duration_values": [
+                        "30 days"
+                    ],
+                    "contractual_phrases": {
+                        "termination_language": [
+                            "terminate"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "5",
+            "clause_number": "5.1",
+            "title": "Limitation of Liability",
+            "clause_type": "Cap On Liability",
+            "classification_confidence": 0.9777,
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Liability or obligation limitation language detected."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "limitation_language": [
+                            "shall not exceed",
+                            "not exceed"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "6",
+            "clause_number": "6.1",
+            "title": "Governing Law",
+            "clause_type": "Governing Law",
+            "classification_confidence": 0.9997,
+            "risk_assessment": {
+                "level": "LOW",
+                "reasons": [],
+                "evidence": {},
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "7",
+            "clause_number": "7.1",
+            "title": "Assignment",
+            "clause_type": "Anti-Assignment",
+            "classification_confidence": 0.9992,
+            "risk_assessment": {
+                "level": "INDICATOR",
+                "reasons": [
+                    "Assignment or transfer language detected."
+                ],
+                "evidence": {
+                    "contractual_phrases": {
+                        "assignment_language": [
+                            "assign"
+                        ]
+                    }
+                },
+                "requires_human_review": false
+            }
+        },
+        {
+            "article": "7",
+            "clause_number": "7.2",
+            "title": "Entire Agreement",
+            "clause_type": "Agreement Date",
+            "classification_confidence": 0.521,
+            "risk_assessment": {
+                "level": "REVIEW",
+                "reasons": [
+                    "Clause classification confidence is below the human-review threshold."
+                ],
+                "evidence": {},
+                "requires_human_review": true
+            }
+        }
+    ]
+}
