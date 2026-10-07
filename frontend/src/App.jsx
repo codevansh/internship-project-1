@@ -17,9 +17,8 @@ function App() {
   const reviewItems = result?.review_report?.review_items ?? [];
   const reviewSummary = result?.review_report?.review_summary ?? {};
   const contractSummary = result?.contract_report?.contract_summary ?? {};
-  const riskSummary = result?.risk_summary ?? result?.contract_report?.risk_summary ?? {};
-  const riskAssessments = result?.contract_report?.risk_assessments ?? [];
-  const lowConfidenceCount = result?.contract_report?.low_confidence_clauses?.length;
+  const riskSummary = result?.risk_scoring ?? result?.risk_summary ?? result?.contract_report?.risk_scoring ?? result?.contract_report?.risk_summary ?? {};
+  const riskAssessments = useMemo(() => result?.contract_report?.risk_assessments ?? [], [result]);
 
   const riskByClause = useMemo(() => {
     const entries = new Map();
@@ -91,25 +90,28 @@ function App() {
             <div className={`overall-risk ${String(riskSummary.overall_risk_level || "unavailable").toLowerCase()}`}>
               <span>Overall Risk Level</span>
               <strong>{riskSummary.overall_risk_level ? `${riskSummary.overall_risk_level} RISK` : result ? "REVIEW REQUIRED" : "—"}</strong>
+              {typeof riskSummary.overall_risk_score === "number" && <b className="overall-score">{riskSummary.overall_risk_score} / 100</b>}
               <small>{riskSummary.assessment_status === "REVIEW_REQUIRED" ? "Risk level is inconclusive until flagged clauses are reviewed" : riskSummary.assessment_status === "NO_RISK_ASSESSMENTS" ? "No clause risk assessments returned" : "Based on backend clause risk levels"}</small>
             </div>
           </div>
           <div className="summary-grid">
+            <div className="summary-card high-count"><span>High Risk Clauses</span><strong>{riskSummary.high_risk_clause_count ?? "—"}</strong></div>
+            <div className="summary-card"><span>Medium-Risk Clauses</span><strong>{riskSummary.medium_risk_clause_count ?? riskSummary.review_clause_count ?? "—"}</strong></div>
+            <div className="summary-card"><span>Low Risk Clauses</span><strong>{riskSummary.low_risk_clause_count ?? "—"}</strong></div>
             <div className="summary-card"><span>Clauses analyzed</span><strong>{riskSummary.clauses_analyzed ?? contractSummary.successfully_processed ?? "—"}</strong></div>
-            <div className="summary-card"><span>Risk indicators</span><strong>{riskSummary.number_of_risk_indicators ?? "—"}</strong></div>
-            <div className="summary-card review"><span>Require human review</span><strong>{riskSummary.number_of_clauses_requiring_human_review ?? reviewSummary.clauses_requiring_review ?? "—"}</strong></div>
-            <div className="summary-card"><span>Low-confidence clauses</span><strong>{riskSummary.number_of_low_confidence_clauses ?? lowConfidenceCount ?? "—"}</strong></div>
+            <div className="summary-card review"><span>Recommended for Human Review</span><strong>{riskSummary.human_review_clause_count ?? reviewSummary.clauses_requiring_review ?? "—"}</strong></div>
           </div>
-          <p className="score-note">Risk score: {typeof riskSummary.risk_score === "number" ? `${riskSummary.risk_score}/100` : "Not calculated by the backend"}</p>
+          {riskSummary.major_risk_factors?.length > 0 && <div className="major-factors"><h3>Major Risk Factors</h3><ul>{riskSummary.major_risk_factors.map((factor, index) => <li key={index}>{factor}</li>)}</ul></div>}
+          <p className="score-note">AI-assisted screening only; this score is not a legal determination.</p>
           {result && <div className="backend-risk-list">
             <h3>Backend clause risk assessments</h3>
             {riskAssessments.length ? riskAssessments.map((item, index) => {
               const assessment = item.risk_assessment || {};
-              const level = String(assessment.level || "Unknown").toUpperCase();
+              const level = String(item.risk_level || assessment.level || "Unknown").toUpperCase();
               const tone = ["HIGH", "ATTENTION"].includes(level) ? "high" : ["MEDIUM", "INDICATOR", "REVIEW"].includes(level) ? "medium" : "low";
               return <div className={`risk-row ${tone}`} key={`${item.clause_number || "clause"}-${index}`}>
                 <span className="risk-level-pill">{level}</span>
-                <span><b>{item.title || `Clause ${item.clause_number || index + 1}`}</b><small>{item.clause_type || "Type unavailable"}</small></span>
+                <span><b>{item.title || `Clause ${item.clause_number || index + 1}`}</b><small>{item.clause_type || "Type unavailable"} · {typeof item.risk_score === "number" ? `${item.risk_score}/100` : "Score unavailable"}</small></span>
                 <span className="risk-row-review">{assessment.requires_human_review ? "Human review required" : "No risk review flag"}</span>
               </div>;
             }) : <p className="muted">No clause-level risk assessments were returned.</p>}
@@ -123,16 +125,18 @@ function App() {
               const key = clause.clause_number || `${clause.article || ""}:${clause.title || ""}`;
               const riskItem = riskByClause.get(key);
               const risk = riskItem?.risk_assessment || clause.risk_assessment || {};
+              const scoredLevel = riskItem?.risk_level || clause.risk_level || risk.level;
               const confidence = clause.classification_confidence;
               const title = clause.title || `Clause ${clause.clause_number || index + 1}`;
               return <article className="clause-card" key={`${key}-${index}`}>
-                <div className="clause-card-top"><div><span className="clause-number">{clause.clause_number ? `Clause ${clause.clause_number}` : `Clause ${index + 1}`}</span><h3>{title}</h3></div><span className={`risk-level-pill ${String(risk.level || "").toLowerCase()}`}>{risk.level || "Risk not assessed"}</span></div>
+                <div className="clause-card-top"><div><span className="clause-number">{clause.clause_number ? `Clause ${clause.clause_number}` : `Clause ${index + 1}`}</span><h3>{title}</h3></div><span className={`risk-level-pill ${String(scoredLevel || "").toLowerCase()}`}>{scoredLevel || "Risk not assessed"}{typeof (riskItem?.risk_score ?? clause.risk_score) === "number" ? ` · ${riskItem?.risk_score ?? clause.risk_score}/100` : ""}</span></div>
                 <div className="clause-meta">
                   <div><span>Predicted type</span><strong>{clause.clause_type || "Unknown"}</strong></div>
                   <div><span>Model confidence</span><strong>{formatConfidence(confidence)}</strong></div>
                   <div><span>Human review</span><strong>{risk.requires_human_review ? "Required" : "Not flagged"}</strong></div>
                 </div>
-                {risk.reasons?.length > 0 && <div className="clause-reasons"><span>Risk notes</span><ul>{risk.reasons.map((reason, reasonIndex) => <li key={reasonIndex}>{reason}</li>)}</ul></div>}
+                {clause.classification_validation?.status === "unsupported_label" && <p className="muted">Model predicted {clause.predicted_clause_type}; text evidence did not support that category. Human review is recommended.</p>}
+                {(riskItem?.risk_factors?.length || risk.reasons?.length) > 0 && <div className="clause-reasons"><span>Risk notes</span><ul>{(riskItem?.risk_factors?.length ? riskItem.risk_factors.map((factor) => factor.factor) : risk.reasons).map((reason, reasonIndex) => <li key={reasonIndex}>{reason}</li>)}</ul></div>}
                 {clause.clause_text && <details><summary>View clause text</summary><p>{clause.clause_text}</p></details>}
               </article>;
             }) : <div className="table-empty">Analyze a contract to view clause-level results.</div>}

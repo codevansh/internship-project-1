@@ -47,10 +47,16 @@ def build_review_items(
             continue
         review_item = {
             "article": clause.get("article"),
+            "article_title": clause.get("article_title"),
+            "section": clause.get("section"),
+            "section_title": clause.get("section_title"),
+            "schedule": clause.get("schedule"),
             "clause_number": clause.get("clause_number"),
             "title": clause.get("title"),
             "predicted_clause_type": clause.get("clause_type"),
             "classification_confidence": confidence,
+            "classification_validation": clause.get("classification_validation", {}),
+            "review_recommendation": "Review classifier output and clause evidence.",
             "top_predictions": clause.get(
                 "top_predictions",
                 [],

@@ -14,9 +14,7 @@ from src.risk.contract_intelligence import (
 OUTPUT_PATH = Path("data/processed/contract_clause_intelligence.json")
 
 
-def process_contract(
-    ocr_input_path=Path("data/processed/ocr_sample.txt"), output_path=OUTPUT_PATH
-):
+def process_contract(ocr_input_path=Path("data/processed/ocr_sample.txt"), output_path=OUTPUT_PATH):
     """Process an OCR-extracted contract.
 
     Pipeline:
@@ -79,6 +77,10 @@ def process_contract(
             intelligence["article"] = clause["article"]
             intelligence["clause_number"] = clause["clause_number"]
             intelligence["title"] = clause["title"]
+            intelligence["article_title"] = clause.get("article_title")
+            intelligence["section"] = clause.get("section")
+            intelligence["section_title"] = clause.get("section_title")
+            intelligence["schedule"] = clause.get("schedule")
 
             results.append(intelligence)
 
@@ -93,6 +95,10 @@ def process_contract(
                     "article": clause["article"],
                     "clause_number": clause["clause_number"],
                     "title": clause["title"],
+                    "article_title": clause.get("article_title"),
+                    "section": clause.get("section"),
+                    "section_title": clause.get("section_title"),
+                    "schedule": clause.get("schedule"),
                     "error": str(error),
                 }
             )

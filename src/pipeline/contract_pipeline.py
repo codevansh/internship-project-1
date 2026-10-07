@@ -20,6 +20,7 @@ from src.risk.review_report import (
     build_review_report,
     save_review_report,
 )
+from src.risk.risk_scoring import score_contract
 
 from src.retrieval.vector_store import ClauseVectorStore
 
@@ -84,7 +85,9 @@ def run_pipeline(
     print("\n[3/4] Building contract-level reports...")
 
     clause_results = load_clause_results(clause_output_path)
+    risk_scoring = score_contract(clause_results)
     report = build_contract_report(clause_results)
+    report["risk_scoring"] = risk_scoring
 
     print("\nContract-level report generated.")
 
@@ -92,6 +95,7 @@ def run_pipeline(
     save_review_report(review_report, review_output_path)
 
     report["risk_summary"] = build_contract_risk_summary(report, review_report)
+    report["risk_summary"].update(risk_scoring)
     save_contract_report(report, report_output_path)
 
     print("Human-review report generated.")

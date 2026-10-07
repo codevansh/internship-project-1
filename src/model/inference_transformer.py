@@ -3,12 +3,12 @@ from pathlib import Path
 
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from src.model.classification_validation import validate_prediction
 
 MODEL_NAME = "Saibo-creator/legal-roberta-base"
 MODEL_DIR = "KAKAROT0304/legal-roberta-clause-classifier-day10"
 LABEL_MAP_PATH = Path("data/processed/clause_label_mapping.json")
 MAX_LENGTH = 256
-
 
 def load_json(file_path):
     if not file_path.exists():
@@ -121,7 +121,8 @@ def predict_contract_intelligence(text, tokenizer, model, id_to_label, nlp):
         top_k=3,
     )
 
-    prediction = prediction_result["prediction"]
+    raw_prediction = prediction_result["prediction"]
+    prediction = validate_prediction(text, raw_prediction)
 
     # Step 2: spaCy entity extraction
     entities = extract_entities(
@@ -139,6 +140,13 @@ def predict_contract_intelligence(text, tokenizer, model, id_to_label, nlp):
 
     # Preserve top model predictions as additional information
     intelligence_result["top_predictions"] = prediction_result["top_predictions"]
+    intelligence_result["classification_validation"] = prediction.get("validation", {})
+    if prediction.get("validation", {}).get("status") == "unsupported_label":
+        intelligence_result["risk_assessment"]["requires_human_review"] = True
+        intelligence_result["risk_assessment"]["reasons"].append(
+            "Predicted clause category was not supported by the clause text; classification needs review."
+        )
+        intelligence_result["predicted_clause_type"] = raw_prediction["clause_type"]
 
     return intelligence_result
 

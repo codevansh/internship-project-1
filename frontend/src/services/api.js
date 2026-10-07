@@ -4,7 +4,7 @@ export async function analyzeContract(file) {
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch(`${API_BASE_URL}/analyze-contract`, {
+    const response = await fetch(`${API_BASE_URL}/analyze`, {
         method: "POST",
         body: formData,
     });

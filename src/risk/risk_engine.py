@@ -82,13 +82,40 @@ def find_contractual_phrases(text: str) -> Dict[str, List[str]]:
             "liquidated damages",
             "damages",
         ],
+        "indemnification_language": ["indemnify", "indemnification", "hold harmless"],
+        "confidentiality_language": ["confidential information", "confidentiality", "non-disclosure"],
+        "dispute_language": ["arbitration", "dispute resolution", "governing law", "venue", "jurisdiction"],
     }
 
     text_lower = text.lower()
     detected = {}
 
     for category, phrases in phrase_groups.items():
-        matches = [phrase for phrase in phrases if phrase.lower() in text_lower]
+        matches = []
+        for phrase in phrases:
+            if phrase.lower() not in text_lower:
+                continue
+            if phrase == "without limitation":
+                for occurrence in re.finditer(re.escape(phrase), text_lower):
+                    prefix = text_lower[max(0, occurrence.start() - 35):occurrence.start()]
+                    context = text_lower[max(0, occurrence.start() - 45):occurrence.end() + 55]
+                    if re.search(r"\bincluding\s*,?\s*$", prefix):
+                        continue
+                    if not re.search(r"\b(?:liability|obligation|responsibility|claim|amount|damages)\b", context):
+                        continue
+                    matches.append(phrase)
+                    break
+            elif phrase == "minimum amount":
+                if re.search(r"(?:\b(?:purchase|quantity|volume|commit)\w*.{0,60}\bminimum amount\b|\bminimum amount\b.{0,60}\b(?:purchase|quantity|volume|commit)\w*)", text_lower):
+                    matches.append(phrase)
+            elif phrase == "assign":
+                if re.search(r"\b(?:may|shall|will|must|may not|shall not)\s+assign\b|\bassign (?:its|their|this|the)\b", text_lower):
+                    matches.append(phrase)
+            elif phrase in {"no limit", "not subject to any limitation", "without any limitation"}:
+                if re.search(r"\b(?:liability|obligation|responsibility|damages)\b", text_lower):
+                    matches.append(phrase)
+            else:
+                matches.append(phrase)
 
         if matches:
             detected[category] = matches

@@ -149,6 +149,10 @@ def collect_contractual_indicators(
         indicators.append(
             {
                 "article": clause.get("article"),
+                "article_title": clause.get("article_title"),
+                "section": clause.get("section"),
+                "section_title": clause.get("section_title"),
+                "schedule": clause.get("schedule"),
                 "clause_number": clause.get("clause_number"),
                 "title": clause.get("title"),
                 "indicators": clause_indicators,
@@ -271,10 +275,20 @@ def collect_risk_assessments(
         assessments.append(
             {
                 "article": clause.get("article"),
+            "article_title": clause.get("article_title"),
+                "section": clause.get("section"),
+            "section_title": clause.get("section_title"),
+            "schedule": clause.get("schedule"),
                 "clause_number": clause.get("clause_number"),
                 "title": clause.get("title"),
                 "clause_type": clause.get("clause_type"),
                 "classification_confidence": clause.get("classification_confidence"),
+                "risk_score": clause.get("risk_score"),
+                "risk_level": clause.get("risk_level"),
+                "risk_factors": clause.get("risk_factors", []),
+                "explanation": clause.get("explanation"),
+                "review_recommendation": clause.get("review_recommendation"),
+                "clause_text": clause.get("clause_text", ""),
                 "risk_assessment": risk_assessment,
             }
         )

@@ -14,7 +14,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -38,7 +38,7 @@ def health_check():
 async def analyze_contract(file: UploadFile = File(...)):
     """Analyze an uploaded contract PDF."""
 
-    if not file.filename.lower().endswith(".pdf"):
+    if not file.filename or not file.filename.lower().endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Only PDF files are supported.")
     try:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -61,6 +61,8 @@ async def analyze_contract(file: UploadFile = File(...)):
                 "filename": file.filename,
                 "contract_report": result["contract_report"],
                 "review_report": result["review_report"],
+                "risk_scoring": result["contract_report"].get("risk_scoring", {}),
+                "risk_summary": result["contract_report"].get("risk_summary", {}),
             }
     except Exception as error:
         raise HTTPException(

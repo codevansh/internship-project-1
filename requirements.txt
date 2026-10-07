@@ -6,6 +6,10 @@ torch
 spacy
 datasets
 pymupdf
+pytesseract
+Pillow
+faiss-cpu
+sentence-transformers
 python-dotenv
 fastapi
 uvicorn
