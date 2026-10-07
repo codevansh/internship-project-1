@@ -1,326 +1,151 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "./index.css";
+import "./App.css";
 import { analyzeContract } from "./services/api";
 
+function formatConfidence(value) {
+  return typeof value === "number" ? `${(value * 100).toFixed(1)}%` : "—";
+}
+
 function App() {
-  const [file, setFile] = useState(null)
-  const [result, setResult] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [file, setFile] = useState(null);
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const clauses = result?.contract_report?.clauses ?? [];
+  const reviewItems = result?.review_report?.review_items ?? [];
+  const reviewSummary = result?.review_report?.review_summary ?? {};
+  const contractSummary = result?.contract_report?.contract_summary ?? {};
+  const riskSummary = result?.risk_summary ?? result?.contract_report?.risk_summary ?? {};
+  const riskAssessments = result?.contract_report?.risk_assessments ?? [];
+  const lowConfidenceCount = result?.contract_report?.low_confidence_clauses?.length;
+
+  const riskByClause = useMemo(() => {
+    const entries = new Map();
+    riskAssessments.forEach((item) => {
+      const key = item.clause_number || `${item.article || ""}:${item.title || ""}`;
+      entries.set(key, item);
+    });
+    return entries;
+  }, [riskAssessments]);
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
-
-    if (selectedFile && selectedFile.type === "application/pdf") {
+    if (selectedFile && (selectedFile.type === "application/pdf" || selectedFile.name.toLowerCase().endsWith(".pdf"))) {
       setFile(selectedFile);
+      setError("");
     } else {
       setFile(null);
-      alert("Please select a PDF file.");
+      setError("Please select a PDF file.");
     }
-  }
+  };
 
   const handleAnalyze = async () => {
-    if (!file) {
-      return;
-    }
-
+    if (!file) return;
     setLoading(true);
     setError("");
     setResult(null);
-
     try {
-      const data = await analyzeContract(file);
-      setResult(data);
+      setResult(await analyzeContract(file));
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="app">
       <header className="navbar">
         <div>
           <h1>AI Contract Intelligence</h1>
-          <p>Contract Intelligence & Risk Scoring</p>
+          <p>Contract analysis and clause-level risk indicators</p>
         </div>
-
-        <div className="status">
-          <span className="status-dot"></span>
-          System Ready
-        </div>
+        <div className="status"><span className="status-dot" />System Ready</div>
       </header>
 
       <main className="container">
         <section className="hero">
           <div>
-            <h2>Analyze Your Contract</h2>
-            <p>
-              Upload a legal contract to extract clauses, entities,
-              contractual indicators, and intelligence for review.
-            </p>
+            <h2>Understand your contract</h2>
+            <p>Upload a PDF to review clause classifications, backend risk indicators, and clauses that need human attention.</p>
           </div>
-
           <div className="upload-card">
             <div className="upload-icon">↑</div>
-
-            <h3>
-              {file ? file.name : "Upload Contract PDF"}
-            </h3>
-
-            <p>
-              {file
-                ? "PDF selected and ready for analysis."
-                : "Select a PDF contract to begin analysis."}
-            </p>
-
-            <label className="file-button">
-              Choose PDF
-              <input
-                type="file"
-                accept=".pdf,application/pdf"
-                onChange={handleFileChange}
-                hidden
-              />
-            </label>
-
-            {error && (
-              <div className="error-message">
-                {error}
-              </div>
-            )}
-
-            {file && (
-              <button className="analyze-button" onClick={handleAnalyze} disabled={loading}>
-                {loading ? "Analyzing Contract..." : "Analyze Contract"}
-              </button>
-            )}
+            <h3>{file ? file.name : "Upload Contract PDF"}</h3>
+            <p>{file ? "PDF selected and ready for analysis." : "Select a PDF contract to begin analysis."}</p>
+            <label className="file-button">Choose PDF<input type="file" accept=".pdf,application/pdf" onChange={handleFileChange} hidden /></label>
+            {error && <div className="error-message">{error}</div>}
+            {file && <button className="analyze-button" onClick={handleAnalyze} disabled={loading}>{loading ? "Analyzing contract…" : "Analyze contract"}</button>}
           </div>
         </section>
 
-        <section className="section">
-          <div className="section-header">
+        <section className={`risk-summary ${result ? "has-result" : ""}`} aria-live="polite">
+          <div className="risk-summary-heading">
             <div>
-              <h2>Contract Intelligence</h2>
-              <p>
-                Clause classification, extracted entities, confidence,
-                and human-review information.
-              </p>
+              <span className="eyebrow">CONTRACT OVERVIEW</span>
+              <h2>Risk Summary</h2>
+              <p>{result ? "Overall risk is aggregated by the backend from its clause-level screening results." : "Run an analysis to see the risk information returned by the contract analysis service."}</p>
+            </div>
+            <div className={`overall-risk ${String(riskSummary.overall_risk_level || "unavailable").toLowerCase()}`}>
+              <span>Overall Risk Level</span>
+              <strong>{riskSummary.overall_risk_level ? `${riskSummary.overall_risk_level} RISK` : result ? "REVIEW REQUIRED" : "—"}</strong>
+              <small>{riskSummary.assessment_status === "REVIEW_REQUIRED" ? "Risk level is inconclusive until flagged clauses are reviewed" : riskSummary.assessment_status === "NO_RISK_ASSESSMENTS" ? "No clause risk assessments returned" : "Based on backend clause risk levels"}</small>
             </div>
           </div>
-
           <div className="summary-grid">
-            <div className="summary-card">
-              <span>Total Clauses</span>
-              <strong>
-                {result?.contract_report?.contract_summary?.total_clauses ?? "—"}
-              </strong>
-            </div>
+            <div className="summary-card"><span>Clauses analyzed</span><strong>{riskSummary.clauses_analyzed ?? contractSummary.successfully_processed ?? "—"}</strong></div>
+            <div className="summary-card"><span>Risk indicators</span><strong>{riskSummary.number_of_risk_indicators ?? "—"}</strong></div>
+            <div className="summary-card review"><span>Require human review</span><strong>{riskSummary.number_of_clauses_requiring_human_review ?? reviewSummary.clauses_requiring_review ?? "—"}</strong></div>
+            <div className="summary-card"><span>Low-confidence clauses</span><strong>{riskSummary.number_of_low_confidence_clauses ?? lowConfidenceCount ?? "—"}</strong></div>
+          </div>
+          <p className="score-note">Risk score: {typeof riskSummary.risk_score === "number" ? `${riskSummary.risk_score}/100` : "Not calculated by the backend"}</p>
+          {result && <div className="backend-risk-list">
+            <h3>Backend clause risk assessments</h3>
+            {riskAssessments.length ? riskAssessments.map((item, index) => {
+              const assessment = item.risk_assessment || {};
+              const level = String(assessment.level || "Unknown").toUpperCase();
+              const tone = ["HIGH", "ATTENTION"].includes(level) ? "high" : ["MEDIUM", "INDICATOR", "REVIEW"].includes(level) ? "medium" : "low";
+              return <div className={`risk-row ${tone}`} key={`${item.clause_number || "clause"}-${index}`}>
+                <span className="risk-level-pill">{level}</span>
+                <span><b>{item.title || `Clause ${item.clause_number || index + 1}`}</b><small>{item.clause_type || "Type unavailable"}</small></span>
+                <span className="risk-row-review">{assessment.requires_human_review ? "Human review required" : "No risk review flag"}</span>
+              </div>;
+            }) : <p className="muted">No clause-level risk assessments were returned.</p>}
+          </div>}
+        </section>
 
-            <div className="summary-card">
-              <span>Processed</span>
-              <strong>
-                {result?.contract_report?.contract_summary?.successfully_processed ?? "—"}
-              </strong>
-            </div>
-
-            <div className="summary-card">
-              <span>Processing Errors</span>
-              <strong>
-                {result?.contract_report?.contract_summary?.processing_errors ?? "—"}
-              </strong>
-            </div>
-
-            <div className="summary-card review">
-              <span>Requires Review</span>
-              <strong>
-                {result?.review_report?.review_summary?.clauses_requiring_review ?? "—"}
-              </strong>
-            </div>
+        <section className="section">
+          <div className="section-header"><div><h2>Clause Analysis</h2><p>Predicted clause types, model confidence, and risk or review signals from the backend.</p></div></div>
+          <div className="clause-list">
+            {clauses.length ? clauses.map((clause, index) => {
+              const key = clause.clause_number || `${clause.article || ""}:${clause.title || ""}`;
+              const riskItem = riskByClause.get(key);
+              const risk = riskItem?.risk_assessment || clause.risk_assessment || {};
+              const confidence = clause.classification_confidence;
+              const title = clause.title || `Clause ${clause.clause_number || index + 1}`;
+              return <article className="clause-card" key={`${key}-${index}`}>
+                <div className="clause-card-top"><div><span className="clause-number">{clause.clause_number ? `Clause ${clause.clause_number}` : `Clause ${index + 1}`}</span><h3>{title}</h3></div><span className={`risk-level-pill ${String(risk.level || "").toLowerCase()}`}>{risk.level || "Risk not assessed"}</span></div>
+                <div className="clause-meta">
+                  <div><span>Predicted type</span><strong>{clause.clause_type || "Unknown"}</strong></div>
+                  <div><span>Model confidence</span><strong>{formatConfidence(confidence)}</strong></div>
+                  <div><span>Human review</span><strong>{risk.requires_human_review ? "Required" : "Not flagged"}</strong></div>
+                </div>
+                {risk.reasons?.length > 0 && <div className="clause-reasons"><span>Risk notes</span><ul>{risk.reasons.map((reason, reasonIndex) => <li key={reasonIndex}>{reason}</li>)}</ul></div>}
+                {clause.clause_text && <details><summary>View clause text</summary><p>{clause.clause_text}</p></details>}
+              </article>;
+            }) : <div className="table-empty">Analyze a contract to view clause-level results.</div>}
           </div>
         </section>
 
         <section className="section">
-          <div className="section-header">
-            <div>
-              <h2>Risk Intelligence</h2>
-              <p>
-                Contractual indicators and potentially significant language
-                identified during analysis.
-              </p>
-            </div>
-          </div>
-
-          <div className="risk-grid">
-            {result?.contract_report?.risk_assessments?.length > 0 ? (
-              result.contract_report.risk_assessments.map((item, index) => {
-                const assessment = item?.risk_assessment || {};
-                const evidence = assessment.evidence || {};
-                const phrases = evidence.contractual_phrases || {};
-                const indicators = Object.entries(phrases).flatMap(
-                  ([category, values]) =>
-                    (Array.isArray(values) ? values : []).map((value) => ({
-                      category,
-                      value,
-                    }))
-                );
-                const reasons = Array.isArray(assessment.reasons)
-                  ? assessment.reasons
-                  : [];
-                const dates = Array.isArray(evidence.date_entities)
-                  ? evidence.date_entities
-                  : [];
-                const confidence = item?.classification_confidence;
-
-                return (
-                  <div className="risk-card" key={index}>
-                    <div className="risk-card-header">
-                      <div>
-                        <span className="risk-clause">
-                          Clause {item?.clause_number || "Unknown"}
-                        </span>
-                        <h3>{item?.title || "Untitled clause"}</h3>
-                      </div>
-                    </div>
-
-                    <div className="risk-indicators">
-                      <div className="risk-indicator">
-                        <span className="risk-category">Type</span>
-                        <span className="risk-value">{item?.clause_type || "Unknown"}</span>
-                      </div>
-                      <div className="risk-indicator">
-                        <span className="risk-category">Level</span>
-                        <span className="risk-value">{assessment.level || "Unknown"}</span>
-                      </div>
-                      <div className="risk-indicator">
-                        <span className="risk-category">Classification Confidence</span>
-                        <span className="risk-value">
-                          {typeof confidence === "number" ? `${(confidence * 100).toFixed(1)}%` : "Unknown"}
-                        </span>
-                      </div>
-                      <div className="risk-indicator">
-                        <span className="risk-category">Human Review</span>
-                        <span className="risk-value">
-                          {assessment.requires_human_review ? "Required" : "Not required"}
-                        </span>
-                      </div>
-                    </div>
-
-                    {reasons.length > 0 && (
-                      <div className="risk-indicators">
-                        <span className="risk-category">Reasons</span>
-                        {reasons.map((reason, reasonIndex) => (
-                          <div className="risk-indicator" key={reasonIndex}>
-                            <span className="risk-value">- {reason}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {indicators.length > 0 && (
-                      <div className="risk-indicators">
-                        <span className="risk-category">Contractual Indicators</span>
-                        {indicators.map((indicator, indicatorIndex) => (
-                          <div className="risk-indicator" key={indicatorIndex}>
-                            <span className="risk-category">
-                              {indicator.category
-                                .replace(/_/g, " ")
-                                .replace(/\b\w/g, (char) => char.toUpperCase())}
-                            </span>
-                            <span className="risk-value">"{indicator.value}"</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {dates.length > 0 && (
-                      <div className="risk-indicators">
-                        <span className="risk-category">Detected Dates</span>
-                        {dates.map((date, dateIndex) => (
-                          <div className="risk-indicator" key={dateIndex}>
-                            <span className="risk-category">Date</span>
-                            <span className="risk-value">"{date}"</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })
-            ) : (
-              <div className="table-empty">
-                Analyze a contract to view risk indicators.
-              </div>
-            )}
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="section-header">
-            <div>
-              <h2>Clause Analysis</h2>
-              <p>
-                AI-generated clause classifications and confidence scores.
-              </p>
-            </div>
-          </div>
-
-          <div className="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Clause</th>
-                  <th>Title</th>
-                  <th>Classification</th>
-                  <th>Confidence</th>
-                  <th>Review</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {result?.contract_report?.clauses?.length > 0 ? (
-                  result.contract_report.clauses.map((clause, index) => {
-                    const confidence = clause.classification_confidence ?? 0;
-                    const needsReview = confidence < 0.70;
-
-                    return (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-
-                        <td>
-                          {clause.clause_text?.slice(0, 100)}
-                          {clause.clause_text?.length > 100 ? "..." : ""}
-                        </td>
-
-                        <td>{clause.clause_type || "Unknown"}</td>
-
-                        <td>
-                          {(confidence * 100).toFixed(1)}%
-                        </td>
-
-                        <td>
-                          {needsReview ? (
-                            <span className="review-badge">
-                              Review
-                            </span>
-                          ) : (
-                            <span>—</span>
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })
-                ) : (
-                  <tr>
-                    <td colSpan="5" className="table-empty">
-                      Analyze a contract to view clause-level results.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+          <div className="section-header"><div><h2>Human Review</h2><p>Clauses listed by the backend review report for manual attention.</p></div><span className="review-count">{reviewItems.length} {reviewItems.length === 1 ? "clause" : "clauses"}</span></div>
+          {reviewItems.length ? <div className="review-list">{reviewItems.map((item, index) => <article className="review-card" key={`${item.clause_number || "review"}-${index}`}>
+            <div className="review-card-heading"><div><span className="clause-number">{item.clause_number ? `Clause ${item.clause_number}` : `Review item ${index + 1}`}</span><h3>{item.title || "Untitled clause"}</h3></div><span className="review-badge">Manual review</span></div>
+            <div className="clause-meta"><div><span>Predicted type</span><strong>{item.predicted_clause_type || "Unknown"}</strong></div><div><span>Model confidence</span><strong>{formatConfidence(item.classification_confidence)}</strong></div></div>
+            {item.clause_text && <details><summary>View clause text</summary><p>{item.clause_text}</p></details>}
+          </article>)}</div> : <div className="review-empty">{result ? "No clauses were flagged for human review by the backend." : "Human-review clauses will appear here after analysis."}</div>}
         </section>
       </main>
     </div>

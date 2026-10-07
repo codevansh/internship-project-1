@@ -12,6 +12,7 @@ from src.data_processing.contract_processor import (
 from src.risk.contract_report import (
     load_clause_results,
     build_contract_report,
+    build_contract_risk_summary,
     save_contract_report,
 )
 
@@ -84,12 +85,14 @@ def run_pipeline(
 
     clause_results = load_clause_results(clause_output_path)
     report = build_contract_report(clause_results)
-    save_contract_report(report, report_output_path)
 
     print("\nContract-level report generated.")
 
     review_report = build_review_report(clause_results)
     save_review_report(review_report, review_output_path)
+
+    report["risk_summary"] = build_contract_risk_summary(report, review_report)
+    save_contract_report(report, report_output_path)
 
     print("Human-review report generated.")
 

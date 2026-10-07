@@ -180,6 +180,78 @@ def build_contract_report(
     return report
 
 
+def build_contract_risk_summary(
+    contract_report: Dict,
+    review_report: Dict,
+) -> Dict:
+    """Aggregate existing clause risk assessments without inventing a score."""
+
+    assessments = contract_report.get("risk_assessments", [])
+    levels = [
+        item.get("risk_assessment", {}).get("level")
+        for item in assessments
+        if item.get("risk_assessment", {}).get("level")
+    ]
+
+    # ATTENTION and INDICATOR are the risk engine's existing evidence levels.
+    # REVIEW reflects classification uncertainty, so it is counted separately
+    # and cannot by itself be treated as a LOW contract risk.
+    high_risk_clauses = [
+        {
+            "article": item.get("article"),
+            "clause_number": item.get("clause_number"),
+            "title": item.get("title"),
+            "clause_type": item.get("clause_type"),
+            "level": item.get("risk_assessment", {}).get("level"),
+            "reasons": item.get("risk_assessment", {}).get("reasons", []),
+        }
+        for item in assessments
+        if item.get("risk_assessment", {}).get("level") == "ATTENTION"
+    ]
+    risk_indicator_clauses = [
+        {
+            "article": item.get("article"),
+            "clause_number": item.get("clause_number"),
+            "title": item.get("title"),
+            "clause_type": item.get("clause_type"),
+            "level": "INDICATOR",
+            "reasons": item.get("risk_assessment", {}).get("reasons", []),
+        }
+        for item in assessments
+        if item.get("risk_assessment", {}).get("level") == "INDICATOR"
+    ]
+
+    indicator_levels = {"ATTENTION", "INDICATOR"}
+    number_of_risk_indicators = sum(level in indicator_levels for level in levels)
+    review_summary = review_report.get("review_summary", {})
+    low_confidence_clauses = contract_report.get("low_confidence_clauses", [])
+
+    if "ATTENTION" in levels:
+        overall_risk_level = "HIGH"
+        assessment_status = "ASSESSED"
+    elif "INDICATOR" in levels:
+        overall_risk_level = "MEDIUM"
+        assessment_status = "ASSESSED"
+    elif levels and all(level == "LOW" for level in levels) and not review_summary.get("clauses_requiring_review", 0):
+        overall_risk_level = "LOW"
+        assessment_status = "ASSESSED"
+    else:
+        overall_risk_level = None
+        assessment_status = "REVIEW_REQUIRED" if levels else "NO_RISK_ASSESSMENTS"
+
+    return {
+        "overall_risk_level": overall_risk_level,
+        "assessment_status": assessment_status,
+        "risk_score": None,
+        "clauses_analyzed": contract_report.get("contract_summary", {}).get("successfully_processed", 0),
+        "number_of_risk_indicators": number_of_risk_indicators,
+        "number_of_clauses_requiring_human_review": review_summary.get("clauses_requiring_review", 0),
+        "number_of_low_confidence_clauses": len(low_confidence_clauses),
+        "high_risk_clauses": high_risk_clauses,
+        "risk_indicator_clauses": risk_indicator_clauses,
+    }
+
+
 def collect_risk_assessments(
     clauses: List[Dict],
 ) -> List[Dict]:
