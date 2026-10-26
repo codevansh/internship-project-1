@@ -19,6 +19,10 @@ function App() {
   const contractSummary = result?.contract_report?.contract_summary ?? {};
   const riskSummary = result?.risk_scoring ?? result?.risk_summary ?? result?.contract_report?.risk_scoring ?? result?.contract_report?.risk_summary ?? {};
   const riskAssessments = useMemo(() => result?.contract_report?.risk_assessments ?? [], [result]);
+  const reviewClauseNumbers = useMemo(
+    () => new Set((result?.review_report?.review_items ?? []).map((item) => item.clause_number).filter(Boolean)),
+    [result],
+  );
 
   const riskByClause = useMemo(() => {
     const entries = new Map();
@@ -61,7 +65,7 @@ function App() {
           <h1>AI Contract Intelligence</h1>
           <p>Contract analysis and clause-level risk indicators</p>
         </div>
-        <div className="status"><span className="status-dot" />System Ready</div>
+        <div className={`status ${loading ? "working" : ""}`} aria-live="polite"><span className="status-dot" />{loading ? "Analysis in progress" : "Ready for analysis"}</div>
       </header>
 
       <main className="container">
@@ -76,6 +80,7 @@ function App() {
             <p>{file ? "PDF selected and ready for analysis." : "Select a PDF contract to begin analysis."}</p>
             <label className="file-button">Choose PDF<input type="file" accept=".pdf,application/pdf" onChange={handleFileChange} hidden /></label>
             {error && <div className="error-message">{error}</div>}
+            {loading && <p className="processing-status" role="status">Extracting text and analyzing clauses. Larger contracts may take a few minutes.</p>}
             {file && <button className="analyze-button" onClick={handleAnalyze} disabled={loading}>{loading ? "Analyzing contract…" : "Analyze contract"}</button>}
           </div>
         </section>
@@ -102,6 +107,7 @@ function App() {
             <div className="summary-card review"><span>Recommended for Human Review</span><strong>{riskSummary.human_review_clause_count ?? reviewSummary.clauses_requiring_review ?? "—"}</strong></div>
           </div>
           {riskSummary.major_risk_factors?.length > 0 && <div className="major-factors"><h3>Major Risk Factors</h3><ul>{riskSummary.major_risk_factors.map((factor, index) => <li key={index}>{factor}</li>)}</ul></div>}
+          {contractSummary.processing_errors > 0 && <p className="partial-warning" role="status">{contractSummary.processing_errors} clause(s) could not be processed. Scores and counts cover successfully analyzed clauses only.</p>}
           <p className="score-note">AI-assisted screening only; this score is not a legal determination.</p>
           {result && <div className="backend-risk-list">
             <h3>Backend clause risk assessments</h3>
@@ -130,13 +136,15 @@ function App() {
               const title = clause.title || `Clause ${clause.clause_number || index + 1}`;
               return <article className="clause-card" key={`${key}-${index}`}>
                 <div className="clause-card-top"><div><span className="clause-number">{clause.clause_number ? `Clause ${clause.clause_number}` : `Clause ${index + 1}`}</span><h3>{title}</h3></div><span className={`risk-level-pill ${String(scoredLevel || "").toLowerCase()}`}>{scoredLevel || "Risk not assessed"}{typeof (riskItem?.risk_score ?? clause.risk_score) === "number" ? ` · ${riskItem?.risk_score ?? clause.risk_score}/100` : ""}</span></div>
-                <div className="clause-meta">
+              <div className="clause-meta">
                   <div><span>Predicted type</span><strong>{clause.clause_type || "Unknown"}</strong></div>
                   <div><span>Model confidence</span><strong>{formatConfidence(confidence)}</strong></div>
-                  <div><span>Human review</span><strong>{risk.requires_human_review ? "Required" : "Not flagged"}</strong></div>
+                  <div><span>Human review</span><strong>{risk.requires_human_review || reviewClauseNumbers.has(clause.clause_number) ? "Required" : "Not flagged"}</strong></div>
                 </div>
                 {clause.classification_validation?.status === "unsupported_label" && <p className="muted">Model predicted {clause.predicted_clause_type}; text evidence did not support that category. Human review is recommended.</p>}
                 {(riskItem?.risk_factors?.length || risk.reasons?.length) > 0 && <div className="clause-reasons"><span>Risk notes</span><ul>{(riskItem?.risk_factors?.length ? riskItem.risk_factors.map((factor) => factor.factor) : risk.reasons).map((reason, reasonIndex) => <li key={reasonIndex}>{reason}</li>)}</ul></div>}
+                {clause.entities?.length > 0 && <details><summary>Entities ({clause.entities.length})</summary><ul className="evidence-list">{clause.entities.map((entity, entityIndex) => <li key={`${entity.text}-${entityIndex}`}><strong>{entity.text}</strong> <span>{entity.label}</span></li>)}</ul></details>}
+                {Object.keys(clause.contractual_indicators || {}).length > 0 && <details><summary>Contractual indicators</summary><ul className="evidence-list">{Object.entries(clause.contractual_indicators).flatMap(([group, values]) => (Array.isArray(values) ? values : Object.entries(values || {}).flatMap(([name, matches]) => (Array.isArray(matches) ? matches : [matches]).map((match) => `${name}: ${match}`))).map((value, valueIndex) => <li key={`${group}-${valueIndex}`}><strong>{group.replaceAll("_", " ")}</strong>: {String(value)}</li>))}</ul></details>}
                 {clause.clause_text && <details><summary>View clause text</summary><p>{clause.clause_text}</p></details>}
               </article>;
             }) : <div className="table-empty">Analyze a contract to view clause-level results.</div>}

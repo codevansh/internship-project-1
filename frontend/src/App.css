@@ -24,6 +24,10 @@
 .overall-risk.unavailable { background: #fff7ed; border-color: #fdba74; }
 .overall-risk.unavailable strong { color: #c2410c; }
 .score-note { margin-top: 14px; color: #667085; font-size: 12px; }
+.processing-status { margin: 16px 0 0 !important; color: #175cd3 !important; font-size: 13px; }
+.partial-warning { margin-top: 14px; padding: 12px 14px; border-radius: 9px; background: #fffaeb; color: #93370d; font-size: 13px; }
+.evidence-list { margin: 9px 0 0 20px; line-height: 1.6; }
+.evidence-list span { color: #667085; }
 .summary-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
 .summary-card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px; background: #fff; }
 .summary-card span, .summary-card small { display: block; color: #667085; font-size: 13px; }
