@@ -30,4 +30,4 @@ COPY data/processed/clause_label_mapping.json ./data/processed/clause_label_mapp
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "uvicorn src.api.main:app --host 0.0.0.0 --port ${PORT:-10000}"]
+CMD ["sh", "-c", "exec uvicorn src.api.main:app --host 0.0.0.0 --port ${PORT:-10000}"]
