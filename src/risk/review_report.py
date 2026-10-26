@@ -41,9 +41,12 @@ def build_review_items(
 
     for clause in clauses:
         confidence = clause.get("classification_confidence")
-        if confidence is None:
-            continue
-        if confidence >= threshold:
+        assessment = clause.get("risk_assessment") or {}
+        validation = clause.get("classification_validation") or {}
+        requires_review = (
+            confidence is not None and confidence < threshold
+        ) or bool(assessment.get("requires_human_review")) or validation.get("status") == "unsupported_label"
+        if not requires_review:
             continue
         review_item = {
             "article": clause.get("article"),
@@ -56,7 +59,7 @@ def build_review_items(
             "predicted_clause_type": clause.get("clause_type"),
             "classification_confidence": confidence,
             "classification_validation": clause.get("classification_validation", {}),
-            "review_recommendation": "Review classifier output and clause evidence.",
+            "review_recommendation": clause.get("review_recommendation") or "Review classifier output and clause evidence.",
             "top_predictions": clause.get(
                 "top_predictions",
                 [],
@@ -77,7 +80,11 @@ def build_review_items(
         review_items.append(review_item)
 
     # Lowest confidence first.
-    review_items.sort(key=lambda item: item["classification_confidence"])
+    review_items.sort(
+        key=lambda item: item["classification_confidence"]
+        if item["classification_confidence"] is not None
+        else 1.0
+    )
     return review_items
 
 

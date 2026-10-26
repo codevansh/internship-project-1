@@ -94,6 +94,78 @@ Pay.
     assert any("Pay." in clause["text"] for clause in clauses)
 
 
+def test_provisionless_introduction_and_evaluation_material_are_excluded():
+    text = """This synthetic example is provided for evaluation only.
+Please use the test checklist to grade the contract.
+ARTICLE 1 - LIABILITY
+1.1 Unlimited liability. Supplier accepts unlimited liability.
+Evaluation checklist: confirm the expected score is high.
+Page 1
+"""
+    clauses = extract_clauses(text)
+    assert len(clauses) == 1
+    assert clauses[0]["clause_number"] == "1.1"
+    assert "evaluation" not in clauses[0]["text"].lower()
+
+
+def test_synthetic_data_clause_is_preserved_verbatim():
+    text = "ARTICLE 1 - DATA\n1.1 Synthetic Data\nSupplier may process synthetic data only as authorized by Customer."
+    clauses = extract_clauses(text)
+    assert clauses[0]["title"] == "Synthetic Data"
+    assert clauses[0]["text"] == "Supplier may process synthetic data only as authorized by Customer."
+
+
+def test_legitimate_unnumbered_provision_before_first_article_is_retained():
+    provision = "The parties shall keep the terms of this Agreement confidential."
+    clauses = extract_clauses(f"{provision}\nARTICLE 1 - SERVICES\n1.1 Services. Supplier shall provide support.")
+    assert clauses[0]["clause_number"] == "U1"
+    assert clauses[0]["text"] == provision
+    assert clauses[0]["extraction_note"]
+    assert clauses[1]["clause_number"] == "1.1"
+
+
+def test_identifiable_document_overview_is_not_emitted_as_a_clause():
+    text = "This document provides an overview of the proposed services.\nARTICLE 1 - SERVICES\n1.1 Services. Supplier shall provide support."
+    clauses = extract_clauses(text)
+    assert len(clauses) == 1
+    assert clauses[0]["clause_number"] == "1.1"
+
+
+def test_retained_front_matter_keeps_source_order_and_wording():
+    first = "The Customer shall pay invoices within thirty days."
+    second = "Supplier shall protect Customer Data."
+    clauses = extract_clauses(f"{first}\n{second}\nARTICLE 1 - TERM\n1.1 Term. This Agreement begins today.")
+    assert [clause["text"] for clause in clauses] == [
+        f"{first} {second}",
+        "This Agreement begins today.",
+    ]
+
+
+def test_inline_page_artifact_is_removed_without_losing_provision_text():
+    text = "1.1 Remedy. Customer may recover all direct damages. Synthetic QA test artifact — not a real contract Page 1"
+    clauses = extract_clauses(text)
+    assert clauses[0]["text"] == "Customer may recover all direct damages."
+
+
+def test_standalone_synthetic_qa_disclaimer_is_not_emitted():
+    clauses = extract_clauses(
+        "Synthetic QA artifact for testing clause scoring.\n"
+        "ARTICLE 1 - SERVICES\n1.1 Services\nSupplier shall provide support."
+    )
+    assert len(clauses) == 1
+    assert clauses[0]["clause_number"] == "1.1"
+    assert "Synthetic QA" not in clauses[0]["text"]
+
+
+def test_inline_article_heading_does_not_contaminate_preceding_clause():
+    text = "1.1 Services. Supplier shall provide support. ARTICLE 2 - PAYMENT\n2.1 Fees\nCustomer shall pay the stated fee."
+    clauses = extract_clauses(text)
+    assert [clause["clause_number"] for clause in clauses] == ["1.1", "2.1"]
+    assert clauses[0]["text"] == "Supplier shall provide support."
+    assert clauses[1]["article"] == "2"
+    assert clauses[1]["text"] == "Customer shall pay the stated fee."
+
+
 def test_toc_dotted_entries_are_not_clauses():
     clauses = extract_clauses("CONTENTS\nARTICLE 1 — TERM .......... 2\n1.1 Renewal .......... 3\n1.2 Notices 4\nARTICLE 1\n1.1 Renewal\nThe Agreement renews annually.")
     assert len(clauses) == 1

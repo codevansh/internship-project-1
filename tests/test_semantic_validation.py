@@ -44,6 +44,32 @@ def test_supported_liability_cap_requires_actual_liability_limit_language():
     assert result["validation"]["status"] == "supported"
 
 
+def test_uncapped_liability_is_not_misvalidated_as_a_cap():
+    result = validate_prediction(
+        "Supplier has unlimited liability, and liability shall not exceed any agreed limit.",
+        {"clause_type": "Cap On Liability", "confidence": 0.91},
+    )
+    assert result["clause_type"] == "Uncertain classification"
+    assert result["validation"]["status"] == "unsupported_label"
+
+
+def test_no_maximum_and_no_limitation_is_not_validated_as_a_cap():
+    result = validate_prediction(
+        "The Customer's liability shall not exceed any maximum amount and shall not be subject to any limitation.",
+        {"clause_type": "Cap On Liability", "confidence": 0.98},
+    )
+    assert result["clause_type"] == "Uncertain classification"
+    assert result["validation"]["status"] == "unsupported_label"
+
+
+def test_breach_termination_is_not_termination_for_convenience():
+    result = validate_prediction(
+        "Customer may terminate for material breach after notice.",
+        {"clause_type": "Termination For Convenience", "confidence": 0.89},
+    )
+    assert result["clause_type"] == "Uncertain classification"
+
+
 def test_uncertain_label_does_not_add_category_materiality_prior():
     scored = score_clause(
         {
@@ -54,7 +80,7 @@ def test_uncertain_label_does_not_add_category_materiality_prior():
             "risk_assessment": {"requires_human_review": True},
         }
     )
-    assert scored["risk_score"] == 25
+    assert scored["risk_score"] == 10
     assert scored["risk_level"] == "LOW"
 
 

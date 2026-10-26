@@ -1,4 +1,5 @@
 import json
+from functools import lru_cache
 from pathlib import Path
 
 from src.model.inference_transformer import (
@@ -11,6 +12,7 @@ from src.risk.entity_extractor import load_ner_model
 OUTPUT_PATH = Path("data/processed/contract_intelligence_output.json")
 
 
+@lru_cache(maxsize=1)
 def load_contract_intelligence_models():
     """
     Load all models required for contract intelligence.

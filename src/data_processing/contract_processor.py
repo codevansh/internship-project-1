@@ -81,6 +81,8 @@ def process_contract(ocr_input_path=Path("data/processed/ocr_sample.txt"), outpu
             intelligence["section"] = clause.get("section")
             intelligence["section_title"] = clause.get("section_title")
             intelligence["schedule"] = clause.get("schedule")
+            if clause.get("extraction_note"):
+                intelligence["extraction_note"] = clause["extraction_note"]
 
             results.append(intelligence)
 

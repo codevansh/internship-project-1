@@ -76,6 +76,11 @@ def validate_prediction(text, prediction):
                 r"\bliability\b.{0,80}\b(?:cap|maximum|limit|limited|not exceed)\b|\b(?:cap|maximum|limit|limited)\b.{0,80}\bliability\b",
                 folded,
             )
+        ) and not bool(
+            re.search(
+                r"\b(?:unlimited|uncapped|without limitation|without limit|no maximum|not (?:be )?subject to any limitation|not be limited)\b",
+                folded,
+            )
         )
     elif normalized_label == "uncapped liability":
         supported = any(anchor in folded for anchor in anchors) or bool(
@@ -88,6 +93,7 @@ def validate_prediction(text, prediction):
         supported = any(anchor in folded for anchor in anchors) or (
             any(term in folded for term in ("termination", "terminate"))
             and any(term in folded for term in ("convenience", "without cause"))
+            and not any(term in folded for term in ("for breach", "material breach", "default"))
         )
     elif normalized_label == "notice period to terminate renewal":
         supported = "notice" in folded and any(

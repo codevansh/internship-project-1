@@ -96,6 +96,9 @@ def run_pipeline(
 
     report["risk_summary"] = build_contract_risk_summary(report, review_report)
     report["risk_summary"].update(risk_scoring)
+    # Keep the legacy report field and the scoring API fields consistent.
+    report["risk_summary"]["risk_score"] = risk_scoring["overall_risk_score"]
+    report["risk_summary"]["overall_risk_level"] = risk_scoring["overall_risk_level"]
     save_contract_report(report, report_output_path)
 
     print("Human-review report generated.")

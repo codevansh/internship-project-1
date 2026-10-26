@@ -188,7 +188,7 @@ def build_contract_risk_summary(
     contract_report: Dict,
     review_report: Dict,
 ) -> Dict:
-    """Aggregate existing clause risk assessments without inventing a score."""
+    """Combine score-based clause levels with separate evidence and review signals."""
 
     assessments = contract_report.get("risk_assessments", [])
     levels = [
@@ -197,19 +197,41 @@ def build_contract_risk_summary(
         if item.get("risk_assessment", {}).get("level")
     ]
 
-    # ATTENTION and INDICATOR are the risk engine's existing evidence levels.
-    # REVIEW reflects classification uncertainty, so it is counted separately
-    # and cannot by itself be treated as a LOW contract risk.
+    # HIGH is the score-based clause level from score_contract. Engine ATTENTION
+    # remains a separate evidence signal and is not a proxy for score-based risk.
+    clause_records = contract_report.get("clauses", assessments)
+
+    def summarize_clause(item: Dict) -> Dict:
+        assessment = item.get("risk_assessment", {})
+        return {
+            "article": item.get("article"),
+            "clause_number": item.get("clause_number"),
+            "title": item.get("title"),
+            "clause_type": item.get("clause_type"),
+            "risk_score": item.get("risk_score"),
+            "risk_level": item.get("risk_level"),
+            # Preserve the legacy field name with the same score-based meaning.
+            "level": item.get("risk_level"),
+            "reasons": assessment.get("reasons", []),
+        }
+
     high_risk_clauses = [
+        summarize_clause(item)
+        for item in clause_records
+        if item.get("risk_level") == "HIGH"
+    ]
+    attention_clauses = [
         {
             "article": item.get("article"),
             "clause_number": item.get("clause_number"),
             "title": item.get("title"),
             "clause_type": item.get("clause_type"),
-            "level": item.get("risk_assessment", {}).get("level"),
+            "risk_score": item.get("risk_score"),
+            "risk_level": item.get("risk_level"),
+            "level": "ATTENTION",
             "reasons": item.get("risk_assessment", {}).get("reasons", []),
         }
-        for item in assessments
+        for item in clause_records
         if item.get("risk_assessment", {}).get("level") == "ATTENTION"
     ]
     risk_indicator_clauses = [
@@ -251,7 +273,9 @@ def build_contract_risk_summary(
         "number_of_risk_indicators": number_of_risk_indicators,
         "number_of_clauses_requiring_human_review": review_summary.get("clauses_requiring_review", 0),
         "number_of_low_confidence_clauses": len(low_confidence_clauses),
+        "high_risk_clause_count": len(high_risk_clauses),
         "high_risk_clauses": high_risk_clauses,
+        "attention_clauses": attention_clauses,
         "risk_indicator_clauses": risk_indicator_clauses,
     }
 

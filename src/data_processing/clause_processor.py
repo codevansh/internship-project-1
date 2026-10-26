@@ -7,41 +7,85 @@ OCR_INPUT_PATH = Path("data/processed/ocr_sample.txt")
 ARTICLE_PATTERN = re.compile(
     r"^\s*ARTICLE\s+([\w.-]+)(?:(?:\s*[-—:]\s*|\s+)(.+))?\s*$", re.IGNORECASE
 )
+
 SECTION_PATTERN = re.compile(
     r"^\s*SECTION\s+([\w.-]+)(?:(?:\s*[-—:]\s*|\s+)(.+))?\s*$", re.IGNORECASE
 )
+
 NUMBERED_PATTERN = re.compile(r"^\s*(\d+(?:\.\d+)*(?:\.)?)\s+(.+?)\s*$")
+
 ROMAN_ARTICLE_PATTERN = re.compile(r"^\s*ARTICLE\s+([IVXLCDM]+)\s*$", re.IGNORECASE)
+
 RECITAL_PATTERN = re.compile(
     r"^\s*(RECITALS?|WHEREAS\b.*|NOW,?\s+THEREFORE\b.*)\s*$", re.IGNORECASE
 )
+
 PAGE_MARKER = re.compile(r"^(?:page\s+)?\d+(?:\s+of\s+\d+)?$", re.IGNORECASE)
+
 PAGE_HEADER = re.compile(
     r"^page\s+\d+\s+.*(?:\d{1,2}/\d{1,2}/\d{2,4}|\d{1,2}:\d{2}\s*[ap]m).*",
     re.IGNORECASE,
 )
+
 PAGE_FOOTER = re.compile(r"(?:https?://|\b\d+/\d+\s+page\s+\d+)", re.IGNORECASE)
+
 TOC_LINE = re.compile(r"(?:\.{2,}|_{2,})\s*\d{1,4}\s*$")
+
 NUMBERED_TOC_LINE = re.compile(
     r"^(?:(?:article|section)\s+)?(?:\d+(?:\.\d+)*|[ivxlcdm]+)\s+.{2,}\s+\d{1,3}\s*$",
     re.IGNORECASE,
 )
+
 ADDRESS_LINE = re.compile(
     r"\b(?:street|st\.?|avenue|ave\.?|boulevard|blvd\.?|road|rd\.?|drive|dr\.?|lane|ln\.?|suite|floor|highway|hwy\.?|p\.?o\.?\s*box)\b|\b\d{5}(?:-\d{4})?\b",
     re.IGNORECASE,
 )
+
 ARTIFACT_LINE = re.compile(
     r"^(?:legal_\d+\s*:.*|\*{3,}|\[?(?:\*{3,}|redacted|page\s+\d+|confidential)\]?|(?:exhibit|schedule|appendix)\s+[a-z0-9.-]+)$",
     re.IGNORECASE,
 )
+
 REDACTION_NOTICE = re.compile(
     r"(?:information has been excluded from this exhibit|indicates that information has been redacted|competitive harm to the registrant|^been redacted\.?$)",
     re.IGNORECASE,
 )
+
+TEST_ARTIFACT_LINE = re.compile(
+    r"^(?:"
+    r"(?:fictional|synthetic|test|sample) (?:qa )?(?:test )?(?:artifact|document|contract)\b|"
+    r"this (?:is )?(?:a )?(?:fictional|synthetic|test|sample) (?:qa )?(?:test )?(?:example|artifact|document|contract)\b|"
+    r"this (?:document|contract|agreement) (?:is|was) (?:created|provided|prepared) solely for (?:testing|evaluation|software validation)\b|"
+    r"(?:test objective|expected behavior|evaluation checklist|test checklist|benchmark instructions?|scoring rubric)\b|"
+    r"please (?:use|follow|complete) (?:the )?(?:test|evaluation|review) checklist\b|"
+    r"(?:important|disclaimer):\s*this (?:is|document) (?:not a real agreement|is not legal advice)\b"
+    r")",
+    re.IGNORECASE,
+)
+
+DOCUMENT_INTRO = re.compile(
+    r"^(?:this document (?:provides|contains|describes) (?:an? )?(?:overview|summary|description)\b|"
+    r"the following (?:document|text) (?:provides|contains|describes) (?:an? )?(?:overview|summary|description)\b)",
+    re.IGNORECASE,
+)
+
+INLINE_TEST_ARTIFACT = re.compile(
+    r"\s+(?:synthetic\s+qa\s+(?:test\s+)?artifact\b|"
+    r"suggested\s+validation\s+checklist\b|"
+    r"evaluation\s+note:\s*(?:the document|this document)\b.*\b(?:test|stress.test|benchmark)\b).*$",
+    re.IGNORECASE,
+)
+
+INLINE_STRUCTURE = re.compile(
+    r"\s+(?P<heading>(?:ARTICLE|SECTION)\s+(?:\d+(?:\.\d+)*|[IVXLCDM]+)\s*[-–—:]\s*[A-Z][A-Z0-9 ,&/()'’-]{1,100})\s*$",
+    re.IGNORECASE,
+)
+
 SCHEDULE_HEADING = re.compile(
     r"^\s*(?:SCHEDULE|EXHIBIT|APPENDIX|ATTACHMENT)\s+[A-Z0-9.-]+(?:\s+.*)?$",
     re.IGNORECASE,
 )
+
 ADDENDUM_CAPTION = re.compile(
     r"^\s*SERVICE ADDENDUM\s+(?:ONE|TWO|\d+)\b.*$", re.IGNORECASE
 )
@@ -93,6 +137,35 @@ def _new_clause(
     }
 
 
+def _normalize_ocr_lines(text: str) -> List[str]:
+    """Split inline OCR headings and trim recognizable appended test artifacts."""
+    lines = []
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            lines.append("")
+            continue
+
+        artifact = INLINE_TEST_ARTIFACT.search(line)
+        if artifact:
+            line = line[: artifact.start()].rstrip()
+
+        heading = INLINE_STRUCTURE.search(line)
+        if heading and heading.group("heading").isupper():
+            body = line[: heading.start()].rstrip()
+            # Keep ordinary references such as "see ARTICLE 2 - PAYMENT" intact.
+            if body and not re.search(
+                r"\b(?:see|under|pursuant to|as set forth in|subject to|in accordance with)\s*$",
+                body,
+                re.IGNORECASE,
+            ):
+                lines.extend((body, heading.group("heading").strip()))
+                continue
+        if line:
+            lines.append(line)
+    return lines
+
+
 def extract_clauses(text: str) -> List[Dict]:
     """Extract clauses from common legal headings, with a paragraph fallback.
 
@@ -100,7 +173,7 @@ def extract_clauses(text: str) -> List[Dict]:
     unnumbered paragraphs are independently recognized so either can stand alone.
     """
     clauses = []
-    raw_lines = [line.strip() for line in text.splitlines()]
+    raw_lines = _normalize_ocr_lines(text)
     # Repeated all-caps titles and address/header lines are usually page furniture.
     normalized_counts = {}
     for line in raw_lines:
@@ -115,6 +188,7 @@ def extract_clauses(text: str) -> List[Dict]:
             or PAGE_HEADER.fullmatch(line)
             or ARTIFACT_LINE.fullmatch(line)
             or REDACTION_NOTICE.search(line)
+            or TEST_ARTIFACT_LINE.match(line)
             or (PAGE_FOOTER.search(line) and re.search(r"\bpage\s+\d+", line, re.I))
         ):
             return True
@@ -253,7 +327,15 @@ def extract_clauses(text: str) -> List[Dict]:
             continue
 
         if current_clause is None:
-            # Keep prose introductions, while filtering document furniture above.
+            # Drop only recognizable document-introduction metadata. Unnumbered
+            # front matter that could be operative is retained and marked for review.
+            if (
+                current_article is None
+                and current_section is None
+                and current_schedule is None
+                and DOCUMENT_INTRO.match(line)
+            ):
+                continue
             unnumbered_index += 1
             current_clause = _new_clause(
                 f"U{unnumbered_index}",
@@ -264,6 +346,14 @@ def extract_clauses(text: str) -> List[Dict]:
                 current_section_title,
                 current_schedule,
             )
+            if (
+                current_article is None
+                and current_section is None
+                and current_schedule is None
+            ):
+                current_clause["extraction_note"] = (
+                    "Unnumbered front matter retained because its contractual role is uncertain."
+                )
             current_text = [line]
         else:
             current_text.append(line)

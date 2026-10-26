@@ -3,6 +3,15 @@ from typing import Dict, List
 
 CONFIDENCE_THRESHOLD = 0.70
 
+NUMBER_WORDS = (
+    "one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|"
+    "thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|"
+    "twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety"
+)
+DURATION_NUMBER = (
+    rf"(?:\d+(?:\.\d+)?|(?:{NUMBER_WORDS})(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?)"
+)
+
 
 def find_money_entities(entities: List[Dict]) -> List[Dict]:
     """Return MONEY entities extracted by spaCy."""
@@ -23,9 +32,9 @@ def find_percentage_values(text: str) -> List[str]:
 
 
 def find_duration_values(text: str) -> List[str]:
-    """Extract common contractual durations."""
+    """Extract numeric and written-out contractual durations."""
     return re.findall(
-        r"\b\d+(?:\.\d+)?\s*(?:day|days|week|weeks|month|months|year|years)\b",
+        rf"\b{DURATION_NUMBER}\s*-?\s*(?:days?|weeks?|months?|years?)\b",
         text,
         flags=re.IGNORECASE,
     )
@@ -52,6 +61,7 @@ def find_contractual_phrases(text: str) -> Dict[str, List[str]]:
             "without limitation",
             "without any limitation",
             "not subject to any limitation",
+            "not be subject to any limitation",
             "no limit",
             "uncapped",
         ],
@@ -111,7 +121,12 @@ def find_contractual_phrases(text: str) -> Dict[str, List[str]]:
             elif phrase == "assign":
                 if re.search(r"\b(?:may|shall|will|must|may not|shall not)\s+assign\b|\bassign (?:its|their|this|the)\b", text_lower):
                     matches.append(phrase)
-            elif phrase in {"no limit", "not subject to any limitation", "without any limitation"}:
+            elif phrase in {
+                "no limit",
+                "not subject to any limitation",
+                "not be subject to any limitation",
+                "without any limitation",
+            }:
                 if re.search(r"\b(?:liability|obligation|responsibility|damages)\b", text_lower):
                     matches.append(phrase)
             else:
@@ -119,6 +134,74 @@ def find_contractual_phrases(text: str) -> Dict[str, List[str]]:
 
         if matches:
             detected[category] = matches
+
+    # Cover common word-order variations while tying uncapped wording to an
+    # obligation. This avoids treating boilerplate "including, without limitation"
+    # as evidence that liability itself is uncapped.
+    if re.search(
+        r"\b(?:unlimited|uncapped)\b.{0,60}\b(?:customer\s+)?(?:liabilit\w*|obligations?|responsibilit\w*|damages|losses|claims|penalt\w*|fees?|amounts?)\b|"
+        r"\b(?:liabilit\w*|obligations?|responsibilit\w*|damages|losses|claims|penalt\w*|fees?|amounts?)\b.{0,60}\b(?:unlimited|uncapped)\b",
+        text_lower,
+    ):
+        detected.setdefault("unlimited_language", []).append("unlimited obligation")
+
+    evidence_patterns = {
+        "penalty_language": (
+            r"\b(?:shall|must|will|agrees? to)\s+pay\b.{0,80}\bpenalt(?:y|ies)\b|"
+            r"\bpenalt(?:y|ies)\s+(?:of|in the amount of)\s+\$?[\d,]+|"
+            r"\b(?:late|default)\s+(?:fees?|charges?|interest)\b|"
+            r"\b(?:charge|interest)\s+of\s+\d+(?:\.\d+)?\s*%",
+            "contractual penalty or default charge",
+        ),
+        "compounding_charge_language": (
+            r"\bcompound(?:ed|ing|s)\b.{0,35}\b(?:daily|weekly|monthly|quarterly|annually|interest|charges?)\b|"
+            r"\b(?:daily|weekly|monthly|quarterly)\s+compounding\b",
+            "compounding charge",
+        ),
+        "uncapped_penalty_language": (
+            r"\b(?:penalt(?:y|ies)|damages|default charges?)\b.{0,120}\b(?:uncapped|unlimited|without\s+(?:a\s+)?(?:stated\s+)?(?:aggregate\s+)?cap|not subject to (?:an? )?aggregate cap)\b|"
+            r"\b(?:uncapped|unlimited)\b.{0,60}\b(?:penalt(?:y|ies)|damages|default charges?)\b",
+            "uncapped penalty or damages obligation",
+        ),
+        "immediate_termination_language": (
+            r"\bterminate\w*\b.{0,60}\bimmediately\b|\bimmediately\b.{0,60}\bterminate\w*\b|"
+            r"\bno\s+(?:contractual\s+)?cure\s+period\b|\bwithout\s+(?:an?\s+)?cure\s+period\b|"
+            r"\bwithout\s+(?:prior\s+)?notice\b.{0,50}\b(?:terminate|termination)\b",
+            "immediate termination or no cure period",
+        ),
+        "fee_acceleration_language": (
+            r"\b(?:accelerat\w*\s+(?:all\s+)?(?:future\s+|remaining\s+)?fees?|"
+            r"(?:all|remaining|future)\s+(?:minimum\s+)?(?:fees?|commitments?)\b.{0,140}\b(?:remaining term|entire(?:\s+\w+){0,3}\s+term|would have become due|immediately due))\b",
+            "accelerated future fees or remaining-term commitments",
+        ),
+        "unilateral_change_language": (
+            r"\b(?:supplier|service provider|provider|vendor|seller|licensor)\b.{0,100}\b(?:may|can|is entitled to)\b.{0,30}\b(?:unilaterally\s+)?(?:amend|modify|change|revise)\b|"
+            r"\b(?:amend|modify|change|revise)\b.{0,100}\b(?:at its sole discretion|without (?:prior )?(?:written )?consent)\b",
+            "one-sided right to change contract terms",
+        ),
+        "unilateral_indemnity_language": (
+            r"\b(?:customer|client|buyer|licensee)\b.{0,100}\b(?:defend\s*,?\s*)?indemnif(?:y|ies)\b.{0,180}\b(?:supplier|service provider|provider|vendor|seller|licensor)\b",
+            "customer-side indemnity in favor of supplier",
+        ),
+        "unilateral_dispute_language": (
+            r"\b(?:supplier|service provider|provider|vendor|seller|licensor)\b.{0,100}\b(?:alone|solely|at its sole discretion)\b.{0,100}\b(?:select|choose|designate|determine)\b.{0,100}\b(?:governing law|venue|forum|dispute(?:[- ]resolution| process)?)\b",
+            "supplier-controlled law, venue, or dispute process",
+        ),
+    }
+    for key, (pattern, evidence) in evidence_patterns.items():
+        if re.search(pattern, text_lower):
+            detected.setdefault(key, []).append(evidence)
+
+    if re.search(r"\bshall\s+not\b.{0,160}\bcompetes?\b", text_lower):
+        detected.setdefault("competition_language", []).append(
+            "prohibition on developing or supporting competing products"
+        )
+    if re.search(r"\b(?:purchase|purchases?)\b.{0,50}\bno less than\b|\bno less than\b.{0,50}\b(?:purchase|quantity|volume)\b", text_lower):
+        detected.setdefault("commitment_language", []).append("no-less-than purchase obligation")
+
+    # Normalize repeated matches from exact phrase and contextual detectors.
+    for matches in detected.values():
+        matches[:] = list(dict.fromkeys(matches))
 
     return detected
 
@@ -196,6 +279,19 @@ def assess_risk(
 
     if phrase_groups.get("damages_language"):
         reasons.append("Damages-related language detected.")
+
+    for key, description in (
+        ("penalty_language", "Penalty or default-charge language detected."),
+        ("immediate_termination_language", "Termination without a cure opportunity detected."),
+        ("fee_acceleration_language", "Future-fee acceleration language detected."),
+        ("unilateral_change_language", "Unilateral contract-change language detected."),
+        ("unilateral_indemnity_language", "Customer-side indemnity obligation detected."),
+        ("compounding_charge_language", "Compounding charge language detected."),
+        ("uncapped_penalty_language", "Uncapped penalty or damages language detected."),
+        ("unilateral_dispute_language", "Supplier-controlled dispute terms detected."),
+    ):
+        if phrase_groups.get(key):
+            reasons.append(description)
 
     if indicators.get("monetary_values"):
         reasons.append("Monetary values detected in the clause.")

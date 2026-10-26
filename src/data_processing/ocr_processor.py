@@ -1,12 +1,15 @@
 from pathlib import Path
 from io import BytesIO
+import os
 from PIL import Image
 
 import pymupdf
 import pytesseract
 
-# Tesseract executable path
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# Set Tesseract explicitly only when the environment provides a custom path.
+TESSERACT_CMD = os.getenv("TESSERACT_CMD")
+if TESSERACT_CMD:
+    pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
 
 # Default paths for standalone testing
 PDF_PATH = Path("data/raw/sample_contract.pdf")
@@ -57,15 +60,40 @@ def save_ocr_text(text, output_path):
 
 
 def process_pdf(pdf_path, output_path):
-    """Run the complete PDF → OCR → text pipeline."""
+    """Extract native PDF text, using OCR on pages without a usable text layer."""
+    if not pdf_path.exists():
+        raise FileNotFoundError(f"PDF not found at: {pdf_path}")
+    try:
+        # Keep the upload in memory so a parser error cannot leave a Windows
+        # file handle open and prevent TemporaryDirectory cleanup.
+        document = pymupdf.open(stream=pdf_path.read_bytes(), filetype="pdf")
+    except Exception as error:
+        raise ValueError("The uploaded file is not a readable PDF.") from error
 
-    images = pdf_to_images(pdf_path)
-    extracted_text = extract_text_from_images(images)
+    if document.is_encrypted:
+        document.close()
+        raise ValueError("Password-protected PDFs are not supported.")
+    if document.page_count == 0:
+        document.close()
+        raise ValueError("The PDF contains no pages.")
+
+    page_texts = []
+    try:
+        for page_number, page in enumerate(document, start=1):
+            text = page.get_text("text").strip()
+            if len(text) < 20:
+                pixmap = page.get_pixmap(matrix=pymupdf.Matrix(3, 3))
+                image = Image.open(BytesIO(pixmap.tobytes("png")))
+                text = pytesseract.image_to_string(image).strip()
+            page_texts.append(f"\nPage {page_number}\n{text}")
+    finally:
+        document.close()
+
+    extracted_text = "\n".join(page_texts).strip()
+    if not extracted_text:
+        raise ValueError("No text could be extracted from this PDF.")
     save_ocr_text(extracted_text, output_path)
-    print("\n OCR processing completed successfully")
     return extracted_text
-
-
 def main():
     """Run OCR using the default sample contract."""
     process_pdf(PDF_PATH, OCR_OUTPUT_PATH)

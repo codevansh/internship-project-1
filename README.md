@@ -27,7 +27,7 @@ Contract PDF
 -> React dashboard
 ```
 
-The API is implemented in `src/api/main.py`. `src/data_processing/ocr_processor.py` rasterizes PDF pages and runs Tesseract. `src/data_processing/clause_processor.py` recognizes ARTICLE, SECTION, decimal numbered headings, recitals, and schedule headings. It filters common page headers and footers, address blocks, contents entries, redaction notices, and OCR scraps. Article titles, section titles, schedule, section, article, clause number, title, and clause text are retained where identified. `src/model/inference_transformer.py` calls the configured Hugging Face tokenizer and sequence-classification model, preserves the top predictions, and applies a narrow text-evidence check to selected high-impact CUAD categories. An unsupported prediction becomes `Uncertain classification`, has reduced confidence, and is sent for human review; the check does not assign a replacement category.
+The API is implemented in `src/api/main.py`. `src/data_processing/ocr_processor.py` extracts selectable text from each PDF page and runs Tesseract OCR only on pages with little or no text. Set `TESSERACT_CMD` when Tesseract is not available on `PATH`. `src/data_processing/clause_processor.py` recognizes ARTICLE, SECTION, decimal numbered headings, recitals, and schedule headings. It filters common page headers and footers, address blocks, contents entries, redaction notices, and OCR scraps. Article titles, section titles, schedule, section, article, clause number, title, and clause text are retained where identified. `src/model/inference_transformer.py` calls the configured Hugging Face tokenizer and sequence-classification model, preserves the top predictions, and applies a narrow text-evidence check to selected high-impact CUAD categories. An unsupported prediction becomes `Uncertain classification`, has reduced confidence, and is sent for human review; the check does not assign a replacement category.
 
 `src/risk/entity_extractor.py` uses spaCy `en_core_web_sm`. `src/risk/risk_engine.py` extracts observable phrase, date, money, percentage, and duration indicators and produces a confidence-based review signal. `src/risk/risk_scoring.py` combines those signals and the validated model category. The pipeline writes clause intelligence and contract/review reports, and builds a FAISS vector store. The frontend is a React application built with Vite.
 
@@ -49,7 +49,9 @@ The transformer remains the clause classifier. A bounded validation map checks o
 
 ## Risk scoring methodology
 
-Scores are deterministic screening scores, not probabilities of legal harm. `score_clause` begins at 10 points. The implementation may add a modest prior for selected material clause categories; points for observed limitation, unlimited-liability, damages, competition, commitment, termination, assignment, indemnification, confidentiality, or dispute phrases; points for monetary/percentage or duration evidence; and 15 points when confidence is below 0.70 or the risk engine already recommends review. Boilerplate such as “including, without limitation” and the word “assigns” in “successors and assigns” are excluded from the corresponding unlimited-liability and assignment indicators. “Minimum amount” is treated as a commitment only when nearby language indicates a purchase, quantity, volume, or commitment. Clause scores are rounded and clamped to 0–100. The returned factors and evidence support inspection of how the score was formed.
+Scores are deterministic screening scores, not probabilities of legal harm. `score_clause` begins at 10 points. The implementation may add a modest prior for selected material clause categories; points for observed limitation, unlimited-liability, damages, competition, commitment, termination, assignment, indemnification, confidentiality, dispute, penalty, and one-sided-term phrases; 5 points for monetary or percentage evidence; and 3 points for duration evidence. Low confidence and existing review flags create a human-review recommendation but do not add severity points. Boilerplate such as “including, without limitation” and the word “assigns” in “successors and assigns” are excluded from the corresponding unlimited-liability and assignment indicators. “Minimum amount” is treated as a commitment only when nearby language indicates a purchase, quantity, volume, or commitment. Clause scores are rounded and clamped to 0–100. The returned factors and evidence support inspection of how the score was formed.
+
+The category prior is applied once, using the first matching group: liability or indemnity 18 points; termination, renewal, or default 12; competition restriction 12; confidentiality or data 10; dispute or governing law 10; payment or commitment 8; and unilateral contract terms 8. Phrase evidence has its own configured contribution (for example, unlimited language 30, damages 15, penalty 20, termination 5, assignment 5, indemnification 18, and confidentiality 8). Repeated matches for the same indicator do not multiply its contribution. Review recommendations and risk severity are shown as separate outputs.
 
 Risk thresholds are LOW (0–39), MEDIUM (40–69), and HIGH (70–100). The contract score is a risk-level-weighted mean (HIGH weight 1.75, MEDIUM 1.2, LOW 1.0), plus 5 points for each HIGH clause up to a 20-point premium, then capped at 100. This aggregation depends on scored clauses, not document length. The summary reports high-, medium-, and low-risk counts separately from the number of clauses recommended for human review. A high score is a screening signal; it does not establish that a term is legally unacceptable.
 
@@ -62,7 +64,7 @@ Canonical backend entry point: `src.api.main:app`.
 - `POST /analyze` — accepts multipart form data with a PDF in the `file` field
 - FastAPI also exposes `/docs` and `/openapi.json`
 
-The analyze response includes `filename`, `contract_report`, `review_report`, `risk_scoring`, and `risk_summary`. The frontend posts to `/analyze` at `http://127.0.0.1:8000`.
+The analyze response includes `filename`, `contract_report`, `review_report`, `risk_scoring`, and `risk_summary`. The frontend posts to `/analyze` at `http://127.0.0.1:8000` by default; `VITE_API_BASE_URL` can override the backend base URL. Uploaded files and generated reports/indexes are stored in a temporary per-request directory and removed after the response. Empty, malformed, encrypted, and textless PDFs are rejected with a clear client error. If every clause fails model processing, the API returns an error instead of an empty successful report. Partial clause errors are included in `contract_report.contract_summary.processing_errors`.
 
 Example response shape (values abbreviated):
 
@@ -97,35 +99,52 @@ The dashboard accepts a PDF, displays the overall risk level and score, high/med
 
 ## Setup and run
 
-Create and activate a Python environment, install backend dependencies, install Tesseract OCR, and ensure the spaCy model and Hugging Face model assets are available. The Tesseract executable is configured in `src/data_processing/ocr_processor.py` and may need adjustment for the local machine.
+Use Python 3.13 on Windows, create a virtual environment, and install the project dependencies. Install pytest for the test suite and the spaCy English model for named-entity recognition. Hugging Face model assets are loaded by the configured model IDs and may need to be downloaded on first use. Install Tesseract OCR and make its executable available on `PATH`, or set `TESSERACT_CMD` to its full path. Text-based PDFs do not require OCR.
 
 ```powershell
-python -m pip install -r requirements.txt
-python -m uvicorn src.api.main:app --reload
+py -3.13 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install pytest
+.\.venv\Scripts\python.exe -m spacy download en_core_web_sm
+.\.venv\Scripts\python.exe -m uvicorn src.api.main:app --reload
 ```
+
+The `py -3.13` command requires the Windows Python Launcher. In this workspace that launcher was unavailable, so the existing venv was repaired to use the installed uv-managed Python runtime; the `.venv\Scripts\python.exe` commands below are the verified commands here.
 
 In another terminal:
 
 ```powershell
 cd frontend
-npm install
-npm run dev
+npm.cmd install
+npm.cmd run dev
 ```
 
-The frontend development origin `http://localhost:5173` is allowed by the API. The compatibility import in root `main.py` also supports `python -m uvicorn main:app --reload`, but `src.api.main:app` is the canonical command.
+The frontend development origin `http://localhost:5173` is allowed by the API. The compatibility import in root `main.py` also supports `.\.venv\Scripts\python.exe -m uvicorn main:app --reload`, but `src.api.main:app` is the canonical command.
 
 ## Testing
 
 Run the backend suite from the project root and frontend checks from `frontend`:
 
 ```powershell
-python -m pytest
+.\.venv\Scripts\python.exe -m pytest -q
 cd frontend
-npm run lint
-npm run build
+npm.cmd run lint
+npm.cmd run build
 ```
 
 Parser tests cover article, section, numbered, recital, contents, address, header/footer, OCR artifact, and short-clause cases. Scoring and validation tests cover supported and unsupported labels, review behavior, score levels, and bounded aggregation. Model-backed PDF analysis additionally depends on working local OCR, spaCy, and Hugging Face assets.
+
+### Validation in this workspace (2026-10-26)
+
+- Python environment: `.venv` uses Python 3.13.14. Its original `pyvenv.cfg` pointed to a Windows Apps alias and could not launch. The original file was preserved as `.venv/pyvenv.cfg.windows-apps-backup`, and the venv was retargeted to the installed uv-managed Python 3.13.14 runtime. Every package listed in `requirements.txt` was already installed; `pip check` reported no broken requirements, so no packages were reinstalled or upgraded.
+- `requirements.txt` does not pin Python or package versions; verification was performed with Python 3.13.14 and the package versions already present in `.venv`.
+- Backend tests: `.\.venv\Scripts\python.exe -m pytest -q` — **47 passed**.
+- API: started with `.\.venv\Scripts\python.exe -m uvicorn src.api.main:app --reload --host 127.0.0.1 --port 8000`. `GET /health` and `GET /docs` both returned **200**.
+- Live PDF analysis: `data/test_contracts/low_risk_contract_day23.pdf` returned **200**; 12 clauses detected, all 12 processed, zero processing errors, contract score **19 LOW**, 11 LOW clauses, 1 MEDIUM clause, 0 HIGH clauses, and 4 human-review items.
+- OCR: Tesseract **5.5.3** was available. A temporary image-only PDF made from a test-contract page had zero native text characters and one embedded image; the real OCR path extracted **1,546 characters**.
+- Additional fixture: `data/test_contracts/high_risk_contract_day23.pdf` returned **200**; 12/12 clauses processed with zero errors, contract score **43 MEDIUM**, one HIGH clause, and 4 review items. The contract-level score follows the documented aggregation; an individual HIGH clause can coexist with an overall MEDIUM level.
+- Invalid PDF: a non-PDF file submitted as `broken.pdf` returned **422** with `The uploaded file is not a readable PDF.` An initial run against the stale server worker returned 500 because the uploaded file was locked during temporary-directory cleanup. Opening the PDF from in-memory bytes fixed that Windows-specific failure; the new regression test passes, and the restarted server returned 422.
+- Frontend: `npm.cmd run lint` passed without warnings, and `npm.cmd run build` passed. A headless Edge check uploaded the low-risk fixture through the dashboard and confirmed it rendered **LOW RISK**, **19 / 100**, 12 clause cards, 4 review cards, all five summary counts (0 HIGH, 1 MEDIUM, 11 LOW, 12 analyzed, 4 for review), entity details on 8 clauses, and indicator details on 7 clauses. No upload error appeared.
 
 ## Known limitations
 
