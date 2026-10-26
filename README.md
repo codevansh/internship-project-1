@@ -121,6 +121,24 @@ npm.cmd run dev
 
 The frontend development origin `http://localhost:5173` is allowed by the API. The compatibility import in root `main.py` also supports `.\.venv\Scripts\python.exe -m uvicorn main:app --reload`, but `src.api.main:app` is the canonical command.
 
+## Render deployment with Docker
+
+The root `Dockerfile` builds the FastAPI backend on Python 3.13, installs Tesseract with its English language data, installs the packages in `requirements.txt`, and installs spaCy's `en_core_web_sm` model. The API entry point is `src.api.main:app`. On Render, create a **Web Service**, select **Docker** as the runtime, and use the repository root as the Docker build context. No custom build or start command is needed: the image starts Uvicorn on `0.0.0.0` and uses Render's `PORT` environment variable (defaulting to `10000`).
+
+Set `CORS_ORIGINS` on the backend to a comma-separated list of the exact frontend origins after the frontend has been deployed, for example the origin shown in its Render service URL. No production origin is preconfigured. The default remains the two local Vite origins. If the frontend is deployed separately, configure its `VITE_API_BASE_URL` at frontend build time to the backend service's base URL; the current localhost fallback is for local development.
+
+The API downloads the configured Hugging Face tokenizer/classifier (`Saibo-creator/legal-roberta-base` and `KAKAROT0304/legal-roberta-clause-classifier-day10`) and Sentence Transformers model (`all-MiniLM-L6-v2`) when first used. These are not baked into the image. First analysis therefore needs outbound network access and writable model cache storage. The local `models/legal_roberta_clause_classifier_day9` checkpoint is not loaded by the API. The Docker build intentionally excludes `models/`, datasets, generated reports, vector files, tests, frontend files, virtual environments, caches, and secrets; it copies the clause label map required at inference time. OCR uses Tesseract's default `eng` language; add a language pack only if the code is changed to request another language.
+
+The Dockerfile and ignore rules prepare the backend image only; they do not build or host the React frontend. This project has not been deployed to Render.
+
+### Docker validation (2026-10-26)
+
+- `docker build -t contract-intelligence-api:local .` completed successfully using the existing requirements file, a CPU-only PyTorch wheel, and the English spaCy model.
+- A local container started on the configured `PORT`; `GET /health` returned HTTP 200 with status `healthy`, and `GET /docs` returned HTTP 200.
+- The image contains Tesseract language data `eng` and `osd`, the clause label map, and no local training checkpoint or raw dataset. Its image size was approximately 762 MB.
+- Backend tests: `.\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider --basetemp=.test-tmp/pytest` — **49 passed**. The custom temp path was needed because this Windows environment denies pytest access to its default user-level temporary directory.
+- No Render service has been created, and a full model-backed PDF analysis was not tested inside the container. The Hugging Face and Sentence Transformers assets download on first analysis, so that path still depends on their availability and outbound network access at runtime.
+
 ## Testing
 
 Run the backend suite from the project root and frontend checks from `frontend`:
