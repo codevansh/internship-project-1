@@ -64,6 +64,7 @@ async def analyze_contract(file: UploadFile = File(...)):
             if len(pdf_bytes) > MAX_UPLOAD_SIZE_BYTES:
                 raise HTTPException(status_code=413, detail="The PDF must be 25 MB or smaller.")
             pdf_path.write_bytes(pdf_bytes)
+            del pdf_bytes
 
             process_pdf(pdf_path, ocr_path)
 

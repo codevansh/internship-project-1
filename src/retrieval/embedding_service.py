@@ -1,6 +1,4 @@
 from typing import List
-from sentence_transformers import SentenceTransformer
-
 MODEL_NAME = "all-MiniLM-L6-v2"
 
 _model = None
@@ -17,6 +15,8 @@ def load_embedding_model():
     global _model
 
     if _model is None:
+        from sentence_transformers import SentenceTransformer
+
         print(f"Loading embedding model: {MODEL_NAME}")
         _model = SentenceTransformer(MODEL_NAME)
         print("Embedding model loaded successfully.")
@@ -42,6 +42,7 @@ def generate_embeddings(texts: List[str]):
 
     embeddings = model.encode(
         texts,
+        batch_size=8,
         convert_to_numpy=True,
         normalize_embeddings=True,
         show_progress_bar=True,

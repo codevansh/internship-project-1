@@ -178,8 +178,8 @@ def predict_clause(text, tokenizer, model, id_to_label, top_k=3):
         return_tensors="pt",
     )
 
-    # Disable gradient calculation for inference
-    with torch.no_grad():
+    # Inference mode avoids autograd bookkeeping and version tracking.
+    with torch.inference_mode():
         outputs = model(
             input_ids=encoded["input_ids"],
             attention_mask=encoded["attention_mask"],
@@ -195,8 +195,14 @@ def predict_clause(text, tokenizer, model, id_to_label, top_k=3):
         dim=-1,
     )
 
-    top_probabilities = top_probabilities[0].tolist()
-    top_indices = top_indices[0].tolist()
+    top_probabilities_tensor = top_probabilities
+    top_indices_tensor = top_indices
+    top_probabilities = top_probabilities_tensor[0].tolist()
+    top_indices = top_indices_tensor[0].tolist()
+
+    # Do not keep per-clause tensors alive while the rest of the clause is
+    # processed (including spaCy entity extraction and report construction).
+    del encoded, outputs, probabilities, top_probabilities_tensor, top_indices_tensor
 
     predictions = []
 

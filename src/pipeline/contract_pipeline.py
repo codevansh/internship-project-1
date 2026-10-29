@@ -5,10 +5,6 @@ from src.data_processing.clause_processor import (
     extract_clauses,
 )
 
-from src.data_processing.contract_processor import (
-    process_contract,
-)
-
 from src.risk.contract_report import (
     load_clause_results,
     build_contract_report,
@@ -57,6 +53,9 @@ def run_pipeline(
     """
 
     print("AI Contract Intelligence - end-to-end pipeline")
+
+    # Keep heavyweight inference dependencies out of API startup and health checks.
+    from src.data_processing.contract_processor import process_contract
 
     # STEP 1 — Load OCR text
     print("\n[1/4] Loading OCR text...")

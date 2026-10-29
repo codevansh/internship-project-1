@@ -83,8 +83,9 @@ def process_pdf(pdf_path, output_path):
             text = page.get_text("text").strip()
             if len(text) < 20:
                 pixmap = page.get_pixmap(matrix=pymupdf.Matrix(3, 3))
-                image = Image.open(BytesIO(pixmap.tobytes("png")))
-                text = pytesseract.image_to_string(image).strip()
+                with Image.open(BytesIO(pixmap.tobytes("png"))) as image:
+                    text = pytesseract.image_to_string(image).strip()
+                del pixmap
             page_texts.append(f"\nPage {page_number}\n{text}")
     finally:
         document.close()

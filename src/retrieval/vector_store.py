@@ -5,8 +5,6 @@ from typing import List, Dict
 import faiss
 import numpy as np
 
-from src.retrieval.embedding_service import generate_embedding
-
 INDEX_PATH = Path("data/vector_store/contract_clauses.index")
 METADATA_PATH = Path("data/vector_store/contract_clauses.json")
 
@@ -140,6 +138,8 @@ class ClauseVectorStore:
             raise ValueError("Search query cannot be empty.")
         if self.index is None:
             self.load()
+
+        from src.retrieval.embedding_service import generate_embedding
 
         query_embedding = generate_embedding(query)
         query_vector = np.asarray(
